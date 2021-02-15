@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { CreateElementComponent } from './components/create-element-component/CreateElementComponent';
+import { ReactComponent } from './components/react-component/ReactComponent';
+import { ReactPureComponent } from './components/react-pure-component/ReactPureComponent';
+import { FunctionalComponent } from './components/functional-component/FunctionalComponent';
+
+const App = () => (
+  <div className='App'>
+    <header className='App-header'>Hello World!</header>
+    <CreateElementComponent />
+    <ReactComponent />
+    <ReactPureComponent />
+    <FunctionalComponent />
+  </div>
+);
 
 export default App;
