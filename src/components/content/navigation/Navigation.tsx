@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
 
-import { navGenreData, navSortData } from '../../../utils/navData';
+import { NavigationProps } from './Navigation.interface';
 
 import { Navs, NavGenre, NavSort, NavItem } from './Navigation.style';
 
-export const Navigation: FC = () => (
+export const Navigation: FC<NavigationProps> = ({
+  navGenreData,
+  navSortData,
+}) => (
   <Navs>
     <NavGenre>
       {navGenreData.map(({ id, text }) => (
