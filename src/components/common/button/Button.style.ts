@@ -9,7 +9,6 @@ export const Button = styled.button`
   font-size: 17px;
 
   &:hover {
-    color: ${theme.colors.white};
     cursor: pointer;
   }
 `;
@@ -18,6 +17,10 @@ export const ButtonAdd = styled(Button)`
   padding: 15px 20px;
   color: ${theme.colors.pink};
   background-color: ${theme.colors.grayBg};
+
+  &:hover {
+    background-color: ${theme.colors.grayBg + theme.transparency['70']};
+  }
 `;
 
 export const ButtonSearch = styled(Button)`
@@ -27,6 +30,6 @@ export const ButtonSearch = styled(Button)`
   color: ${theme.colors.white};
 
   &:hover {
-    color: ${theme.colors.black};
+    background-color: ${theme.colors.pink + theme.transparency['70']};
   }
 `;

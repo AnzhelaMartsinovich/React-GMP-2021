@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { ContentWrap } from './Content.style';
+import { Navigation } from './navigation/Navigation';
+import { CountMovies } from './countMovies/CountMovies';
+import { MovieCard } from './movieCard/MovieCard';
 
-export const Content = () => <ContentWrap></ContentWrap>;
+import { ContentContainer, MovieCards } from './Content.style';
+
+export const Content: FC = () => (
+  <ContentContainer>
+    <Navigation />
+    <CountMovies />
+    <MovieCards>
+      <MovieCard />
+    </MovieCards>
+  </ContentContainer>
+);
