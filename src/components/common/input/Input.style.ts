@@ -2,7 +2,6 @@ import { styled, theme } from '../../../theme';
 
 export const Input = styled.input`
   padding: 20px 15px;
-  width: 75%;
   outline: none;
   border: none;
   background-color: ${theme.colors.black};

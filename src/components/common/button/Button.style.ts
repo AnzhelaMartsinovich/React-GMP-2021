@@ -1,8 +1,9 @@
 import { styled, theme } from '../../../theme';
+import { ButtonProps } from './Button.interface';
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   text-transform: uppercase;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   border-radius: 4px;
   font-weight: 700;
@@ -13,7 +14,7 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonAdd = styled(Button)`
+export const ButtonGray = styled(Button)`
   padding: 15px 20px;
   color: ${theme.colors.pink};
   background-color: ${theme.colors.grayBg};
@@ -23,7 +24,17 @@ export const ButtonAdd = styled(Button)`
   }
 `;
 
-export const ButtonSearch = styled(Button)`
+export const ButtonBlack = styled(Button)`
+  color: ${theme.colors.pink};
+  background-color: transparent;
+  border: 2px solid ${theme.colors.pink};
+
+  &:hover {
+    background-color: ${theme.colors.grayBg + theme.transparency['70']};
+  }
+`;
+
+export const ButtonPink = styled(Button)`
   margin-left: 15px;
   padding: 20px 70px;
   background-color: ${theme.colors.pink};

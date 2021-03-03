@@ -13,6 +13,23 @@ export const NavGenre = styled.nav`
 
 export const NavSort = styled.nav`
   display: flex;
+
+  & li:first-child {
+    color: ${theme.colors.grayBg};
+  }
+
+  & li:last-child {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 25px;
+      right: -20px;
+      border: 6px solid transparent;
+      border-top: 6px solid ${theme.colors.pink};
+    }
+  }
 `;
 
 export const NavItem = styled.li<NavItemProps>`
@@ -24,10 +41,6 @@ export const NavItem = styled.li<NavItemProps>`
   letter-spacing: 2px;
   border-bottom: ${({ active }) =>
     active ? `3px solid ${theme.colors.pink}` : '3px solid transparent'};
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   &:hover {
     color: ${theme.colors.pink};

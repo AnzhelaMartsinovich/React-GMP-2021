@@ -1,5 +1,6 @@
 import { styled } from '../../theme';
 import moviesHeader from '../../img/movies-header.jpg';
+import { Input } from '../common/input/Input.style';
 
 export const HeaderWrap = styled.div`
   margin-bottom: 10px;
@@ -19,4 +20,8 @@ export const HeaderTop = styled.div`
 export const HeaderBottom = styled.div`
   width: 90%;
   margin: 0 auto;
+`;
+
+export const HeaderInput = styled(Input)`
+  width: 75%;
 `;
