@@ -7,7 +7,7 @@ export interface AddMovieProps {
   }[];
   open: boolean;
   onClick?: () => void;
-  setModalIsOpenToFalse?: () => void;
+  setModalIsOpen?: () => void;
 }
 
 export interface AddMovieContainerProps {
