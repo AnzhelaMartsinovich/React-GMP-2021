@@ -14,7 +14,7 @@ export const Content: FC<ContentProps> = ({
 }) => (
   <ContentContainer>
     <Navigation navGenreData={navGenreData} navSortData={navSortData} />
-    <CountMovies />
+    <CountMovies moviesData={moviesData} />
     <MovieCards>
       <MovieCard moviesData={moviesData} />
     </MovieCards>
