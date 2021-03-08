@@ -4,21 +4,18 @@ import { AddMovieProps } from './AddMovie.interface';
 import { ADD_MOVIE } from '../../../utils/constants';
 import { ReactComponent as Cross } from '../../../img/crossIcon.svg';
 import { AddMovieButtons } from './addMovieButtons/AddMovieButtons';
+import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
+import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
-import {
-  AddMovieContainer,
-  AddMovieForm,
-  AddMovieInput,
-  AddMovieInputItem,
-  CrossItem,
-} from './AddMovie.style';
+import { AddMovieContainer, AddMovieForm, CrossItem } from './AddMovie.style';
 
 export const AddMovie: FC<AddMovieProps> = ({
   addFormPlaceholderData,
   open,
   setModalIsOpen,
+  addMovieSelectData,
 }) => (
   <AddMovieContainer open={open}>
     <AddMovieForm>
@@ -26,14 +23,11 @@ export const AddMovie: FC<AddMovieProps> = ({
         <Cross />
       </CrossItem>
       <Title1>{ADD_MOVIE}</Title1>
-      {addFormPlaceholderData.map(({ id, title, placeholder, type }) => (
-        <AddMovieInputItem key={id}>
-          <Label>
-            {title}
-            <AddMovieInput placeholder={placeholder} type={type} />
-          </Label>
-        </AddMovieInputItem>
-      ))}
+      <AddMovieInputs addFormPlaceholderData={addFormPlaceholderData} />
+      <Label>
+        Genre
+        <AddMovieSelect addMovieSelectData={addMovieSelectData} />
+      </Label>
       <AddMovieButtons />
     </AddMovieForm>
   </AddMovieContainer>

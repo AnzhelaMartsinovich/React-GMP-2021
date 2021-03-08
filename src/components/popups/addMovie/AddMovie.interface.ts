@@ -8,6 +8,14 @@ export interface AddMovieProps {
   open: boolean;
   onClick?: () => void;
   setModalIsOpen?: () => void;
+  addMovieSelectData: {
+    label: string;
+    value: string;
+    id: number;
+    hidden?: boolean;
+    disabled?: boolean;
+    selected?: boolean;
+  }[];
 }
 
 export interface AddMovieContainerProps {

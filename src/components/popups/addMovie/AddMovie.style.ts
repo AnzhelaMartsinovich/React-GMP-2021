@@ -1,6 +1,5 @@
 import { styled, theme } from '../../../theme';
 import { AddMovieContainerProps, CrossItemProps } from './AddMovie.interface';
-import { Input } from '../../common/input/Input.style';
 
 export const AddMovieContainer = styled.div<AddMovieContainerProps>`
   display: ${(p) => (p.open === false ? 'none' : 'block')};
@@ -27,16 +26,6 @@ export const AddMovieForm = styled.form`
   border: 3px solid ${theme.colors.pink};
 `;
 
-export const AddMovieInputItem = styled.div`
-  margin-bottom: 30px;
-`;
-
-export const AddMovieInput = styled(Input)`
-  margin-top: 15px;
-  background-color: ${theme.colors.gray};
-  width: 95%;
-`;
-
 export const CrossItem = styled.div<CrossItemProps>`
   & > svg {
     position: absolute;
@@ -45,6 +34,7 @@ export const CrossItem = styled.div<CrossItemProps>`
     fill: ${theme.colors.white};
     &:hover {
       cursor: pointer;
+      fill: ${theme.colors.pink};
     }
   }
 `;

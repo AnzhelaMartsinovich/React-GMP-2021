@@ -1,10 +1,4 @@
-export interface HeaderProps {
-  addFormPlaceholderData: {
-    id: number;
-    title: string;
-    placeholder: string;
-    type?: string;
-  }[];
+export interface AddMovieSelectProps {
   addMovieSelectData: {
     label: string;
     value: string;
