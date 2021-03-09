@@ -1,8 +1,6 @@
 import { styled, theme } from '../../../theme';
-import { AddMovieContainerProps } from './AddMovie.interface';
 
-export const AddMovieContainer = styled.div<AddMovieContainerProps>`
-  display: ${(p) => (p.open === false ? 'none' : 'block')};
+export const AddMovieContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 
 import { MovieCardInfo } from './movieCardInfo/MovieCardInfo';
-import { MovieItemProps } from '../MovieCard.interface';
+import { MovieCardItemProps } from './MovieCardItem.interface';
 import { MovieHover } from './movieHover/MovieHover';
 
 import {
@@ -10,12 +10,14 @@ import {
   MovieCardImg,
 } from './MovieCardItem.style';
 
-export const MovieCardItem: FC<MovieItemProps> = ({
+export const MovieCardItem: FC<MovieCardItemProps> = ({
   id,
   poster_path,
   title,
   genres,
   release_date,
+  addFormPlaceholderData,
+  addMovieSelectData,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -42,6 +44,8 @@ export const MovieCardItem: FC<MovieItemProps> = ({
           showIcon={showIcon}
           showPanel={showPanel}
           onClickHandler={onClickHandler}
+          addFormPlaceholderData={addFormPlaceholderData}
+          addMovieSelectData={addMovieSelectData}
         />
         <MovieCardImg src={poster_path} alt={title} />
       </MovieCardImgContainer>

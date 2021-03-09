@@ -16,10 +16,10 @@ import {
   ConfirmButton,
 } from './DeleteMovie.style';
 
-export const DeleteMovie: FC<DeleteMovieProps> = ({ open, setModalIsOpen }) => (
-  <DeleteMovieContainer open={open}>
+export const DeleteMovie: FC<DeleteMovieProps> = ({ setModalIsOpen }) => (
+  <DeleteMovieContainer>
     <DeleteMovieForm>
-      <Cross onClick={setModalIsOpen} />
+      <Cross setModalIsOpen={setModalIsOpen} />
       <Title1>{DELETE_MOVIE}</Title1>
       <DeleteMessage>{DELETE_MESSAGE}</DeleteMessage>
       <ConfirmButton>{CONFIRM}</ConfirmButton>

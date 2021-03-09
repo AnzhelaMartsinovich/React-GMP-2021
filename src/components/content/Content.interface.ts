@@ -15,4 +15,18 @@ export interface ContentProps {
   }[];
   navGenreData: { text: string; id: number }[];
   navSortData: { text: string; id: number }[];
+  addFormPlaceholderData: {
+    title: string;
+    placeholder: string;
+    id: number;
+    type?: string;
+  }[];
+  addMovieSelectData: {
+    label: string;
+    value: string;
+    id: number;
+    hidden?: boolean;
+    disabled?: boolean;
+    selected?: boolean;
+  }[];
 }

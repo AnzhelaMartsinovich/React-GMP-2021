@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import { ReactComponent as Dots } from '../../../../../img/dots.svg';
 import { EDIT, DELETE } from '../../../../../utils/constants';
 import { Cross } from '../../../../common/cross/Cross';
 import { MovieHoverProps } from './MovieHover.interface';
+import { EditMovie } from '../../../../popups/editMovie/EditMovie';
+import { DeleteMovie } from '../../../../popups/deleteMovie/DeleteMovie';
 
 import {
   MovieHoverPanel,
@@ -16,7 +18,20 @@ export const MovieHover: FC<MovieHoverProps> = ({
   showIcon,
   showPanel,
   onClickHandler,
+  addFormPlaceholderData,
+  addMovieSelectData,
 }) => {
+  const [editOpen, setEditOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+
+  const setEditOpenHandler = () => {
+    setEditOpen(!editOpen);
+  };
+
+  const setDeleteOpenHandler = () => {
+    setDeleteOpen(!deleteOpen);
+  };
+
   return (
     <>
       <MovieHoverPanel showIcon={showIcon} onClick={onClickHandler}>
@@ -28,10 +43,22 @@ export const MovieHover: FC<MovieHoverProps> = ({
           <CrossButton onClick={onClickHandler}>
             <Cross />
           </CrossButton>
-          <MovieHoverItem>{EDIT}</MovieHoverItem>
-          <MovieHoverItem>{DELETE}</MovieHoverItem>
+          <MovieHoverItem onClick={setEditOpenHandler}>{EDIT}</MovieHoverItem>
+          <MovieHoverItem onClick={setDeleteOpenHandler}>
+            {DELETE}
+          </MovieHoverItem>
         </MovieHoverItems>
       )}
+
+      {editOpen && (
+        <EditMovie
+          addFormPlaceholderData={addFormPlaceholderData}
+          addMovieSelectData={addMovieSelectData}
+          setModalIsOpen={setEditOpenHandler}
+        />
+      )}
+
+      {deleteOpen && <DeleteMovie setModalIsOpen={setDeleteOpenHandler} />}
     </>
   );
 };

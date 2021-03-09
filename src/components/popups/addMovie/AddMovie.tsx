@@ -13,11 +13,10 @@ import { AddMovieContainer, AddMovieForm } from './AddMovie.style';
 
 export const AddMovie: FC<AddMovieProps> = ({
   addFormPlaceholderData,
-  open,
   setModalIsOpen,
   addMovieSelectData,
 }) => (
-  <AddMovieContainer open={open}>
+  <AddMovieContainer>
     <AddMovieForm>
       <Cross setModalIsOpen={setModalIsOpen} />
       <Title1>{ADD_MOVIE}</Title1>

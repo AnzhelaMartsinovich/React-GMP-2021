@@ -1,11 +1,15 @@
-export interface EditMovieProps {
+export interface MovieCardItemProps {
+  id: number;
+  poster_path: string;
+  title: string;
+  genres: string[];
+  release_date: string;
   addFormPlaceholderData: {
     title: string;
     placeholder: string;
     id: number;
     type?: string;
   }[];
-  setModalIsOpen?: () => void;
   addMovieSelectData: {
     label: string;
     value: string;

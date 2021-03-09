@@ -13,13 +13,12 @@ import { EditMovieContainer, EditMovieForm } from './EditMovie.style';
 
 export const EditMovie: FC<EditMovieProps> = ({
   addFormPlaceholderData,
-  open,
   setModalIsOpen,
   addMovieSelectData,
 }) => (
-  <EditMovieContainer open={open}>
+  <EditMovieContainer>
     <EditMovieForm>
-      <Cross onClick={setModalIsOpen} />
+      <Cross setModalIsOpen={setModalIsOpen} />
       <Title1>{EDIT_MOVIE}</Title1>
       <EditMovieInputs addFormPlaceholderData={addFormPlaceholderData} />
       <Label>

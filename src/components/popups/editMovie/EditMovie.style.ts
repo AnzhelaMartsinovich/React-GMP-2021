@@ -1,8 +1,6 @@
 import { styled, theme } from '../../../theme';
-import { EditMovieContainerProps } from './EditMovie.interface';
 
-export const EditMovieContainer = styled.div<EditMovieContainerProps>`
-  display: ${(p) => (p.open === false ? 'none' : 'block')};
+export const EditMovieContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;

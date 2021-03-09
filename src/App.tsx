@@ -11,6 +11,10 @@ import {
   addMovieSelectData,
 } from './utils/addMovieData';
 import { ErrorBoundary } from './components/common/errorBoundary/ErrorBoundary';
+import {
+  editFormPlaceholderData,
+  editMovieSelectData,
+} from './utils/editMovieData';
 
 import './App.css';
 
@@ -25,6 +29,8 @@ export const App: FC = () => (
         moviesData={moviesData}
         navGenreData={navGenreData}
         navSortData={navSortData}
+        addFormPlaceholderData={editFormPlaceholderData}
+        addMovieSelectData={editMovieSelectData}
       />
       <Footer />
     </ErrorBoundary>

@@ -1,9 +1,7 @@
 import { styled, theme } from '../../../theme';
-import { DeleteMovieContainerProps } from './DeleteMovie.interface';
 import { ButtonPink } from '../../common/button/Button.style';
 
-export const DeleteMovieContainer = styled.div<DeleteMovieContainerProps>`
-  display: ${(p) => (p.open === false ? 'none' : 'block')};
+export const DeleteMovieContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;

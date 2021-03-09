@@ -34,12 +34,13 @@ export const Header: FC<HeaderProps> = ({
       <HeaderTop>
         <Logo />
         <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
-        <AddMovie
-          open={open}
-          setModalIsOpen={setModalIsOpen}
-          addFormPlaceholderData={addFormPlaceholderData}
-          addMovieSelectData={addMovieSelectData}
-        />
+        {open && (
+          <AddMovie
+            setModalIsOpen={setModalIsOpen}
+            addFormPlaceholderData={addFormPlaceholderData}
+            addMovieSelectData={addMovieSelectData}
+          />
+        )}
       </HeaderTop>
 
       <HeaderBottom>
