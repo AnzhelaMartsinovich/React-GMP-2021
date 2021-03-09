@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { RESET, SUBMIT } from '../../../../utils/constants';
+import { RESET, SAVE } from '../../../../utils/constants';
 
 import {
   ButtonsContainer,
@@ -11,6 +11,6 @@ import {
 export const EditMovieButtons: FC = () => (
   <ButtonsContainer>
     <ButtonReset>{RESET}</ButtonReset>
-    <ButtonSubmit>{SUBMIT}</ButtonSubmit>
+    <ButtonSubmit>{SAVE}</ButtonSubmit>
   </ButtonsContainer>
 );
