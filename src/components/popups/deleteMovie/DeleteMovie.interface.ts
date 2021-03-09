@@ -7,8 +7,3 @@ export interface DeleteMovieProps {
 export interface DeleteMovieContainerProps {
   open: boolean;
 }
-
-export interface CrossItemProps {
-  onClick?: any;
-  setModalIsOpenToFalse?: () => void;
-}

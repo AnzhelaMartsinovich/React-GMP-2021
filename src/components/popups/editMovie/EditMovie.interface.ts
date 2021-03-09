@@ -18,11 +18,6 @@ export interface EditMovieProps {
   }[];
 }
 
-export interface AddMovieContainerProps {
+export interface EditMovieContainerProps {
   open: boolean;
-}
-
-export interface CrossItemProps {
-  onClick?: any;
-  setModalIsOpenToFalse?: () => void;
 }

@@ -1,7 +1,7 @@
 import { styled, theme } from '../../../theme';
-import { AddMovieContainerProps, CrossItemProps } from './EditMovie.interface';
+import { EditMovieContainerProps } from './EditMovie.interface';
 
-export const EditMovieContainer = styled.div<AddMovieContainerProps>`
+export const EditMovieContainer = styled.div<EditMovieContainerProps>`
   display: ${(p) => (p.open === false ? 'none' : 'block')};
   position: fixed;
   width: 100%;
@@ -24,17 +24,4 @@ export const EditMovieForm = styled.form`
   background-color: ${theme.colors.black};
   overflow-y: scroll;
   border: 3px solid ${theme.colors.pink};
-`;
-
-export const CrossItem = styled.div<CrossItemProps>`
-  & > svg {
-    position: absolute;
-    right: 45px;
-    width: 20px;
-    fill: ${theme.colors.white};
-    &:hover {
-      cursor: pointer;
-      fill: ${theme.colors.pink};
-    }
-  }
 `;

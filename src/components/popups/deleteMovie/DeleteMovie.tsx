@@ -6,13 +6,12 @@ import {
   DELETE_MESSAGE,
   CONFIRM,
 } from '../../../utils/constants';
-import { ReactComponent as Cross } from '../../../img/crossIcon.svg';
+import { Cross } from '../../common/cross/Cross';
 
 import { Title1 } from '../../common/title/Title.style';
 import {
   DeleteMovieContainer,
   DeleteMovieForm,
-  CrossItem,
   DeleteMessage,
   ConfirmButton,
 } from './DeleteMovie.style';
@@ -20,9 +19,7 @@ import {
 export const DeleteMovie: FC<DeleteMovieProps> = ({ open, setModalIsOpen }) => (
   <DeleteMovieContainer open={open}>
     <DeleteMovieForm>
-      <CrossItem onClick={setModalIsOpen}>
-        <Cross />
-      </CrossItem>
+      <Cross onClick={setModalIsOpen} />
       <Title1>{DELETE_MOVIE}</Title1>
       <DeleteMessage>{DELETE_MESSAGE}</DeleteMessage>
       <ConfirmButton>{CONFIRM}</ConfirmButton>

@@ -1,8 +1,5 @@
 import { styled, theme } from '../../../theme';
-import {
-  DeleteMovieContainerProps,
-  CrossItemProps,
-} from './DeleteMovie.interface';
+import { DeleteMovieContainerProps } from './DeleteMovie.interface';
 import { ButtonPink } from '../../common/button/Button.style';
 
 export const DeleteMovieContainer = styled.div<DeleteMovieContainerProps>`
@@ -34,19 +31,6 @@ export const DeleteMessage = styled.p`
   margin-top: 40px;
   font-weight: 400;
   font-size: 18px;
-`;
-
-export const CrossItem = styled.div<CrossItemProps>`
-  & > svg {
-    position: absolute;
-    right: 45px;
-    width: 20px;
-    fill: ${theme.colors.white};
-    &:hover {
-      cursor: pointer;
-      fill: ${theme.colors.pink};
-    }
-  }
 `;
 
 export const ConfirmButton = styled(ButtonPink)`

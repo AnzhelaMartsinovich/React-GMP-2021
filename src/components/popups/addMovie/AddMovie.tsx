@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 
 import { AddMovieProps } from './AddMovie.interface';
-import { ADD_MOVIE } from '../../../utils/constants';
-import { ReactComponent as Cross } from '../../../img/crossIcon.svg';
+import { ADD_MOVIE, GENRE } from '../../../utils/constants';
 import { AddMovieButtons } from './addMovieButtons/AddMovieButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
 import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
+import { Cross } from '../../common/cross/Cross';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
-import { AddMovieContainer, AddMovieForm, CrossItem } from './AddMovie.style';
+import { AddMovieContainer, AddMovieForm } from './AddMovie.style';
 
 export const AddMovie: FC<AddMovieProps> = ({
   addFormPlaceholderData,
@@ -19,13 +19,11 @@ export const AddMovie: FC<AddMovieProps> = ({
 }) => (
   <AddMovieContainer open={open}>
     <AddMovieForm>
-      <CrossItem onClick={setModalIsOpen}>
-        <Cross />
-      </CrossItem>
+      <Cross setModalIsOpen={setModalIsOpen} />
       <Title1>{ADD_MOVIE}</Title1>
       <AddMovieInputs addFormPlaceholderData={addFormPlaceholderData} />
       <Label>
-        Genre
+        {GENRE}
         <AddMovieSelect addMovieSelectData={addMovieSelectData} />
       </Label>
       <AddMovieButtons />

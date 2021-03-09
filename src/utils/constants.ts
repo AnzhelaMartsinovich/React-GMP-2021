@@ -13,3 +13,6 @@ export const ERROR = 'Oooops, something went wrong...';
 
 export const RESET = 'Reset';
 export const SUBMIT = 'Submit';
+export const EDIT = 'Edit';
+export const DELETE = 'Delete';
+export const GENRE = 'Genre';

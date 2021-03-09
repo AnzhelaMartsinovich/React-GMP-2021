@@ -1,19 +1,15 @@
 import React, { FC } from 'react';
 
 import { EditMovieProps } from './EditMovie.interface';
-import { EDIT_MOVIE } from '../../../utils/constants';
-import { ReactComponent as Cross } from '../../../img/crossIcon.svg';
+import { EDIT_MOVIE, GENRE } from '../../../utils/constants';
+import { Cross } from '../../common/cross/Cross';
 import { EditMovieButtons } from './editMovieButtons/EditMovieButtons';
 import { EditMovieInputs } from './editMovieInputs/EditMovieInputs';
 import { EditMovieSelect } from './editMovieSelect/EditMovieSelect';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
-import {
-  EditMovieContainer,
-  EditMovieForm,
-  CrossItem,
-} from './EditMovie.style';
+import { EditMovieContainer, EditMovieForm } from './EditMovie.style';
 
 export const EditMovie: FC<EditMovieProps> = ({
   addFormPlaceholderData,
@@ -23,13 +19,11 @@ export const EditMovie: FC<EditMovieProps> = ({
 }) => (
   <EditMovieContainer open={open}>
     <EditMovieForm>
-      <CrossItem onClick={setModalIsOpen}>
-        <Cross />
-      </CrossItem>
+      <Cross onClick={setModalIsOpen} />
       <Title1>{EDIT_MOVIE}</Title1>
       <EditMovieInputs addFormPlaceholderData={addFormPlaceholderData} />
       <Label>
-        Genre
+        {GENRE}
         <EditMovieSelect addMovieSelectData={addMovieSelectData} />
       </Label>
       <EditMovieButtons />
