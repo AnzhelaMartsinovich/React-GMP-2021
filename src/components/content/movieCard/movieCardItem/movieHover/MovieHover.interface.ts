@@ -16,6 +16,7 @@ export interface MovieHoverProps {
     disabled?: boolean;
     selected?: boolean;
   }[];
+  closePanel: () => void;
 }
 
 export interface MovieHoverPanelProps {

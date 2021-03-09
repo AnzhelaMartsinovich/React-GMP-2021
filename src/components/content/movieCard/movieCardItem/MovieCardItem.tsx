@@ -34,6 +34,11 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
     setShowPanel(!showPanel);
   };
 
+  const closePanel = () => {
+    setShowPanel(false);
+    setShowIcon(false);
+  };
+
   return (
     <MovieCardItemContainer key={id}>
       <MovieCardImgContainer
@@ -46,6 +51,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           onClickHandler={onClickHandler}
           addFormPlaceholderData={addFormPlaceholderData}
           addMovieSelectData={addMovieSelectData}
+          closePanel={closePanel}
         />
         <MovieCardImg src={poster_path} alt={title} />
       </MovieCardImgContainer>

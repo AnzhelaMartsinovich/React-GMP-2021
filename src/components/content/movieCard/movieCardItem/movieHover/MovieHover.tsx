@@ -11,7 +11,6 @@ import {
   MovieHoverPanel,
   MovieHoverItems,
   MovieHoverItem,
-  CrossButton,
 } from './MovieHover.style';
 
 export const MovieHover: FC<MovieHoverProps> = ({
@@ -20,16 +19,19 @@ export const MovieHover: FC<MovieHoverProps> = ({
   onClickHandler,
   addFormPlaceholderData,
   addMovieSelectData,
+  closePanel,
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const setEditOpenHandler = () => {
     setEditOpen(!editOpen);
+    closePanel();
   };
 
   const setDeleteOpenHandler = () => {
     setDeleteOpen(!deleteOpen);
+    closePanel();
   };
 
   return (
@@ -40,9 +42,7 @@ export const MovieHover: FC<MovieHoverProps> = ({
 
       {showPanel && (
         <MovieHoverItems showPanel={showPanel}>
-          <CrossButton onClick={onClickHandler}>
-            <Cross />
-          </CrossButton>
+          <Cross setModalIsOpen={onClickHandler} />
           <MovieHoverItem onClick={setEditOpenHandler}>{EDIT}</MovieHoverItem>
           <MovieHoverItem onClick={setDeleteOpenHandler}>
             {DELETE}
