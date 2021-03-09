@@ -11,7 +11,7 @@ export const editFormPlaceholderData = [
   },
   {
     title: 'Release data',
-    placeholder: '31/03/2018',
+    placeholder: '2018-03-31',
     id: 3,
     type: 'date',
   },
