@@ -16,13 +16,19 @@ import {
   ConfirmButton,
 } from './DeleteMovie.style';
 
-export const DeleteMovie: FC<DeleteMovieProps> = ({ setModalIsOpen }) => (
-  <DeleteMovieContainer>
-    <DeleteMovieForm>
-      <Cross setModalIsOpen={setModalIsOpen} />
-      <Title1>{DELETE_MOVIE}</Title1>
-      <DeleteMessage>{DELETE_MESSAGE}</DeleteMessage>
-      <ConfirmButton>{CONFIRM}</ConfirmButton>
-    </DeleteMovieForm>
-  </DeleteMovieContainer>
-);
+export const DeleteMovie: FC<DeleteMovieProps> = ({ setModalIsOpen }) => {
+  const onHandleClick = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+  };
+
+  return (
+    <DeleteMovieContainer>
+      <DeleteMovieForm>
+        <Cross setModalIsOpen={setModalIsOpen} />
+        <Title1>{DELETE_MOVIE}</Title1>
+        <DeleteMessage>{DELETE_MESSAGE}</DeleteMessage>
+        <ConfirmButton onClick={onHandleClick}>{CONFIRM}</ConfirmButton>
+      </DeleteMovieForm>
+    </DeleteMovieContainer>
+  );
+};

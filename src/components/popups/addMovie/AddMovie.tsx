@@ -2,10 +2,11 @@ import React, { FC } from 'react';
 
 import { AddMovieProps } from './AddMovie.interface';
 import { ADD_MOVIE, GENRE } from '../../../utils/constants';
-import { AddMovieButtons } from './addMovieButtons/AddMovieButtons';
+import { FormButtons } from '../../common/button/formButtons/FormButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
 import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
 import { Cross } from '../../common/cross/Cross';
+import { RESET, SUBMIT } from '../../../utils/constants';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
@@ -25,7 +26,7 @@ export const AddMovie: FC<AddMovieProps> = ({
         {GENRE}
         <AddMovieSelect addMovieSelectData={addMovieSelectData} />
       </Label>
-      <AddMovieButtons />
+      <FormButtons leftBtnText={RESET} rightBtnText={SUBMIT} />
     </AddMovieForm>
   </AddMovieContainer>
 );

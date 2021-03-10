@@ -3,9 +3,10 @@ import React, { FC } from 'react';
 import { EditMovieProps } from './EditMovie.interface';
 import { EDIT_MOVIE, GENRE } from '../../../utils/constants';
 import { Cross } from '../../common/cross/Cross';
-import { EditMovieButtons } from './editMovieButtons/EditMovieButtons';
 import { EditMovieInputs } from './editMovieInputs/EditMovieInputs';
 import { EditMovieSelect } from './editMovieSelect/EditMovieSelect';
+import { FormButtons } from '../../common/button/formButtons/FormButtons';
+import { RESET, SAVE } from '../../../utils/constants';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
@@ -25,7 +26,7 @@ export const EditMovie: FC<EditMovieProps> = ({
         {GENRE}
         <EditMovieSelect addMovieSelectData={addMovieSelectData} />
       </Label>
-      <EditMovieButtons />
+      <FormButtons leftBtnText={RESET} rightBtnText={SAVE} />
     </EditMovieForm>
   </EditMovieContainer>
 );

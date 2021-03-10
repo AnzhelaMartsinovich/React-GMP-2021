@@ -1,5 +1,5 @@
 import { styled } from '../../../../theme';
-import { ButtonBlack, ButtonPink } from '../../../common/button/Button.style';
+import { ButtonBlack, ButtonPink } from '../Button.style';
 
 export const ButtonsContainer = styled.div`
   margin-top: 80px;
@@ -7,10 +7,10 @@ export const ButtonsContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const ButtonReset = styled(ButtonBlack)`
+export const ButtonLeft = styled(ButtonBlack)`
   padding: 15px 50px;
 `;
 
-export const ButtonSubmit = styled(ButtonPink)`
+export const ButtonRight = styled(ButtonPink)`
   padding: 15px 50px;
 `;
