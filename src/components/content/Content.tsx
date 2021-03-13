@@ -11,12 +11,18 @@ export const Content: FC<ContentProps> = ({
   moviesData,
   navGenreData,
   navSortData,
+  addFormPlaceholderData,
+  addMovieSelectData,
 }) => (
   <ContentContainer>
     <Navigation navGenreData={navGenreData} navSortData={navSortData} />
     <CountMovies moviesData={moviesData} />
     <MovieCards>
-      <MovieCard moviesData={moviesData} />
+      <MovieCard
+        moviesData={moviesData}
+        addFormPlaceholderData={addFormPlaceholderData}
+        addMovieSelectData={addMovieSelectData}
+      />
     </MovieCards>
   </ContentContainer>
 );

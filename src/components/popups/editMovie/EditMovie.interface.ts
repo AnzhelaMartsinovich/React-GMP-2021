@@ -1,10 +1,11 @@
-export interface HeaderProps {
+export interface EditMovieProps {
   addFormPlaceholderData: {
-    id: number;
     title: string;
     placeholder: string;
+    id: number;
     type?: string;
   }[];
+  setModalIsOpen?: () => void;
   addMovieSelectData: {
     label: string;
     value: string;

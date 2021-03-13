@@ -7,9 +7,3 @@ export const MovieCardContainer = styled.div`
   justify-content: space-between;
   grid-auto-rows: 1fr;
 `;
-
-export const MovieCardItem = styled.div``;
-
-export const MovieCardImg = styled.img`
-  max-width: 100%;
-`;

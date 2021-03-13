@@ -8,7 +8,7 @@ import {
   PLACEHOLDER_TEXT,
 } from '../../utils/constants';
 import { HeaderProps } from './Header.interface';
-import { AddMovie } from './addMovie/AddMovie';
+import { AddMovie } from '../popups/addMovie/AddMovie';
 
 import {
   HeaderWrap,
@@ -19,7 +19,10 @@ import {
 import { ButtonGray, ButtonPink } from '../common/button/Button.style';
 import { Title1 } from '../common/title/Title.style';
 
-export const Header: FC<HeaderProps> = ({ addFormPlaceholderData }) => {
+export const Header: FC<HeaderProps> = ({
+  addFormPlaceholderData,
+  addMovieSelectData,
+}) => {
   const [open, setOpen] = useState(false);
 
   const setModalIsOpen = () => {
@@ -31,11 +34,13 @@ export const Header: FC<HeaderProps> = ({ addFormPlaceholderData }) => {
       <HeaderTop>
         <Logo />
         <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
-        <AddMovie
-          open={open}
-          setModalIsOpen={setModalIsOpen}
-          addFormPlaceholderData={addFormPlaceholderData}
-        />
+        {open && (
+          <AddMovie
+            setModalIsOpen={setModalIsOpen}
+            addFormPlaceholderData={addFormPlaceholderData}
+            addMovieSelectData={addMovieSelectData}
+          />
+        )}
       </HeaderTop>
 
       <HeaderBottom>
