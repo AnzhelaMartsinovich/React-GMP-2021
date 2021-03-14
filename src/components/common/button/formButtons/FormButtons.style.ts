@@ -1,4 +1,4 @@
-import { styled } from '../../../../theme';
+import { styled } from 'theme';
 import { ButtonBlack, ButtonPink } from '../Button.style';
 
 export const ButtonsContainer = styled.div`

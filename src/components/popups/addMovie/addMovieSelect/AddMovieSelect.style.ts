@@ -1,5 +1,5 @@
-import { styled } from '../../../../theme';
-import { Select } from '../../../common/select/Select.style';
+import { styled } from 'theme';
+import { Select } from 'components/common/select/Select.style';
 
 export const AddSelect = styled(Select)`
   padding: 19px 20px;

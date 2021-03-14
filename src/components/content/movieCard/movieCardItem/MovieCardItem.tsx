@@ -8,7 +8,7 @@ import {
   MovieCardItemContainer,
   MovieCardImgContainer,
 } from './MovieCardItem.style';
-import { MovieCardImg } from '../../../common/movie/MovieComponents.style';
+import { MovieCardImg } from 'components/common/movie/MovieComponents.style';
 
 export const MovieCardItem: FC<MovieCardItemProps> = ({
   id,

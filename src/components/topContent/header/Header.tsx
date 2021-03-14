@@ -1,18 +1,18 @@
 import React, { FC, useState } from 'react';
 
-import { Logo } from '../../common/logo/Logo';
+import { Logo } from 'components/common/logo/Logo';
 import {
   ADD_MOVIE,
   FIND_YOUR_MOVIE,
   SEARCH,
   PLACEHOLDER_TEXT,
-} from '../../../utils/constants';
+} from 'utils/constants';
 import { HeaderProps } from './Header.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
 
 import { HeaderTop, HeaderBottom, HeaderInput } from './Header.style';
-import { ButtonGray, ButtonPink } from '../../common/button/Button.style';
-import { Title1 } from '../../common/title/Title.style';
+import { ButtonGray, ButtonPink } from 'components/common/button/Button.style';
+import { Title1 } from 'components/common/title/Title.style';
 
 export const Header: FC<HeaderProps> = ({
   addFormPlaceholderData,

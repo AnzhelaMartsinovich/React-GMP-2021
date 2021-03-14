@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 
 import { EditMovieProps } from './EditMovie.interface';
-import { EDIT_MOVIE, GENRE } from '../../../utils/constants';
-import { Cross } from '../../common/cross/Cross';
+import { EDIT_MOVIE, GENRE } from 'utils/constants';
+import { Cross } from 'components/common/cross/Cross';
 import { EditMovieInputs } from './editMovieInputs/EditMovieInputs';
 import { EditMovieSelect } from './editMovieSelect/EditMovieSelect';
-import { FormButtons } from '../../common/button/formButtons/FormButtons';
-import { RESET, SAVE } from '../../../utils/constants';
+import { FormButtons } from 'components/common/button/formButtons/FormButtons';
+import { RESET, SAVE } from 'utils/constants';
 
-import { Label } from '../../common/label/Label.style';
-import { Title1 } from '../../common/title/Title.style';
+import { Label } from 'components/common/label/Label.style';
+import { Title1 } from 'components/common/title/Title.style';
 import { EditMovieContainer, EditMovieForm } from './EditMovie.style';
 
 export const EditMovie: FC<EditMovieProps> = ({

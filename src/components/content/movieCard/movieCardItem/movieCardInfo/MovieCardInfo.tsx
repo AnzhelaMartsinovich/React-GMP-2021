@@ -7,7 +7,7 @@ import {
   MovieCardRelease,
   MovieCardTitle,
   MovieCardGenres,
-} from '../../../../common/movie/MovieComponents.style';
+} from 'components/common/movie/MovieComponents.style';
 
 export const MovieCardInfo: FC<MovieCardInfoProps> = ({
   title,

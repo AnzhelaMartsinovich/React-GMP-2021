@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 
 export const Title1 = styled.h1`
   text-transform: uppercase;

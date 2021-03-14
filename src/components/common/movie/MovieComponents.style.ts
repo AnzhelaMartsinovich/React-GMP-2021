@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 
 export const MovieCardRelease = styled.div`
   padding: 3px 10px;

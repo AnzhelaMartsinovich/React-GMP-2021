@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 
 export const AddMovieContainer = styled.div`
   position: fixed;

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { AddMovieInputsProps } from './AddMovieInputs.interface';
 
-import { Label } from '../../../common/label/Label.style';
+import { Label } from 'components/common/label/Label.style';
 import { AddMovieInputItem, AddMovieInput } from './AddMovieInputs.style';
 
 export const AddMovieInputs: FC<AddMovieInputsProps> = ({

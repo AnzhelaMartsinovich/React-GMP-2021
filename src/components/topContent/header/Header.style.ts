@@ -1,5 +1,5 @@
 import { styled } from 'theme';
-import { Input } from '../../common/input/Input.style';
+import { Input } from 'components/common/input/Input.style';
 
 export const HeaderTop = styled.div`
   display: flex;
