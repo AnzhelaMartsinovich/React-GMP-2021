@@ -2,16 +2,19 @@ import React, { FC } from 'react';
 
 import { AboutMovieItemProps } from './AboutMovieItem.interface';
 
-import { AboutMovieItemContainer } from './AboutMovieItem.style';
 import {
-  MovieCardImg,
-  MovieCardTitle,
-  MovieRating,
-  MovieTagline,
-  MovieData,
-  MovieRuntime,
-  MovieDescr,
-} from 'components/common/movie/MovieComponents.style';
+  AboutMovieItemContainer,
+  AboutMovieItemRightPart,
+  AboutMovieImg,
+  AboutMovieTitle,
+  AboutMovieGroup,
+  AboutMovieRating,
+  AboutMovieTagline,
+  AboutMovieData,
+  AboutMovieGroupTwo,
+  AboutMovieDescr,
+} from './AboutMovieItem.style';
+import { MovieRuntime } from 'components/common/movie/MovieComponents.style';
 
 export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
   const {
@@ -26,15 +29,19 @@ export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
 
   return (
     <AboutMovieItemContainer>
-      <MovieCardImg src={poster_path} alt={title} />
-      <div>
-        <MovieCardTitle>{title}</MovieCardTitle>
-        <MovieRating>{vote_average}</MovieRating>
-        <MovieTagline>{tagline}</MovieTagline>
-        <MovieData>{release_date.slice(0, 4)}</MovieData>
-        <MovieRuntime>{runtime}</MovieRuntime>
-        <MovieDescr>{overview}</MovieDescr>
-      </div>
+      <AboutMovieImg src={poster_path} alt={title} />
+      <AboutMovieItemRightPart>
+        <AboutMovieGroup>
+          <AboutMovieTitle>{title}</AboutMovieTitle>
+          <AboutMovieRating>{vote_average}</AboutMovieRating>
+        </AboutMovieGroup>
+        <AboutMovieTagline>{tagline}</AboutMovieTagline>
+        <AboutMovieGroupTwo>
+          <AboutMovieData>{release_date.slice(0, 4)}</AboutMovieData>
+          <MovieRuntime>{`${runtime} min`}</MovieRuntime>
+        </AboutMovieGroupTwo>
+        <AboutMovieDescr>{overview}</AboutMovieDescr>
+      </AboutMovieItemRightPart>
     </AboutMovieItemContainer>
   );
 };

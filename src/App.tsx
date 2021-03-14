@@ -33,12 +33,6 @@ export const App: FC = () => {
           moviesData={moviesData}
           movieId={movieId}
         />
-        {/* <Header
-          addFormPlaceholderData={addFormPlaceholderData}
-          addMovieSelectData={addMovieSelectData}
-          moviesData={moviesData}
-          movieId={movieId}
-        /> */}
         <Content
           moviesData={moviesData}
           navGenreData={navGenreData}

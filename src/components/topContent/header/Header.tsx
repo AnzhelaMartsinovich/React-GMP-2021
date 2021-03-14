@@ -1,25 +1,21 @@
 import React, { FC, useState } from 'react';
 
 import { Logo } from 'components/common/logo/Logo';
-import {
-  ADD_MOVIE,
-  FIND_YOUR_MOVIE,
-  SEARCH,
-  PLACEHOLDER_TEXT,
-} from 'utils/constants';
+import { ADD_MOVIE } from 'utils/constants';
 import {
   PlaceholderData,
   MovieSelectData,
 } from 'baseTypes/BaseTypes.interface';
+import { HeaderProps } from './Header.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
 
-import { HeaderTop, HeaderBottom, HeaderInput } from './Header.style';
-import { ButtonGray, ButtonPink } from 'components/common/button/Button.style';
-import { Title1 } from 'components/common/title/Title.style';
+import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
+import { ButtonGray } from 'components/common/button/Button.style';
 
-export const Header: FC<PlaceholderData & MovieSelectData> = ({
+export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   addFormPlaceholderData,
   addMovieSelectData,
+  data,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -28,24 +24,24 @@ export const Header: FC<PlaceholderData & MovieSelectData> = ({
   };
 
   return (
-    <>
-      <HeaderTop>
-        <Logo />
-        <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
-        {open && (
-          <AddMovie
-            setModalIsOpen={setModalIsOpen}
-            addFormPlaceholderData={addFormPlaceholderData}
-            addMovieSelectData={addMovieSelectData}
-          />
-        )}
-      </HeaderTop>
-
-      <HeaderBottom>
-        <Title1>{FIND_YOUR_MOVIE}</Title1>
-        <HeaderInput placeholder={PLACEHOLDER_TEXT} />
-        <ButtonPink>{SEARCH}</ButtonPink>
-      </HeaderBottom>
-    </>
+    <HeaderContainer>
+      <Logo />
+      {data ? (
+        <ButtonSearch>
+          <SearchIcon />
+        </ButtonSearch>
+      ) : (
+        <>
+          <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
+          {open && (
+            <AddMovie
+              setModalIsOpen={setModalIsOpen}
+              addFormPlaceholderData={addFormPlaceholderData}
+              addMovieSelectData={addMovieSelectData}
+            />
+          )}
+        </>
+      )}
+    </HeaderContainer>
   );
 };

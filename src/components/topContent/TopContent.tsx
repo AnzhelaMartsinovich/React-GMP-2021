@@ -9,24 +9,23 @@ import {
   MoviesDataProps,
 } from 'baseTypes/BaseTypes.interface';
 import { AboutMovieItem } from './aboutMovieItem/AboutMovieItem';
+import { SearchPart } from './searchPart/SearchPart';
 
 import { TopContentContainer } from './TopContent.style';
+import { useEffect } from 'react';
 
 export const TopContent: FC<
   TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps
 > = ({ addFormPlaceholderData, addMovieSelectData, moviesData, movieId }) => {
-  const data = moviesData.find((item) => item.id === movieId);
-
+  let data = moviesData.find((item) => item.id === movieId);
   return (
     <TopContentContainer>
-      {data ? (
-        <AboutMovieItem data={data} />
-      ) : (
-        <Header
-          addFormPlaceholderData={addFormPlaceholderData}
-          addMovieSelectData={addMovieSelectData}
-        />
-      )}
+      <Header
+        addFormPlaceholderData={addFormPlaceholderData}
+        addMovieSelectData={addMovieSelectData}
+        data={data}
+      />
+      {data ? <AboutMovieItem data={data} /> : <SearchPart />}
     </TopContentContainer>
   );
 };
