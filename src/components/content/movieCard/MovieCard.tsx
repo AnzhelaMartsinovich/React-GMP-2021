@@ -4,8 +4,15 @@ import { MovieCardProps } from './MovieCard.interface';
 import { MovieCardItem } from './movieCardItem/MovieCardItem';
 
 import { MovieCardContainer } from './MovieCard.style';
+import {
+  MoviesDataProps,
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 
-export const MovieCard: FC<MovieCardProps> = ({
+export const MovieCard: FC<
+  MovieCardProps & MoviesDataProps & PlaceholderData & MovieSelectData
+> = ({
   moviesData,
   addFormPlaceholderData,
   addMovieSelectData,

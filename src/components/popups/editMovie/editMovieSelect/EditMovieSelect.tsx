@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import { EditMovieSelectProps } from './EditMovieSelect.interface';
+import { MovieSelectData } from 'baseTypes/BaseTypes.interface';
 
 import { EditSelect, EditMovieOption } from './EditMovieSelect.style';
 
-export const EditMovieSelect: FC<EditMovieSelectProps> = ({
+export const EditMovieSelect: FC<MovieSelectData> = ({
   addMovieSelectData,
 }) => (
   <EditSelect name='genre'>

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import { AddMovieInputsProps } from './EditMovieInputs.interface';
+import { PlaceholderData } from 'baseTypes/BaseTypes.interface';
 
 import { Label } from 'components/common/label/Label.style';
 import { EditMovieInputItem, EditMovieInput } from './EditMovieInputs.style';
 
-export const EditMovieInputs: FC<AddMovieInputsProps> = ({
+export const EditMovieInputs: FC<PlaceholderData> = ({
   addFormPlaceholderData,
 }) => (
   <>

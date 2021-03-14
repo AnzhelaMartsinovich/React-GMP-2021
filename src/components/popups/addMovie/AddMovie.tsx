@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 
 import { AddMovieProps } from './AddMovie.interface';
+import {
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { ADD_MOVIE, GENRE } from 'utils/constants';
 import { FormButtons } from '../../common/button/formButtons/FormButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
@@ -12,11 +16,9 @@ import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
 import { AddMovieContainer, AddMovieForm } from './AddMovie.style';
 
-export const AddMovie: FC<AddMovieProps> = ({
-  addFormPlaceholderData,
-  setModalIsOpen,
-  addMovieSelectData,
-}) => (
+export const AddMovie: FC<
+  AddMovieProps & PlaceholderData & MovieSelectData
+> = ({ addFormPlaceholderData, setModalIsOpen, addMovieSelectData }) => (
   <AddMovieContainer>
     <AddMovieForm>
       <Cross setModalIsOpen={setModalIsOpen} />

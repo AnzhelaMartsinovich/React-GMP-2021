@@ -7,14 +7,17 @@ import {
   SEARCH,
   PLACEHOLDER_TEXT,
 } from 'utils/constants';
-import { HeaderProps } from './Header.interface';
+import {
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
 
 import { HeaderTop, HeaderBottom, HeaderInput } from './Header.style';
 import { ButtonGray, ButtonPink } from 'components/common/button/Button.style';
 import { Title1 } from 'components/common/title/Title.style';
 
-export const Header: FC<HeaderProps> = ({
+export const Header: FC<PlaceholderData & MovieSelectData> = ({
   addFormPlaceholderData,
   addMovieSelectData,
 }) => {

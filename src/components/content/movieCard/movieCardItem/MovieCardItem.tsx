@@ -2,6 +2,10 @@ import React, { FC, useState } from 'react';
 
 import { MovieCardInfo } from './movieCardInfo/MovieCardInfo';
 import { MovieCardItemProps } from './MovieCardItem.interface';
+import {
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { MovieHover } from './movieHover/MovieHover';
 
 import {
@@ -10,7 +14,9 @@ import {
 } from './MovieCardItem.style';
 import { MovieCardImg } from 'components/common/movie/MovieComponents.style';
 
-export const MovieCardItem: FC<MovieCardItemProps> = ({
+export const MovieCardItem: FC<
+  MovieCardItemProps & PlaceholderData & MovieSelectData
+> = ({
   id,
   poster_path,
   title,

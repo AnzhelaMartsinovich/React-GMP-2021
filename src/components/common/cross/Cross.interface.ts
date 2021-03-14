@@ -4,6 +4,6 @@ export interface CrossProps {
 }
 
 export interface CrossItemProps {
-  onClick?: any;
+  onClick?: () => void;
   setModalIsOpenToFalse?: () => void;
 }

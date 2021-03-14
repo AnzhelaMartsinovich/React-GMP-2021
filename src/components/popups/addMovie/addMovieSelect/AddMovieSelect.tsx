@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
 
-import { AddMovieSelectProps } from './AddMovieSelect.interface';
+import { MovieSelectData } from 'baseTypes/BaseTypes.interface';
 
 import { AddSelect, AddMovieOption } from './AddMovieSelect.style';
 
-export const AddMovieSelect: FC<AddMovieSelectProps> = ({
-  addMovieSelectData,
-}) => (
+export const AddMovieSelect: FC<MovieSelectData> = ({ addMovieSelectData }) => (
   <AddSelect name='genre'>
     {addMovieSelectData.map(
       ({ label, value, id, hidden, disabled, selected }) => (
