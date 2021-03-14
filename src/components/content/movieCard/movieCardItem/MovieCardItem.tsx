@@ -7,8 +7,8 @@ import { MovieHover } from './movieHover/MovieHover';
 import {
   MovieCardItemContainer,
   MovieCardImgContainer,
-  MovieCardImg,
 } from './MovieCardItem.style';
+import { MovieCardImg } from '../../../common/movie/MovieComponents.style';
 
 export const MovieCardItem: FC<MovieCardItemProps> = ({
   id,
@@ -18,6 +18,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
   release_date,
   addFormPlaceholderData,
   addMovieSelectData,
+  onClickMovie,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -53,7 +54,11 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           addMovieSelectData={addMovieSelectData}
           closePanel={closePanel}
         />
-        <MovieCardImg src={poster_path} alt={title} />
+        <MovieCardImg
+          src={poster_path}
+          alt={title}
+          onClick={() => onClickMovie(id)}
+        />
       </MovieCardImgContainer>
       <MovieCardInfo
         title={title}

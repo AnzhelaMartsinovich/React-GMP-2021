@@ -2,13 +2,12 @@ import React, { FC } from 'react';
 
 import { MovieCardInfoProps } from './MovieCardInfo.interface';
 
+import { MovieCardDescr, MovieCardInfoText } from './MovieCardInfo.styled';
 import {
-  MovieCardDescr,
-  MovieCardInfoText,
   MovieCardRelease,
   MovieCardTitle,
   MovieCardGenres,
-} from './MovieCardInfo.styled';
+} from '../../../../common/movie/MovieComponents.style';
 
 export const MovieCardInfo: FC<MovieCardInfoProps> = ({
   title,

@@ -18,4 +18,5 @@ export interface MovieCardItemProps {
     disabled?: boolean;
     selected?: boolean;
   }[];
+  onClickMovie: (id: number) => void;
 }

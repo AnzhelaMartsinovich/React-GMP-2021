@@ -9,6 +9,7 @@ export const MovieCard: FC<MovieCardProps> = ({
   moviesData,
   addFormPlaceholderData,
   addMovieSelectData,
+  onClickMovie,
 }) => (
   <MovieCardContainer>
     {moviesData.map(({ id, poster_path, title, genres, release_date }) => (
@@ -21,6 +22,7 @@ export const MovieCard: FC<MovieCardProps> = ({
         release_date={release_date}
         addFormPlaceholderData={addFormPlaceholderData}
         addMovieSelectData={addMovieSelectData}
+        onClickMovie={onClickMovie}
       />
     ))}
   </MovieCardContainer>

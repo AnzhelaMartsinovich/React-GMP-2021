@@ -29,4 +29,5 @@ export interface ContentProps {
     disabled?: boolean;
     selected?: boolean;
   }[];
+  onClickMovie: (id: number) => void;
 }
