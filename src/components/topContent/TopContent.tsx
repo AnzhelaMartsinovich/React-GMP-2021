@@ -16,7 +16,7 @@ import { TopContentContainer } from './TopContent.style';
 export const TopContent: FC<
   TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps
 > = ({ addFormPlaceholderData, addMovieSelectData, moviesData, movieId }) => {
-  let data = moviesData.find((item) => item.id === movieId);
+  const data = moviesData.find((item) => item.id === movieId);
   return (
     <TopContentContainer>
       <Header
