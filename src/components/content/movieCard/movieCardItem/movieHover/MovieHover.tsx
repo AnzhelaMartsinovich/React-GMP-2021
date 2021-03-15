@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useCallback } from 'react';
+import React, { FC, useState } from 'react';
 
 import { ReactComponent as Dots } from '../../../../../img/dots.svg';
 import { EDIT, DELETE } from '../../../../../utils/constants';
@@ -10,6 +10,7 @@ import {
 } from 'baseTypes/BaseTypes.interface';
 import { EditMovie } from '../../../../popups/editMovie/EditMovie';
 import { DeleteMovie } from '../../../../popups/deleteMovie/DeleteMovie';
+import { useCustomHook } from 'commonCode/CommonCode';
 
 import {
   MovieHoverPanel,
@@ -30,25 +31,12 @@ export const MovieHover: FC<
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  const handler = useCallback(() => {
-    editOpen || deleteOpen
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'initial');
-  }, [editOpen, deleteOpen]);
-
-  useEffect(() => {
-    handler();
-  }, [handler, editOpen, deleteOpen]);
-
-  const setEditOpenHandler = () => {
-    setEditOpen(!editOpen);
-    closePanel();
-  };
-
-  const setDeleteOpenHandler = () => {
-    setDeleteOpen(!deleteOpen);
-    closePanel();
-  };
+  const setEditOpenHandler = useCustomHook(editOpen, setEditOpen, closePanel);
+  const setDeleteOpenHandler = useCustomHook(
+    deleteOpen,
+    setDeleteOpen,
+    closePanel
+  );
 
   return (
     <>
