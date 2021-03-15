@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Logo } from 'components/common/logo/Logo';
 import { ADD_MOVIE } from 'utils/constants';
@@ -18,10 +18,15 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   data,
 }) => {
   const [open, setOpen] = useState(false);
-
   const setModalIsOpen = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    open
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'initial');
+  }, [open]);
 
   return (
     <HeaderContainer>

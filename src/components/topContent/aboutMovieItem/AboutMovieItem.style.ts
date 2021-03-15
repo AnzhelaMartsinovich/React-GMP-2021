@@ -21,6 +21,7 @@ export const AboutMovieItemRightPart = styled.div`
 
 export const AboutMovieImg = styled(MovieCardImg)`
   max-width: 285px;
+  margin-right: 20px;
 `;
 
 export const AboutMovieGroup = styled.div`

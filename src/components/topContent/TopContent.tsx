@@ -12,7 +12,6 @@ import { AboutMovieItem } from './aboutMovieItem/AboutMovieItem';
 import { SearchPart } from './searchPart/SearchPart';
 
 import { TopContentContainer } from './TopContent.style';
-import { useEffect } from 'react';
 
 export const TopContent: FC<
   TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps

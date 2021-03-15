@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import { ReactComponent as Dots } from '../../../../../img/dots.svg';
 import { EDIT, DELETE } from '../../../../../utils/constants';
@@ -29,6 +29,12 @@ export const MovieHover: FC<
 }) => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
+
+  useEffect(() => {
+    editOpen || deleteOpen
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'initial');
+  }, [editOpen, deleteOpen]);
 
   const setEditOpenHandler = () => {
     setEditOpen(!editOpen);
