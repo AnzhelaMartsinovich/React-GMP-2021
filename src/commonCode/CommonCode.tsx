@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react';
 export const useCustomHook = (
   open: boolean,
   setOpen: (open: boolean) => void,
-  closePanel: () => void
+  closePanel?: () => void
 ) => {
   const handler = useCallback(() => {
     open
@@ -17,6 +17,6 @@ export const useCustomHook = (
 
   return () => {
     setOpen(!open);
-    closePanel();
+    closePanel && closePanel();
   };
 };

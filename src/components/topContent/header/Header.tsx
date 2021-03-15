@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useCallback } from 'react';
+import React, { FC, useState } from 'react';
 
 import { Logo } from 'components/common/logo/Logo';
 import { ADD_MOVIE } from 'utils/constants';
@@ -8,6 +8,7 @@ import {
 } from 'baseTypes/BaseTypes.interface';
 import { HeaderProps } from './Header.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
+import { useCustomHook } from 'commonCode/CommonCode';
 
 import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
 import { ButtonGray } from 'components/common/button/Button.style';
@@ -18,19 +19,7 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   data,
 }) => {
   const [open, setOpen] = useState(false);
-  const setModalIsOpen = () => {
-    setOpen(!open);
-  };
-
-  const handler = useCallback(() => {
-    open
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'initial');
-  }, [open]);
-
-  useEffect(() => {
-    handler();
-  }, [handler, open]);
+  const setModalIsOpen = useCustomHook(open, setOpen);
 
   return (
     <HeaderContainer>
