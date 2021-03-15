@@ -15,7 +15,13 @@ import { TopContentContainer } from './TopContent.style';
 
 export const TopContent: FC<
   TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps
-> = ({ addFormPlaceholderData, addMovieSelectData, moviesData, movieId }) => {
+> = ({
+  addFormPlaceholderData,
+  addMovieSelectData,
+  moviesData,
+  movieId,
+  hideMovie,
+}) => {
   const data = moviesData.find((item) => item.id === movieId);
   return (
     <TopContentContainer>
@@ -23,6 +29,7 @@ export const TopContent: FC<
         addFormPlaceholderData={addFormPlaceholderData}
         addMovieSelectData={addMovieSelectData}
         data={data}
+        hideMovie={hideMovie}
       />
       {data ? <AboutMovieItem data={data} /> : <SearchPart />}
     </TopContentContainer>

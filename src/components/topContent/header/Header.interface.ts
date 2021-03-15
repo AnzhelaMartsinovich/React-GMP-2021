@@ -13,4 +13,5 @@ export interface HeaderProps {
     genres: string[];
     runtime: number;
   };
+  hideMovie: () => void;
 }

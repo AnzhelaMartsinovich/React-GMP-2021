@@ -19,9 +19,12 @@ import {
 import './App.css';
 
 export const App: FC = () => {
-  const [movieId, setMovieId] = useState(0);
+  const [movieId, setMovieId] = useState<number | undefined>(undefined);
   const onClickMovie = (id: number) => {
     setMovieId(id);
+  };
+  const hideMovie = () => {
+    setMovieId(undefined);
   };
 
   return (
@@ -32,6 +35,7 @@ export const App: FC = () => {
           addMovieSelectData={addMovieSelectData}
           moviesData={moviesData}
           movieId={movieId}
+          hideMovie={hideMovie}
         />
         <Content
           moviesData={moviesData}

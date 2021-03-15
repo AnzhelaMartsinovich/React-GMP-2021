@@ -1,3 +1,4 @@
 export interface TopContentProps {
-  movieId: number | null;
+  movieId: number | undefined;
+  hideMovie: () => void;
 }
