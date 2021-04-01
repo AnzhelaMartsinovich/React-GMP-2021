@@ -7,7 +7,7 @@ import { CountMoviesContainer, CountMoviesNumber } from './CountMovies.style';
 
 export const CountMovies: FC<MoviesDataProps> = ({ moviesData }) => (
   <CountMoviesContainer>
-    <CountMoviesNumber>{moviesData.length}</CountMoviesNumber>
+    <CountMoviesNumber>{moviesData?.length}</CountMoviesNumber>
     {MOVIES_FOUND_COUNT}
   </CountMoviesContainer>
 );

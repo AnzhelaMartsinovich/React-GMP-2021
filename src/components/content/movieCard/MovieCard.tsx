@@ -19,7 +19,7 @@ export const MovieCard: FC<
   onClickMovie,
 }) => (
   <MovieCardContainer>
-    {moviesData.map(({ id, poster_path, title, genres, release_date }) => (
+    {moviesData?.map(({ id, poster_path, title, genres, release_date }) => (
       <MovieCardItem
         key={id}
         id={id}

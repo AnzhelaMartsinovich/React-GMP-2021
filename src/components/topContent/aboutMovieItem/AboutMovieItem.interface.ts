@@ -11,6 +11,6 @@ export interface AboutMovieItemProps {
     budget: number;
     revenue: number;
     genres: string[];
-    runtime: number;
+    runtime?: number;
   };
 }

@@ -22,7 +22,7 @@ export const TopContent: FC<
   movieId,
   hideMovie,
 }) => {
-  const data = moviesData.find((item) => item.id === movieId);
+  const data = movieId && moviesData?.find((item) => item.id === movieId);
   return (
     <TopContentContainer>
       <Header
