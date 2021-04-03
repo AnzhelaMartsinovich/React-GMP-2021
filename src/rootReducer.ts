@@ -1,5 +1,5 @@
-import { initialState } from './appState';
+import { combineReducers } from 'redux';
 
-export const rootReducer = (state = initialState, action: any) => {
-  return state;
-};
+import { moviesReducer } from './store/reducers/movieReducer';
+
+export const rootReducer = combineReducers({ moviesReducer });

@@ -37,8 +37,4 @@ export const initialState: initialStateProps = {
   },
 };
 
-export const store = createStore(
-  rootReducer,
-  initialState,
-  composeWithDevTools()
-);
+export const store = createStore(rootReducer, composeWithDevTools());

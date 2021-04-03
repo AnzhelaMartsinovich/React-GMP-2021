@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { connect } from 'react-redux';
 
+import * as actions from '../../store/actions/movieActions';
 import { Header } from './header/Header';
-
 import { TopContentProps } from './TopContent.interface';
 import {
   PlaceholderData,
@@ -13,7 +14,7 @@ import { SearchPart } from './searchPart/SearchPart';
 
 import { TopContentContainer } from './TopContent.style';
 
-export const TopContent: FC<
+export const TopContentComponent: FC<
   TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps
 > = ({
   addFormPlaceholderData,
@@ -21,8 +22,10 @@ export const TopContent: FC<
   moviesData,
   movieId,
   hideMovie,
+  movieAction,
 }) => {
   const data = movieId && moviesData?.find((item) => item.id === movieId);
+
   return (
     <TopContentContainer>
       <Header
@@ -31,7 +34,10 @@ export const TopContent: FC<
         data={data}
         hideMovie={hideMovie}
       />
+      <button onClick={movieAction}>Click me!</button>
       {data ? <AboutMovieItem data={data} /> : <SearchPart />}
     </TopContentContainer>
   );
 };
+
+export const TopContent = connect(null, actions)(TopContentComponent);

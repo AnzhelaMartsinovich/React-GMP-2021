@@ -1,0 +1,1 @@
+export const TRAIN_MOVIE_ACTION = 'TRAIN_MOVIE_ACTION';
