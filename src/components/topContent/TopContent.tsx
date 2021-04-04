@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import { connect } from 'react-redux';
 
-import * as actions from '../../store/actions/movieActions';
 import { Header } from './header/Header';
 import { TopContentProps } from './TopContent.interface';
 import {
@@ -35,9 +33,7 @@ export const TopContentComponent: FC<
         hideMovie={hideMovie}
       />
       <button onClick={movieAction}>Click me!</button>
-      {data ? <AboutMovieItem data={data} /> : <SearchPart />}
+      {/* {data ? <AboutMovieItem data={data} /> : <SearchPart />} */}
     </TopContentContainer>
   );
 };
-
-export const TopContent = connect(null, actions)(TopContentComponent);

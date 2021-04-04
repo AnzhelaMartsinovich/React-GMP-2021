@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import { moviesReducer } from './store/reducers/movieReducer';
+import { mainPageReducer } from './store/reducers/reducer';
 
-export const rootReducer = combineReducers({ moviesReducer });
+export const rootReducer = combineReducers({ mainPage: mainPageReducer });
