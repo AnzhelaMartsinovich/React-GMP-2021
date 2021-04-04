@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import { Header } from './header/Header';
 import { TopContentProps } from './TopContent.interface';
@@ -6,23 +7,22 @@ import {
   PlaceholderData,
   MovieSelectData,
   MoviesDataProps,
+  AppState,
 } from 'baseTypes/BaseTypes.interface';
 import { AboutMovieItem } from './aboutMovieItem/AboutMovieItem';
 import { SearchPart } from './searchPart/SearchPart';
+import { addFormPlaceholderData, addMovieSelectData } from 'utils/addMovieData';
+import { getMovieDataRequest } from 'store/actions/actions';
+import { getMoviesDataSelector } from 'store/mainPage/selectors';
 
 import { TopContentContainer } from './TopContent.style';
 
-export const TopContentComponent: FC<
-  TopContentProps & PlaceholderData & MovieSelectData & MoviesDataProps
-> = ({
-  addFormPlaceholderData,
-  addMovieSelectData,
-  moviesData,
+export const TopContentComponent: FC<TopContentProps> = ({
+  movies,
   movieId,
   hideMovie,
-  movieAction,
 }) => {
-  const data = movieId && moviesData?.find((item) => item.id === movieId);
+  const data = movieId && movies?.find((item) => item.id === movieId);
 
   return (
     <TopContentContainer>
@@ -32,8 +32,17 @@ export const TopContentComponent: FC<
         data={data}
         hideMovie={hideMovie}
       />
-      <button onClick={movieAction}>Click me!</button>
-      {/* {data ? <AboutMovieItem data={data} /> : <SearchPart />} */}
+      {data ? <AboutMovieItem data={data} /> : <SearchPart />}
     </TopContentContainer>
   );
 };
+
+export const TopContent = connect(
+  (state: AppState, ownProps) => {
+    const { moviesData } = state.mainPage;
+    return {
+      movies: getMoviesDataSelector(state),
+    };
+  },
+  { getMovieDataRequest }
+)(TopContentComponent);

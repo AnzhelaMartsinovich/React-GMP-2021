@@ -12,6 +12,7 @@ export interface Movie {
   genres: string[];
   runtime?: number;
 }
+
 export interface MainPageState {
   moviesLoading: boolean;
   moviesError: string;
