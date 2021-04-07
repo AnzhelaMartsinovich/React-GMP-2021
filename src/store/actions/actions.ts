@@ -4,8 +4,8 @@ import { ThunkDispatch } from 'redux-thunk';
 import * as actionTypes from '../actionTypes';
 import * as interfaces from '../interfaces';
 
-import { AppState } from 'baseTypes/BaseTypes.interface';
-import { getMovies } from '../mainPage/services';
+import { AppState, Movie } from 'baseTypes/BaseTypes.interface';
+import { getMovies, getMovie } from '../mainPage/services';
 
 export const requestMoviesError = (
   error: string
@@ -21,15 +21,11 @@ export const recordMoviesDataToStore = (
   moviesData,
 });
 
-export const getMoviesDataRequest = (
-  params?: Record<string, string | number | boolean> | undefined
-) => (
-  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
-  getState: () => AppState
+export const getMoviesDataRequest = () => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {
   const searchParams = {
     limit: 20,
-    // ...params,
   };
 
   return getMovies(searchParams)
@@ -40,3 +36,35 @@ export const getMoviesDataRequest = (
       dispatch(requestMoviesError(error));
     });
 };
+
+export const requestMovieError = (
+  error: string
+): interfaces.RequestMovieError => ({
+  type: actionTypes.REQUEST_MOVIE_ERROR,
+  error,
+});
+
+export const recordMovieDataToStore = (
+  movieData: Movie
+): interfaces.RecordMovieDataToStore => ({
+  type: actionTypes.RECORD_MOVIE_DATA_TO_STORE,
+  movieData,
+});
+
+export const getMovieDataRequest = (id: number) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+): Promise<void> => {
+  return getMovie(id).then((response) => {
+    dispatch(recordMovieDataToStore(response.data));
+  });
+  // .catch((error) => {
+  //   dispatch(requestMovieError(error));
+  // });
+};
+
+export const resetMovieData = (
+  movieData: Movie
+): interfaces.ResetMovieDataInStore => ({
+  type: actionTypes.RESET_MOVIE_DATA_IN_STORE,
+  movieData,
+});

@@ -10,6 +10,7 @@ export const initialState: AppState = {
     moviesLoading: false,
     moviesError: '',
     moviesData: [],
+    movieData: {},
   },
 };
 

@@ -24,7 +24,7 @@ export const MovieCardItem: FC<
   release_date,
   addFormPlaceholderData,
   addMovieSelectData,
-  onClickMovie,
+  getMovieDataRequest,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -46,6 +46,10 @@ export const MovieCardItem: FC<
     setShowIcon(false);
   };
 
+  const addDefaultSrc = (e: any) => {
+    e.target.src = 'http://placehold.it/400x600/555555.gif&text=No+image.';
+  };
+
   return (
     <MovieCardItemContainer key={id}>
       <MovieCardImgContainer
@@ -63,7 +67,8 @@ export const MovieCardItem: FC<
         <MovieCardImg
           src={poster_path}
           alt={title}
-          onClick={() => onClickMovie(id)}
+          onClick={() => getMovieDataRequest(id)}
+          onError={addDefaultSrc}
         />
       </MovieCardImgContainer>
       <MovieCardInfo

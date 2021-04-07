@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { AboutMovieItemProps } from './AboutMovieItem.interface';
 
@@ -27,9 +27,13 @@ export const AboutMovieItem: any = ({ data }: AboutMovieItemProps) => {
     overview,
   } = data;
 
+  const addDefaultSrc = (e: any) => {
+    e.target.src = 'http://placehold.it/400x600/555555.gif&text=No+image.';
+  };
+
   return (
     <AboutMovieItemContainer>
-      <AboutMovieImg src={poster_path} alt={title} />
+      <AboutMovieImg src={poster_path} alt={title} onError={addDefaultSrc} />
       <AboutMovieItemRightPart>
         <AboutMovieGroup>
           <AboutMovieTitle>{title}</AboutMovieTitle>

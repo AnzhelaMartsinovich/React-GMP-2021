@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { ContentProps } from './Content.interface';
 import { AppState } from 'baseTypes/BaseTypes.interface';
 import { getMoviesDataSelector } from 'store/mainPage/selectors';
-import { getMoviesDataRequest } from 'store/actions/actions';
+import {
+  getMoviesDataRequest,
+  getMovieDataRequest,
+} from 'store/actions/actions';
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
 import { MovieCard } from './movieCard/MovieCard';
 
-// del
 import { navGenreData, navSortData } from 'utils/navData';
 import {
   editFormPlaceholderData,
@@ -19,8 +21,8 @@ import {
 import { ContentContainer, MovieCards } from './Content.style';
 
 export const ContentComponent: FC<ContentProps> = ({
-  onClickMovie,
   getMoviesDataRequest,
+  getMovieDataRequest,
   movies,
 }) => {
   useEffect(() => {
@@ -36,7 +38,7 @@ export const ContentComponent: FC<ContentProps> = ({
           moviesData={movies}
           addFormPlaceholderData={editFormPlaceholderData}
           addMovieSelectData={editMovieSelectData}
-          onClickMovie={onClickMovie}
+          getMovieDataRequest={getMovieDataRequest}
         />
       </MovieCards>
     </ContentContainer>
@@ -47,5 +49,5 @@ export const Content = connect(
   (state: AppState) => ({
     movies: getMoviesDataSelector(state),
   }),
-  { getMoviesDataRequest }
+  { getMoviesDataRequest, getMovieDataRequest }
 )(ContentComponent);

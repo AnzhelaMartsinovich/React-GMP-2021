@@ -17,7 +17,7 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   addFormPlaceholderData,
   addMovieSelectData,
   data,
-  hideMovie,
+  resetMovieData,
 }) => {
   const [open, setOpen] = useState(false);
   const setModalIsOpen = useCustomHook(open, setOpen);
@@ -25,8 +25,8 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   return (
     <HeaderContainer>
       <Logo />
-      {data ? (
-        <ButtonSearch onClick={hideMovie}>
+      {data.id ? (
+        <ButtonSearch onClick={resetMovieData}>
           <SearchIcon />
         </ButtonSearch>
       ) : (

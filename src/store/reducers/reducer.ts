@@ -6,6 +6,7 @@ export const mainPageInitialState: MainPageState = {
   moviesLoading: false,
   moviesError: '',
   moviesData: [],
+  movieData: {},
 };
 
 export const mainPageReducer = (
@@ -31,6 +32,20 @@ export const mainPageReducer = (
         ...state,
         moviesData: action.moviesData.data,
         moviesLoading: false,
+      };
+    }
+    case actionTypes.RECORD_MOVIE_DATA_TO_STORE: {
+      return {
+        ...state,
+        movieData: action.movieData,
+        // movieLoading: false,
+      };
+    }
+    case actionTypes.RESET_MOVIE_DATA_IN_STORE: {
+      return {
+        ...state,
+        movieData: (action.movieData = mainPageInitialState.movieData),
+        // movieLoading: false,
       };
     }
     default: {

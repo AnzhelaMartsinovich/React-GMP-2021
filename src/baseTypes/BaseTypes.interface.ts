@@ -17,6 +17,7 @@ export interface MainPageState {
   moviesLoading: boolean;
   moviesError: string;
   moviesData: Movie[];
+  movieData: {};
 }
 export interface AppState {
   mainPage: MainPageState;

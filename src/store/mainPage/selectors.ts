@@ -6,3 +6,9 @@ export const getMoviesDataSelector = createSelector(
   getMoviesData,
   (data) => data
 );
+
+const getMovieData = (state: AppState): any => state.mainPage.movieData;
+export const getMovieDataSelector = createSelector(
+  getMovieData,
+  (data) => data
+);
