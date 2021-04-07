@@ -22,7 +22,32 @@ export interface RecordMoviesDataToStore {
   moviesData: MoviesData;
 }
 
+export interface RecordMoviesDataToStoreId {
+  type: typeof actionTypes.RECORD_MOVIES_DATA_TO_STORE_ID;
+  moviesData: MoviesData;
+  id: number;
+}
+
+export interface RecordMovieDataToStore {
+  type: typeof actionTypes.RECORD_MOVIE_DATA_TO_STORE;
+  movieData: Movie;
+}
+
+export interface ResetMovieDataInStore {
+  type: typeof actionTypes.RESET_MOVIE_DATA_IN_STORE;
+  movieData: {};
+}
+
+export interface RequestMovieError {
+  type: typeof actionTypes.REQUEST_MOVIE_ERROR;
+  error: string;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
-  | RecordMoviesDataToStore;
+  | RecordMoviesDataToStore
+  | RecordMovieDataToStore
+  | RequestMovieError
+  | RecordMoviesDataToStoreId
+  | ResetMovieDataInStore;

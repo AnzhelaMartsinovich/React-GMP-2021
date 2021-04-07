@@ -15,5 +15,5 @@ export interface HeaderProps {
         runtime: number;
       }
     | any;
-  hideMovie: () => void;
+  resetMovieData: any;
 }

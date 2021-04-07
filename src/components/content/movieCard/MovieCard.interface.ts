@@ -1,5 +1,5 @@
 export interface MovieCardProps {
-  onClickMovie: (id: number) => void;
+  getMovieDataRequest: (id: number) => void;
 }
 
 export interface MovieItemProps {
