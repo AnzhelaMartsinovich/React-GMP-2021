@@ -10,7 +10,7 @@ export interface Movie {
   budget: number;
   revenue: number;
   genres: string[];
-  runtime?: number;
+  runtime: number;
 }
 
 export interface MainPageState {
@@ -18,6 +18,12 @@ export interface MainPageState {
   moviesError: string;
   moviesData: Movie[];
   movieData: {};
+  movieError: string;
+  movieForm: {};
+  //
+  // filter: string;
+  // sortDescending: boolean;
+  // sortBy: string;
 }
 export interface AppState {
   mainPage: MainPageState;
@@ -34,6 +40,7 @@ export interface PlaceholderData {
     placeholder: string;
     id: number;
     type?: string;
+    actionEvent?: any;
   }[];
 }
 

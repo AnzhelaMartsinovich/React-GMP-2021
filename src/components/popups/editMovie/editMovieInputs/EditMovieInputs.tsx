@@ -1,13 +1,10 @@
 import React, { FC } from 'react';
 
-import { PlaceholderData } from 'baseTypes/BaseTypes.interface';
-
 import { Label } from 'components/common/label/Label.style';
 import { EditMovieInputItem, EditMovieInput } from './EditMovieInputs.style';
+import { addFormPlaceholderData } from 'utils/addMovieData';
 
-export const EditMovieInputs: FC<PlaceholderData> = ({
-  addFormPlaceholderData,
-}) => (
+export const EditMovieInputs: FC = () => (
   <>
     {addFormPlaceholderData.map(({ id, title, placeholder, type }) => (
       <EditMovieInputItem key={id}>

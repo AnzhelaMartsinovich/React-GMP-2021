@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 
 import { AddMovieProps } from './AddMovie.interface';
-import {
-  PlaceholderData,
-  MovieSelectData,
-} from 'baseTypes/BaseTypes.interface';
 import { ADD_MOVIE, GENRE } from 'utils/constants';
 import { FormButtons } from '../../common/button/formButtons/FormButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
@@ -16,19 +12,27 @@ import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
 import { AddMovieContainer, AddMovieForm } from './AddMovie.style';
 
-export const AddMovie: FC<
-  AddMovieProps & PlaceholderData & MovieSelectData
-> = ({ addFormPlaceholderData, setModalIsOpen, addMovieSelectData }) => (
+export const AddMovie: FC<AddMovieProps> = ({
+  setModalIsOpen,
+  postMovieDataRequest,
+  resetMovieForm,
+}) => (
   <AddMovieContainer>
     <AddMovieForm>
       <Cross setModalIsOpen={setModalIsOpen} />
       <Title1>{ADD_MOVIE}</Title1>
-      <AddMovieInputs addFormPlaceholderData={addFormPlaceholderData} />
+      <AddMovieInputs />
       <Label>
         {GENRE}
-        <AddMovieSelect addMovieSelectData={addMovieSelectData} />
+        <AddMovieSelect />
       </Label>
-      <FormButtons leftBtnText={RESET} rightBtnText={SUBMIT} />
+      <FormButtons
+        leftBtnText={RESET}
+        rightBtnText={SUBMIT}
+        onOkEvent={postMovieDataRequest}
+        setModalIsOpen={setModalIsOpen}
+        onCancelEvent={resetMovieForm}
+      />
     </AddMovieForm>
   </AddMovieContainer>
 );

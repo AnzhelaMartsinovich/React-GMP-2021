@@ -12,3 +12,9 @@ export const getMovieDataSelector = createSelector(
   getMovieData,
   (data) => data
 );
+
+const getMovieForm = (state: AppState) => state.mainPage.movieForm;
+export const getMovieFormSelector = createSelector(
+  getMovieForm,
+  (value) => value
+);

@@ -11,6 +11,8 @@ export const initialState: AppState = {
     moviesError: '',
     moviesData: [],
     movieData: {},
+    movieError: '',
+    movieForm: {},
   },
 };
 

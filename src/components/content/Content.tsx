@@ -11,12 +11,7 @@ import {
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
 import { MovieCard } from './movieCard/MovieCard';
-
 import { navGenreData, navSortData } from 'utils/navData';
-import {
-  editFormPlaceholderData,
-  editMovieSelectData,
-} from 'utils/editMovieData';
 
 import { ContentContainer, MovieCards } from './Content.style';
 
@@ -36,8 +31,6 @@ export const ContentComponent: FC<ContentProps> = ({
       <MovieCards>
         <MovieCard
           moviesData={movies}
-          addFormPlaceholderData={editFormPlaceholderData}
-          addMovieSelectData={editMovieSelectData}
           getMovieDataRequest={getMovieDataRequest}
         />
       </MovieCards>

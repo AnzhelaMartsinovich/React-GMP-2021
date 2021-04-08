@@ -4,10 +4,6 @@ import { ReactComponent as Dots } from '../../../../../img/dots.svg';
 import { EDIT, DELETE } from '../../../../../utils/constants';
 import { Cross } from '../../../../common/cross/Cross';
 import { MovieHoverProps } from './MovieHover.interface';
-import {
-  PlaceholderData,
-  MovieSelectData,
-} from 'baseTypes/BaseTypes.interface';
 import { EditMovie } from '../../../../popups/editMovie/EditMovie';
 import { DeleteMovie } from '../../../../popups/deleteMovie/DeleteMovie';
 import { useCustomHook } from 'commonCode/CommonCode';
@@ -18,14 +14,10 @@ import {
   MovieHoverItem,
 } from './MovieHover.style';
 
-export const MovieHover: FC<
-  MovieHoverProps & PlaceholderData & MovieSelectData
-> = ({
+export const MovieHover: FC<MovieHoverProps> = ({
   showIcon,
   showPanel,
   onClickHandler,
-  addFormPlaceholderData,
-  addMovieSelectData,
   closePanel,
 }) => {
   const [editOpen, setEditOpen] = useState(false);
@@ -54,13 +46,7 @@ export const MovieHover: FC<
         </MovieHoverItems>
       )}
 
-      {editOpen && (
-        <EditMovie
-          addFormPlaceholderData={addFormPlaceholderData}
-          addMovieSelectData={addMovieSelectData}
-          setModalIsOpen={setEditOpenHandler}
-        />
-      )}
+      {editOpen && <EditMovie setModalIsOpen={setEditOpenHandler} />}
 
       {deleteOpen && <DeleteMovie setModalIsOpen={setDeleteOpenHandler} />}
     </>

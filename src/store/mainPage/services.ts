@@ -9,3 +9,6 @@ export const getMovies = (
 
 export const getMovie = (id: number): Promise<AxiosResponse> =>
   apiService.get(`${MOVIES_URL}/${id}`);
+
+export const postMovie = (movie: Record<string, any>): Promise<AxiosResponse> =>
+  apiService.post(MOVIES_URL, movie);

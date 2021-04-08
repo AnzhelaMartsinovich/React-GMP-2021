@@ -43,6 +43,40 @@ export interface RequestMovieError {
   error: string;
 }
 
+export interface SetFormTitle {
+  type: typeof actionTypes.SET_FORM_TITLE;
+  title: string;
+}
+
+export interface SetFormDate {
+  type: typeof actionTypes.SET_FORM_DATE;
+  date: string;
+}
+
+export interface SetFormUrl {
+  type: typeof actionTypes.SET_FORM_URL;
+  url: string;
+}
+
+export interface SetFormOverview {
+  type: typeof actionTypes.SET_FORM_OVERVIEW;
+  overview: string;
+}
+
+export interface SetFormRuntime {
+  type: typeof actionTypes.SET_FORM_RUNTIME;
+  runtime: any;
+}
+
+export interface SetFormGenres {
+  type: typeof actionTypes.SET_FORM_GENRES;
+  genres: string[];
+}
+
+export interface ResetMovieForm {
+  type: typeof actionTypes.RESET_MOVIE_FORM;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -50,4 +84,11 @@ export type MainPageActionsTypes =
   | RecordMovieDataToStore
   | RequestMovieError
   | RecordMoviesDataToStoreId
-  | ResetMovieDataInStore;
+  | ResetMovieDataInStore
+  | SetFormDate
+  | SetFormTitle
+  | SetFormUrl
+  | SetFormGenres
+  | SetFormOverview
+  | SetFormRuntime
+  | ResetMovieForm;

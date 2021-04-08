@@ -4,18 +4,10 @@ import { MovieCardProps } from './MovieCard.interface';
 import { MovieCardItem } from './movieCardItem/MovieCardItem';
 
 import { MovieCardContainer } from './MovieCard.style';
-import {
-  MoviesDataProps,
-  PlaceholderData,
-  MovieSelectData,
-} from 'baseTypes/BaseTypes.interface';
+import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
 
-export const MovieCard: FC<
-  MovieCardProps & MoviesDataProps & PlaceholderData & MovieSelectData
-> = ({
+export const MovieCard: FC<MovieCardProps & MoviesDataProps> = ({
   moviesData,
-  addFormPlaceholderData,
-  addMovieSelectData,
   getMovieDataRequest,
 }) => (
   <MovieCardContainer>
@@ -27,8 +19,6 @@ export const MovieCard: FC<
         title={title}
         genres={genres}
         release_date={release_date}
-        addFormPlaceholderData={addFormPlaceholderData}
-        addMovieSelectData={addMovieSelectData}
         getMovieDataRequest={getMovieDataRequest}
       />
     ))}
