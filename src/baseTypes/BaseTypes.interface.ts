@@ -20,10 +20,6 @@ export interface MainPageState {
   movieData: {};
   movieError: string;
   movieForm: {};
-  //
-  // filter: string;
-  // sortDescending: boolean;
-  // sortBy: string;
 }
 export interface AppState {
   mainPage: MainPageState;
@@ -31,26 +27,4 @@ export interface AppState {
 
 export interface MoviesDataProps {
   moviesData: Movie[];
-}
-
-// Old interfaces
-export interface PlaceholderData {
-  addFormPlaceholderData: {
-    title: string;
-    placeholder: string;
-    id: number;
-    type?: string;
-    actionEvent?: any;
-  }[];
-}
-
-export interface MovieSelectData {
-  addMovieSelectData: {
-    label: string;
-    value: string;
-    id: number;
-    hidden?: boolean;
-    disabled?: boolean;
-    selected?: boolean;
-  }[];
 }

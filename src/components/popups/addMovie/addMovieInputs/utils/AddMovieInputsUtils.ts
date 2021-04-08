@@ -11,7 +11,6 @@ export const onChangeDateHandler = (
   e: ChangeEvent<HTMLInputElement>,
   setFormDate: (valueStr: string) => void
 ) => {
-  console.log(typeof e.target.value);
   setFormDate(e.target.value);
 };
 

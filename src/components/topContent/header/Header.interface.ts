@@ -1,3 +1,6 @@
+import { Movie } from 'baseTypes/BaseTypes.interface';
+import { MouseEventHandler } from 'react';
+
 export interface HeaderProps {
   data:
     | {
@@ -15,5 +18,7 @@ export interface HeaderProps {
         runtime: number;
       }
     | any;
+  postMovieDataRequest: () => Promise<void>;
   resetMovieData: any;
+  resetMovieForm: () => void;
 }
