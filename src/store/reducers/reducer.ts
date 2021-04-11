@@ -10,6 +10,7 @@ export const mainPageInitialState: MainPageState = {
   movieError: '',
   movieForm: {},
   totalAmount: 0,
+  previewFlag: false,
 };
 
 export const mainPageReducer = (
@@ -101,6 +102,18 @@ export const mainPageReducer = (
       return {
         ...state,
         movieForm: {},
+      };
+    }
+    case actionTypes.SET_FLAG_FOR_PREVIEW_TRUE: {
+      return {
+        ...state,
+        previewFlag: true,
+      };
+    }
+    case actionTypes.SET_FLAG_FOR_PREVIEW_FALSE: {
+      return {
+        ...state,
+        previewFlag: false,
       };
     }
     default: {

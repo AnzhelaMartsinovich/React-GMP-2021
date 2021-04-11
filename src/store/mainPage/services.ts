@@ -12,3 +12,6 @@ export const getMovie = (id: number): Promise<AxiosResponse> =>
 
 export const postMovie = (movie: Record<string, any>): Promise<AxiosResponse> =>
   apiService.post(MOVIES_URL, movie);
+
+export const delMovie = (id: number): Promise<AxiosResponse> =>
+  apiService.del(`${MOVIES_URL}/${id}`);

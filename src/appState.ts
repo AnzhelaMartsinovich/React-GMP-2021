@@ -14,6 +14,7 @@ export const initialState: AppState = {
     movieError: '',
     movieForm: {},
     totalAmount: 0,
+    previewFlag: false,
   },
 };
 

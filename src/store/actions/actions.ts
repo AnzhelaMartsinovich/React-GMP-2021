@@ -5,7 +5,7 @@ import * as actionTypes from '../actionTypes';
 import * as interfaces from '../interfaces';
 
 import { AppState, Movie } from 'baseTypes/BaseTypes.interface';
-import { getMovies, getMovie, postMovie } from '../mainPage/services';
+import { getMovies, getMovie, postMovie, delMovie } from '../mainPage/services';
 import { getMovieFormSelector } from '../mainPage/selectors';
 
 export const requestMoviesError = (
@@ -102,7 +102,7 @@ export const setFormOverview = (
   overview,
 });
 
-export const setFormRuntime = (runtime: any): interfaces.SetFormRuntime => ({
+export const setFormRuntime = (runtime: number): interfaces.SetFormRuntime => ({
   type: actionTypes.SET_FORM_RUNTIME,
   runtime,
 });
@@ -128,3 +128,24 @@ export const postMovieDataRequest = () => (
     dispatch(getMoviesDataRequest());
   });
 };
+
+export const deleteMovieRequest = (id: number) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+): Promise<void> =>
+  delMovie(id).then(() => {
+    dispatch(getMoviesDataRequest());
+  });
+
+export const setFlagForPreviewPhotoTrue = (
+  previewFlag: boolean
+): interfaces.SetFlagForPreviewPhotoTrue => ({
+  type: actionTypes.SET_FLAG_FOR_PREVIEW_TRUE,
+  previewFlag,
+});
+
+export const setFlagForPreviewPhotoFalse = (
+  previewFlag: boolean
+): interfaces.SetFlagForPreviewPhotoFalse => ({
+  type: actionTypes.SET_FLAG_FOR_PREVIEW_FALSE,
+  previewFlag,
+});

@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
+import { connect } from 'react-redux';
 
 import { DeleteMovieProps } from './DeleteMovie.interface';
 import { DELETE_MOVIE, DELETE_MESSAGE, CONFIRM } from 'utils/constants';
 import { Cross } from '../../common/cross/Cross';
+import { deleteMovieRequest } from 'store/actions/actions';
+import { AppState } from 'baseTypes/BaseTypes.interface';
+import { getMovieDataId } from 'store/mainPage/selectors';
 
 import { Title1 } from '../../common/title/Title.style';
 import {
@@ -12,9 +16,15 @@ import {
   ConfirmButton,
 } from './DeleteMovie.style';
 
-export const DeleteMovie: FC<DeleteMovieProps> = ({ setModalIsOpen }) => {
+export const DeleteMovieComponent: FC<DeleteMovieProps> = ({
+  setModalIsOpen,
+  deleteMovieRequest,
+  movieId,
+}) => {
   const onHandleClick = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
+    deleteMovieRequest(movieId);
+    setModalIsOpen && setModalIsOpen();
   };
 
   return (
@@ -28,3 +38,12 @@ export const DeleteMovie: FC<DeleteMovieProps> = ({ setModalIsOpen }) => {
     </DeleteMovieContainer>
   );
 };
+
+export const DeleteMovie = connect(
+  (state: AppState) => ({
+    movieId: getMovieDataId(state),
+  }),
+  {
+    deleteMovieRequest,
+  }
+)(DeleteMovieComponent);

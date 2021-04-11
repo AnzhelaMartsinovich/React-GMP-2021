@@ -81,6 +81,16 @@ export interface ResetMovieForm {
   type: typeof actionTypes.RESET_MOVIE_FORM;
 }
 
+export interface SetFlagForPreviewPhotoTrue {
+  type: typeof actionTypes.SET_FLAG_FOR_PREVIEW_TRUE;
+  previewFlag: boolean;
+}
+
+export interface SetFlagForPreviewPhotoFalse {
+  type: typeof actionTypes.SET_FLAG_FOR_PREVIEW_FALSE;
+  previewFlag: boolean;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -96,4 +106,6 @@ export type MainPageActionsTypes =
   | SetFormGenres
   | SetFormOverview
   | SetFormRuntime
-  | ResetMovieForm;
+  | ResetMovieForm
+  | SetFlagForPreviewPhotoTrue
+  | SetFlagForPreviewPhotoFalse;

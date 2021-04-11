@@ -21,6 +21,7 @@ export interface MainPageState {
   movieError: string;
   movieForm: {};
   totalAmount: number;
+  previewFlag: boolean;
 }
 export interface AppState {
   mainPage: MainPageState;
