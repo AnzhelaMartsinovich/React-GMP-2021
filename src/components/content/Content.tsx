@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 
 import { ContentProps } from './Content.interface';
 import { AppState } from 'baseTypes/BaseTypes.interface';
-import { getMoviesDataSelector } from 'store/mainPage/selectors';
+import {
+  getMoviesDataSelector,
+  getTotalAmount,
+} from 'store/mainPage/selectors';
 import {
   getMoviesDataRequest,
   getMovieDataRequest,
@@ -19,6 +22,7 @@ export const ContentComponent: FC<ContentProps> = ({
   getMoviesDataRequest,
   getMovieDataRequest,
   movies,
+  totalAmount,
 }) => {
   useEffect(() => {
     getMoviesDataRequest();
@@ -27,7 +31,7 @@ export const ContentComponent: FC<ContentProps> = ({
   return (
     <ContentContainer>
       <Navigation navGenreData={navGenreData} navSortData={navSortData} />
-      <CountMovies moviesData={movies} />
+      <CountMovies totalAmount={totalAmount} />
       <MovieCards>
         <MovieCard
           moviesData={movies}
@@ -41,6 +45,7 @@ export const ContentComponent: FC<ContentProps> = ({
 export const Content = connect(
   (state: AppState) => ({
     movies: getMoviesDataSelector(state),
+    totalAmount: getTotalAmount(state),
   }),
   { getMoviesDataRequest, getMovieDataRequest }
 )(ContentComponent);

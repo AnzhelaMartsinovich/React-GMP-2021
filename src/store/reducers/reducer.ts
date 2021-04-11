@@ -9,6 +9,7 @@ export const mainPageInitialState: MainPageState = {
   movieData: {},
   movieError: '',
   movieForm: {},
+  totalAmount: 0,
 };
 
 export const mainPageReducer = (
@@ -27,6 +28,12 @@ export const mainPageReducer = (
         ...state,
         moviesError: action.error,
         moviesLoading: false,
+      };
+    }
+    case actionTypes.SET_TOTAL_AMOUNT_TO_STORE: {
+      return {
+        ...state,
+        totalAmount: action.totalAmount,
       };
     }
     case actionTypes.RECORD_MOVIES_DATA_TO_STORE: {

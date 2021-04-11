@@ -13,6 +13,7 @@ export const initialState: AppState = {
     movieData: {},
     movieError: '',
     movieForm: {},
+    totalAmount: 0,
   },
 };
 

@@ -20,6 +20,7 @@ export interface MainPageState {
   movieData: {};
   movieError: string;
   movieForm: {};
+  totalAmount: number;
 }
 export interface AppState {
   mainPage: MainPageState;

@@ -16,6 +16,10 @@ export interface MoviesData {
   limit: number;
   data: Movie[];
 }
+export interface SetTotalAmountToStore {
+  type: typeof actionTypes.SET_TOTAL_AMOUNT_TO_STORE;
+  totalAmount: MoviesData['totalAmount'];
+}
 
 export interface RecordMoviesDataToStore {
   type: typeof actionTypes.RECORD_MOVIES_DATA_TO_STORE;
@@ -80,6 +84,7 @@ export interface ResetMovieForm {
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
+  | SetTotalAmountToStore
   | RecordMoviesDataToStore
   | RecordMovieDataToStore
   | RequestMovieError

@@ -22,16 +22,20 @@ export const recordMoviesDataToStore = (
   moviesData,
 });
 
+export const setTotalAmountToStore = (
+  totalAmount: number
+): interfaces.SetTotalAmountToStore => ({
+  type: actionTypes.SET_TOTAL_AMOUNT_TO_STORE,
+  totalAmount,
+});
+
 export const getMoviesDataRequest = () => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {
-  const searchParams = {
-    limit: 20,
-  };
-
-  return getMovies(searchParams)
+  return getMovies()
     .then((response) => {
       dispatch(recordMoviesDataToStore(response.data));
+      dispatch(setTotalAmountToStore(response.data.totalAmount));
     })
     .catch((error) => {
       dispatch(requestMoviesError(error));
