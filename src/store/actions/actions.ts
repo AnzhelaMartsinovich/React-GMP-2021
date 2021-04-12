@@ -5,8 +5,18 @@ import * as actionTypes from '../actionTypes';
 import * as interfaces from '../interfaces';
 
 import { AppState, Movie } from 'baseTypes/BaseTypes.interface';
-import { getMovies, getMovie, postMovie, delMovie } from '../mainPage/services';
-import { getMovieFormSelector } from '../mainPage/selectors';
+import {
+  getMovies,
+  getMovie,
+  postMovie,
+  delMovie,
+  editMovie,
+} from '../mainPage/services';
+import {
+  getMovieDataSelector,
+  getMovieFormSelector,
+} from '../mainPage/selectors';
+import { prepareMovieForRequest } from 'commonUtils/prepareMovieForRequest';
 
 export const requestMoviesError = (
   error: string
@@ -149,3 +159,17 @@ export const setFlagForPreviewPhotoFalse = (
   type: actionTypes.SET_FLAG_FOR_PREVIEW_FALSE,
   previewFlag,
 });
+
+export const putMovieRequest = () => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
+  getState: () => AppState
+): Promise<void> => {
+  const movieForm = getMovieFormSelector(getState());
+  const movie = getMovieDataSelector(getState());
+  const resultMovie = prepareMovieForRequest(movie, movieForm);
+
+  return editMovie(resultMovie).then(() => {
+    dispatch(getMoviesDataRequest());
+    dispatch(getMovieDataRequest(resultMovie.id));
+  });
+};

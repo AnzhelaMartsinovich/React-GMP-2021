@@ -5,4 +5,6 @@ export interface MovieCardItemProps {
   genres: string[];
   release_date: string;
   getMovieDataRequest: (id: number) => void;
+  setFlagForPreviewPhotoTrue: any;
+  setFlagForPreviewPhotoFalse: any;
 }
