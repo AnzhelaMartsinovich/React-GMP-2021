@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 import { ButtonProps } from './Button.interface';
 
 export const Button = styled.button<ButtonProps>`

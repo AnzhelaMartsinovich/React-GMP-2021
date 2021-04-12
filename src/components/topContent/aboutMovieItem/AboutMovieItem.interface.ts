@@ -1,5 +1,5 @@
-export interface CountMoviesProps {
-  moviesData: {
+export interface AboutMovieItemProps {
+  data: {
     id: number;
     title: string;
     tagline: string;
@@ -12,5 +12,5 @@ export interface CountMoviesProps {
     revenue: number;
     genres: string[];
     runtime: number;
-  }[];
+  };
 }

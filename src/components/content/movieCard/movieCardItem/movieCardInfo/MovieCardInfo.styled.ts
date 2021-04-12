@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../../../theme';
+import { styled, theme } from 'theme';
 
 export const MovieCardInfoText = styled.div`
   display: flex;
@@ -9,16 +9,3 @@ export const MovieCardInfoText = styled.div`
 `;
 
 export const MovieCardDescr = styled.div``;
-
-export const MovieCardRelease = styled.div`
-  padding: 3px 10px;
-  display: inline-block;
-  border: 1px solid ${theme.colors.grayBg};
-  border-radius: 4px;
-`;
-
-export const MovieCardTitle = styled.h3``;
-
-export const MovieCardGenres = styled.p`
-  font-size: 14px;
-`;

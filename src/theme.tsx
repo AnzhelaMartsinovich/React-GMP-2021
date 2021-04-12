@@ -7,6 +7,7 @@ export const theme = {
     black: '#232323',
     gray: '#424242',
     grayBg: '#555555',
+    green: '#5bba1c',
   },
   transparency: {
     0: '00',

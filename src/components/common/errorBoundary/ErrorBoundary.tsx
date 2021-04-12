@@ -4,7 +4,7 @@ import {
   ErrorBoundaryProps,
   ErrorBoundaryState,
 } from './ErrorBoundary.interface';
-import { ERROR } from '../../../utils/constants';
+import { ERROR } from 'utils/constants';
 
 import { ErrorBoundaryText } from './ErrorBoundary.style';
 

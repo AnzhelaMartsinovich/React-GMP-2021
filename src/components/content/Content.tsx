@@ -1,18 +1,26 @@
 import React, { FC } from 'react';
 
 import { ContentProps } from './Content.interface';
+import {
+  MoviesDataProps,
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
 import { MovieCard } from './movieCard/MovieCard';
 
 import { ContentContainer, MovieCards } from './Content.style';
 
-export const Content: FC<ContentProps> = ({
+export const Content: FC<
+  ContentProps & MoviesDataProps & PlaceholderData & MovieSelectData
+> = ({
   moviesData,
   navGenreData,
   navSortData,
   addFormPlaceholderData,
   addMovieSelectData,
+  onClickMovie,
 }) => (
   <ContentContainer>
     <Navigation navGenreData={navGenreData} navSortData={navSortData} />
@@ -22,6 +30,7 @@ export const Content: FC<ContentProps> = ({
         moviesData={moviesData}
         addFormPlaceholderData={addFormPlaceholderData}
         addMovieSelectData={addMovieSelectData}
+        onClickMovie={onClickMovie}
       />
     </MovieCards>
   </ContentContainer>

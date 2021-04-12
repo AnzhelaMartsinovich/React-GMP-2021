@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { CrossProps } from './Cross.interface';
-import { ReactComponent as CrossIcon } from '../../../img/crossIcon.svg';
+import { ReactComponent as CrossIcon } from 'img/crossIcon.svg';
 
 import { CrossItem } from './Cross.style';
 

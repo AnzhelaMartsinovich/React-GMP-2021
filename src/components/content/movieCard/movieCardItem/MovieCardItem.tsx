@@ -2,15 +2,21 @@ import React, { FC, useState } from 'react';
 
 import { MovieCardInfo } from './movieCardInfo/MovieCardInfo';
 import { MovieCardItemProps } from './MovieCardItem.interface';
+import {
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { MovieHover } from './movieHover/MovieHover';
 
 import {
   MovieCardItemContainer,
   MovieCardImgContainer,
-  MovieCardImg,
 } from './MovieCardItem.style';
+import { MovieCardImg } from 'components/common/movie/MovieComponents.style';
 
-export const MovieCardItem: FC<MovieCardItemProps> = ({
+export const MovieCardItem: FC<
+  MovieCardItemProps & PlaceholderData & MovieSelectData
+> = ({
   id,
   poster_path,
   title,
@@ -18,6 +24,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
   release_date,
   addFormPlaceholderData,
   addMovieSelectData,
+  onClickMovie,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -53,7 +60,11 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           addMovieSelectData={addMovieSelectData}
           closePanel={closePanel}
         />
-        <MovieCardImg src={poster_path} alt={title} />
+        <MovieCardImg
+          src={poster_path}
+          alt={title}
+          onClick={() => onClickMovie(id)}
+        />
       </MovieCardImgContainer>
       <MovieCardInfo
         title={title}

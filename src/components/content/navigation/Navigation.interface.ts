@@ -4,6 +4,6 @@ export interface NavigationProps {
 }
 
 export interface NavItemProps {
-  active?: any;
+  active?: boolean;
   id: any;
 }

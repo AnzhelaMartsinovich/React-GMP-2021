@@ -4,8 +4,13 @@ import { ReactComponent as Dots } from '../../../../../img/dots.svg';
 import { EDIT, DELETE } from '../../../../../utils/constants';
 import { Cross } from '../../../../common/cross/Cross';
 import { MovieHoverProps } from './MovieHover.interface';
+import {
+  PlaceholderData,
+  MovieSelectData,
+} from 'baseTypes/BaseTypes.interface';
 import { EditMovie } from '../../../../popups/editMovie/EditMovie';
 import { DeleteMovie } from '../../../../popups/deleteMovie/DeleteMovie';
+import { useCustomHook } from 'commonCode/CommonCode';
 
 import {
   MovieHoverPanel,
@@ -13,7 +18,9 @@ import {
   MovieHoverItem,
 } from './MovieHover.style';
 
-export const MovieHover: FC<MovieHoverProps> = ({
+export const MovieHover: FC<
+  MovieHoverProps & PlaceholderData & MovieSelectData
+> = ({
   showIcon,
   showPanel,
   onClickHandler,
@@ -24,15 +31,12 @@ export const MovieHover: FC<MovieHoverProps> = ({
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  const setEditOpenHandler = () => {
-    setEditOpen(!editOpen);
-    closePanel();
-  };
-
-  const setDeleteOpenHandler = () => {
-    setDeleteOpen(!deleteOpen);
-    closePanel();
-  };
+  const setEditOpenHandler = useCustomHook(editOpen, setEditOpen, closePanel);
+  const setDeleteOpenHandler = useCustomHook(
+    deleteOpen,
+    setDeleteOpen,
+    closePanel
+  );
 
   return (
     <>

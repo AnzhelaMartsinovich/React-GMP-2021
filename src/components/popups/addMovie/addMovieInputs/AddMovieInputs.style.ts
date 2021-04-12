@@ -1,5 +1,5 @@
-import { styled, theme } from '../../../../theme';
-import { Input } from '../../../common/input/Input.style';
+import { styled, theme } from 'theme';
+import { Input } from 'components/common/input/Input.style';
 
 export const AddMovieInputItem = styled.div`
   margin-bottom: 30px;

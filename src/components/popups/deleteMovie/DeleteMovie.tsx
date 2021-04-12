@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
 
 import { DeleteMovieProps } from './DeleteMovie.interface';
-import {
-  DELETE_MOVIE,
-  DELETE_MESSAGE,
-  CONFIRM,
-} from '../../../utils/constants';
+import { DELETE_MOVIE, DELETE_MESSAGE, CONFIRM } from 'utils/constants';
 import { Cross } from '../../common/cross/Cross';
 
 import { Title1 } from '../../common/title/Title.style';

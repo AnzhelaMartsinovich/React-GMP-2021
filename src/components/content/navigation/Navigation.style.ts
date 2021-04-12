@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 import { NavItemProps } from './Navigation.interface';
 
 export const Navs = styled.div`

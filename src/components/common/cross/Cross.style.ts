@@ -1,4 +1,4 @@
-import { styled, theme } from '../../../theme';
+import { styled, theme } from 'theme';
 import { CrossItemProps } from './Cross.interface';
 
 export const CrossItem = styled.button<CrossItemProps>`
