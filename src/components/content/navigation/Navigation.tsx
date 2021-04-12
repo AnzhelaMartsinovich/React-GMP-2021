@@ -20,6 +20,7 @@ export const Navigation: FC<NavigationProps> = ({
 
   const handlerClick = (e: Record<string, any>) => {
     setCurrent(e.target.id);
+    saveFilterValue(e.target.innerHTML);
   };
 
   const sortPanelSelectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {

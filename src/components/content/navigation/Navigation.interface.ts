@@ -1,6 +1,6 @@
 export interface NavigationProps {
   saveSortValue: (value: string) => void;
-  saveFilterValue: any;
+  saveFilterValue: (value: string) => void;
 }
 
 export interface NavItemProps {
