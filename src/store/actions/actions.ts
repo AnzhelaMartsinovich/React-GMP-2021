@@ -17,6 +17,7 @@ import {
   getMovieFormSelector,
 } from '../mainPage/selectors';
 import { prepareMovieForRequest } from 'commonUtils/prepareMovieForRequest';
+import { prepareParamsObject } from 'commonUtils/utils';
 
 export const requestMoviesError = (
   error: string
@@ -40,9 +41,16 @@ export const setTotalAmountToStore = (
 });
 
 export const getMoviesDataRequest = () => (
-  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
+  getState: () => AppState
 ): Promise<void> => {
-  return getMovies()
+  const navBarParams = prepareParamsObject(getState().mainPage);
+
+  const searchParams = {
+    ...navBarParams,
+  };
+
+  return getMovies(searchParams)
     .then((response) => {
       dispatch(recordMoviesDataToStore(response.data));
       dispatch(setTotalAmountToStore(response.data.totalAmount));
@@ -129,7 +137,7 @@ export const postMovieDataRequest = () => (
   const movie = {
     vote_average: 0,
     vote_count: 9,
-    budget: 0,
+    budget: 1000,
     revenue: 0,
     ...movieForm,
   };
@@ -173,3 +181,13 @@ export const putMovieRequest = () => (
     dispatch(getMovieDataRequest(resultMovie.id));
   });
 };
+
+export const saveSortValue = (value: string): interfaces.SaveSortValue => ({
+  type: actionTypes.SAVE_SORT_VALUE,
+  value,
+});
+
+export const saveFilterValue = (value: string): interfaces.SaveFilterValue => ({
+  type: actionTypes.SAVE_FILTER_VALUE,
+  value,
+});

@@ -24,7 +24,6 @@ export const EditMovieInputsComponent: FC<EditMovieInputsProps> = ({
   setFormOverview,
   setFormRuntime,
 }) => {
-  console.log(movieData);
   const { id, title, release_date, poster_path, overview, runtime } = movieData;
   return (
     <EditMovieInputItem key={movieData.id}>

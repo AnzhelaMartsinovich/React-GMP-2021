@@ -91,6 +91,16 @@ export interface SetFlagForPreviewPhotoFalse {
   previewFlag: boolean;
 }
 
+export interface SaveSortValue {
+  type: typeof actionTypes.SAVE_SORT_VALUE;
+  value: string;
+}
+
+export interface SaveFilterValue {
+  type: typeof actionTypes.SAVE_FILTER_VALUE;
+  value: string;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -108,4 +118,6 @@ export type MainPageActionsTypes =
   | SetFormRuntime
   | ResetMovieForm
   | SetFlagForPreviewPhotoTrue
-  | SetFlagForPreviewPhotoFalse;
+  | SetFlagForPreviewPhotoFalse
+  | SaveSortValue
+  | SaveFilterValue;

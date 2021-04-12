@@ -1,6 +1,6 @@
 export interface NavigationProps {
-  navGenreData: { text: string; id: number }[];
-  navSortData: { text: string; id: number }[];
+  saveSortValue: (value: string) => void;
+  saveFilterValue: any;
 }
 
 export interface NavItemProps {

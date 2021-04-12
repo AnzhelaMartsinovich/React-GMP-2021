@@ -30,4 +30,8 @@ export const navSortData = [
     text: 'release data',
     id: 2,
   },
+  {
+    text: 'rating',
+    id: 3,
+  },
 ];

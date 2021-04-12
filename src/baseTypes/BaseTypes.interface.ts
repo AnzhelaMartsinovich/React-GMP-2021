@@ -22,6 +22,9 @@ export interface MainPageState {
   movieForm: {};
   totalAmount: number;
   previewFlag: boolean;
+  filter: string;
+  sortBy: string;
+  sortDescending: boolean;
 }
 export interface AppState {
   mainPage: MainPageState;

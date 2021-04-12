@@ -7,4 +7,8 @@ export interface ContentProps {
   getMovieDataRequest: (id: number) => void;
   movies: Movie[];
   totalAmount: number;
+  saveSortValue: (value: string) => void;
+  saveFilterValue: (value: string) => void;
+  filterValue: string;
+  sortValue: string;
 }

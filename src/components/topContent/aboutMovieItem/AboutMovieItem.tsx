@@ -42,7 +42,7 @@ export const AboutMovieItem: any = ({ data }: AboutMovieItemProps) => {
         <AboutMovieTagline>{tagline}</AboutMovieTagline>
         <AboutMovieGroupTwo>
           <AboutMovieData>{release_date.slice(0, 4)}</AboutMovieData>
-          <MovieRuntime>{`${runtime} min`}</MovieRuntime>
+          <MovieRuntime>{runtime && `${runtime} min`}</MovieRuntime>
         </AboutMovieGroupTwo>
         <AboutMovieDescr>{overview}</AboutMovieDescr>
       </AboutMovieItemRightPart>

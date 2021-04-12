@@ -17,6 +17,7 @@ export const AboutMovieItemContainer = styled.div`
 
 export const AboutMovieItemRightPart = styled.div`
   max-width: 770px;
+  min-width: 50%;
 `;
 
 export const AboutMovieImg = styled(MovieCardImg)`

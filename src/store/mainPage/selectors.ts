@@ -29,3 +29,15 @@ export const getMovieFormSelector = createSelector(
   getMovieForm,
   (value) => value
 );
+
+const getFilterValue = (state: AppState): string => state.mainPage.filter;
+export const getFilterValueSelector = createSelector(
+  getFilterValue,
+  (value) => value
+);
+
+const getSortValue = (state: AppState): string => state.mainPage.sortBy;
+export const getSortValueSelector = createSelector(
+  getSortValue,
+  (value) => value
+);

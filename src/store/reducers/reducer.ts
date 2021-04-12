@@ -11,6 +11,9 @@ export const mainPageInitialState: MainPageState = {
   movieForm: {},
   totalAmount: 0,
   previewFlag: false,
+  filter: 'all',
+  sortBy: 'release date',
+  sortDescending: true,
 };
 
 export const mainPageReducer = (
@@ -114,6 +117,18 @@ export const mainPageReducer = (
       return {
         ...state,
         previewFlag: false,
+      };
+    }
+    case actionTypes.SAVE_FILTER_VALUE: {
+      return {
+        ...state,
+        filter: action.value,
+      };
+    }
+    case actionTypes.SAVE_SORT_VALUE: {
+      return {
+        ...state,
+        sortBy: action.value,
       };
     }
     default: {
