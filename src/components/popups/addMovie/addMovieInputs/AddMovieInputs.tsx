@@ -24,20 +24,6 @@ export const AddMovieInputsComponent: FC<AddMovieInputsComponentProps> = ({
   setFormRuntime,
 }) => (
   <>
-    {/* {addFormPlaceholderData.map(
-        ({ id, title, placeholder, type, actionEvent }) => (
-          <AddMovieInputItem key={id}>
-            <Label>
-              {title}
-              <AddMovieInput
-                placeholder={placeholder}
-                type={type}
-                onChange={actionEvent}
-              />
-            </Label>
-          </AddMovieInputItem>
-        )
-      )} */}
     <AddMovieInputItem key={addFormPlaceholderData[0].id}>
       <Label>
         {addFormPlaceholderData[0].title}
@@ -85,7 +71,6 @@ export const AddMovieInputsComponent: FC<AddMovieInputsComponentProps> = ({
           placeholder={addFormPlaceholderData[4].placeholder}
           type={addFormPlaceholderData[4].type}
           onChange={(e) => onChangeRuntimeHandler(e, setFormRuntime)}
-          // onChange={addFormPlaceholderData[4].actionEvent}
         />
       </Label>
     </AddMovieInputItem>

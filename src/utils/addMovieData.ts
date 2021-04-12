@@ -1,15 +1,8 @@
-import {
-  onChangeTitleHandler,
-  onChangeDateHandler,
-  onChangeUrlHandler,
-} from 'components/popups/addMovie/addMovieInputs/utils/AddMovieInputsUtils';
 export const addFormPlaceholderData = [
   {
     title: 'Title',
     placeholder: 'Title',
     id: 1,
-    // actionEvent: (e: any, setFormDate: any) =>
-    //   onChangeTitleHandler(e, setFormDate),
   },
   {
     title: 'Release data',

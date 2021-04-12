@@ -13,6 +13,7 @@ export const AboutMovieItemContainer = styled.div`
   justify-content: space-around;
   color: ${theme.colors.white + theme.transparency['50']};
   font-weight: 400;
+  max-height: 410px;
 `;
 
 export const AboutMovieItemRightPart = styled.div`
@@ -67,4 +68,8 @@ export const AboutMovieData = styled(MovieData)`
 export const AboutMovieDescr = styled(MovieDescr)`
   font-size: 18px;
   line-height: 25px;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;

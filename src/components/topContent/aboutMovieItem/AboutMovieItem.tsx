@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { AboutMovieItemProps } from './AboutMovieItem.interface';
 
@@ -16,7 +16,7 @@ import {
 } from './AboutMovieItem.style';
 import { MovieRuntime } from 'components/common/movie/MovieComponents.style';
 
-export const AboutMovieItem: any = ({ data }: AboutMovieItemProps) => {
+export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
   const {
     poster_path,
     title,

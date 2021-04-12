@@ -2,9 +2,9 @@ import { Movie } from 'baseTypes/BaseTypes.interface';
 
 export interface EditMovieProps {
   setModalIsOpen?: () => void;
-  movieData: any;
-  resetMovieForm: any;
-  putMovieRequest: any;
+  movieData: Movie;
+  resetMovieForm: () => void;
+  putMovieRequest: () => Promise<void>;
 }
 
 export interface EditMovieInputsProps {
