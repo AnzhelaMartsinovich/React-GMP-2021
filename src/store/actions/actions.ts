@@ -129,17 +129,15 @@ export const resetMovieForm = (): interfaces.ResetMovieForm => ({
   type: actionTypes.RESET_MOVIE_FORM,
 });
 
-export const postMovieDataRequest = () => (
-  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
-  getState: () => AppState
+export const postMovieDataRequest = (movieData: any) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {
-  const movieForm = getMovieFormSelector(getState());
   const movie = {
     vote_average: 0,
     vote_count: 9,
     budget: 1000,
     revenue: 0,
-    ...movieForm,
+    ...movieData,
   };
 
   return postMovie(movie).then(() => {

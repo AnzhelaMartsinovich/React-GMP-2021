@@ -1,38 +1,52 @@
 import React, { FC } from 'react';
+import { Form, FormikProps, Formik } from 'formik';
 
-import { AddMovieProps } from './AddMovie.interface';
+import { AddMovieProps, Values } from './AddMovie.interface';
 import { ADD_MOVIE, GENRE } from 'utils/constants';
 import { FormButtons } from '../../common/button/formButtons/FormButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
 import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
 import { Cross } from '../../common/cross/Cross';
 import { RESET, SUBMIT } from 'utils/constants';
+import { initialData } from './utils/addMovieUtils';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
-import { AddMovieContainer, AddMovieForm } from './AddMovie.style';
+import { AddMovieContainer, AddMovieWrap } from './AddMovie.style';
 
 export const AddMovie: FC<AddMovieProps> = ({
-  setModalIsOpen,
   postMovieDataRequest,
-  resetMovieForm,
-}) => (
-  <AddMovieContainer>
-    <AddMovieForm>
-      <Cross setModalIsOpen={setModalIsOpen} />
-      <Title1>{ADD_MOVIE}</Title1>
-      <AddMovieInputs />
-      <Label>
-        {GENRE}
-        <AddMovieSelect />
-      </Label>
-      <FormButtons
-        leftBtnText={RESET}
-        rightBtnText={SUBMIT}
-        onOkEvent={postMovieDataRequest}
-        setModalIsOpen={setModalIsOpen}
-        onCancelEvent={resetMovieForm}
-      />
-    </AddMovieForm>
-  </AddMovieContainer>
-);
+  setModalIsOpen,
+}) => {
+  return (
+    <AddMovieContainer>
+      <AddMovieWrap>
+        <Cross setModalIsOpen={setModalIsOpen} />
+        <Title1>{ADD_MOVIE}</Title1>
+        <Formik
+          initialValues={initialData}
+          onSubmit={(values) => {
+            console.log(values);
+            postMovieDataRequest(values);
+            setModalIsOpen && setModalIsOpen();
+          }}
+        >
+          {(props: FormikProps<Values>) => (
+            <Form>
+              <AddMovieInputs />
+              {/* <Label>
+                {GENRE}
+                <AddMovieSelect />
+              </Label> */}
+              <FormButtons
+                resetBtnText={RESET}
+                submitBtnText={SUBMIT}
+                // onCancelEvent={resetMovieForm}
+              />
+            </Form>
+          )}
+        </Formik>
+      </AddMovieWrap>
+    </AddMovieContainer>
+  );
+};

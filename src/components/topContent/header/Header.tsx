@@ -41,7 +41,7 @@ export const HeaderComponent: FC<HeaderProps> = ({
             <AddMovie
               setModalIsOpen={setModalIsOpen}
               postMovieDataRequest={postMovieDataRequest}
-              resetMovieForm={resetMovieForm}
+              // resetMovieForm={resetMovieForm}
             />
           )}
         </>

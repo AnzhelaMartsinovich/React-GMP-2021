@@ -5,17 +5,12 @@ import { FormButtonsProps } from './FormButtons.interface';
 import { ButtonsContainer, ButtonLeft, ButtonRight } from './FormButtons.style';
 
 export const FormButtons: FC<FormButtonsProps> = ({
-  leftBtnText,
-  rightBtnText,
+  resetBtnText,
+  submitBtnText,
   onOkEvent,
   onCancelEvent,
   setModalIsOpen,
 }) => {
-  const onOkHandleClick = (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    onOkEvent && onOkEvent();
-    setModalIsOpen && setModalIsOpen();
-  };
   const onCancelHandleClick = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     onCancelEvent && onCancelEvent();
@@ -24,8 +19,8 @@ export const FormButtons: FC<FormButtonsProps> = ({
 
   return (
     <ButtonsContainer>
-      <ButtonLeft onClick={onCancelHandleClick}>{leftBtnText}</ButtonLeft>
-      <ButtonRight onClick={onOkHandleClick}>{rightBtnText}</ButtonRight>
+      <ButtonLeft onClick={onCancelHandleClick}>{resetBtnText}</ButtonLeft>
+      <ButtonRight type='submit'>{submitBtnText}</ButtonRight>
     </ButtonsContainer>
   );
 };

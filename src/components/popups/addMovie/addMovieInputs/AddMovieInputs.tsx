@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
+import { ErrorMessage } from 'formik';
 
 import * as actions from 'store/actions/actions';
 import { AppState } from 'baseTypes/BaseTypes.interface';
@@ -15,6 +16,7 @@ import { addFormPlaceholderData } from 'utils/addMovieData';
 
 import { Label } from 'components/common/label/Label.style';
 import { AddMovieInputItem, AddMovieInput } from './AddMovieInputs.style';
+import { ErrorMessageStyled } from 'components/common/errorMessage/ErrorMessage.style';
 
 export const AddMovieInputsComponent: FC<AddMovieInputsComponentProps> = ({
   setFormTitle,
@@ -28,19 +30,21 @@ export const AddMovieInputsComponent: FC<AddMovieInputsComponentProps> = ({
       <Label>
         {addFormPlaceholderData[0].title}
         <AddMovieInput
+          name='title'
           placeholder={addFormPlaceholderData[0].placeholder}
           type={addFormPlaceholderData[0].type}
-          onChange={(e) => onChangeTitleHandler(e, setFormTitle)}
         />
       </Label>
+      <ErrorMessage name='title' component='div' />
+      {/* <ErrorMessageStyled name='title' component='div' /> */}
     </AddMovieInputItem>
     <AddMovieInputItem key={addFormPlaceholderData[1].id}>
       <Label>
         {addFormPlaceholderData[1].title}
         <AddMovieInput
+          name='release_date'
           placeholder={addFormPlaceholderData[1].placeholder}
           type={addFormPlaceholderData[1].type}
-          onChange={(e) => onChangeDateHandler(e, setFormDate)}
         />
       </Label>
     </AddMovieInputItem>
@@ -48,32 +52,38 @@ export const AddMovieInputsComponent: FC<AddMovieInputsComponentProps> = ({
       <Label>
         {addFormPlaceholderData[2].title}
         <AddMovieInput
+          name='poster_path'
           placeholder={addFormPlaceholderData[2].placeholder}
           type={addFormPlaceholderData[2].type}
-          onChange={(e) => onChangeUrlHandler(e, setFormUrl)}
         />
       </Label>
+      <ErrorMessage name='poster_path' component='div' />
+      {/* <ErrorMessageStyled name='url' component='div' /> */}
     </AddMovieInputItem>
     <AddMovieInputItem key={addFormPlaceholderData[3].id}>
       <Label>
         {addFormPlaceholderData[3].title}
         <AddMovieInput
+          name='overview'
           placeholder={addFormPlaceholderData[3].placeholder}
           type={addFormPlaceholderData[3].type}
-          onChange={(e) => onChangeOverviewHandler(e, setFormOverview)}
         />
       </Label>
+      <ErrorMessage name='overview' component='div' />
+      {/* <ErrorMessageStyled name='overview' component='div' /> */}
     </AddMovieInputItem>
-    <AddMovieInputItem key={addFormPlaceholderData[4].id}>
-      <Label>
-        {addFormPlaceholderData[4].title}
-        <AddMovieInput
-          placeholder={addFormPlaceholderData[4].placeholder}
-          type={addFormPlaceholderData[4].type}
-          onChange={(e) => onChangeRuntimeHandler(e, setFormRuntime)}
-        />
-      </Label>
-    </AddMovieInputItem>
+    {/* <AddMovieInputItem key={addFormPlaceholderData[4].id}>
+        <Label>
+          {addFormPlaceholderData[4].title}
+          <AddMovieInput
+            name='runtime'
+            placeholder={addFormPlaceholderData[4].placeholder}
+            type={addFormPlaceholderData[4].type}
+          />
+        </Label>
+        <ErrorMessage name='runtime' component='div' />
+        <ErrorMessageStyled name='runtime' component='div' />
+      </AddMovieInputItem> */}
   </>
 );
 
