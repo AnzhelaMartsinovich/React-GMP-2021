@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 
 import { addFormPlaceholderData } from 'utils/addMovieData';
-import { MyTextField } from 'components/common/myTextField/MyTextField';
+import { TextField } from 'components/common/textField/TextField';
 
 export const AddMovieInputs: FC = () => (
   <>
     {addFormPlaceholderData.map(({ id, title, placeholder, name, type }) => (
-      <MyTextField
+      <TextField
         name={name}
         type={type}
         placeholder={placeholder}

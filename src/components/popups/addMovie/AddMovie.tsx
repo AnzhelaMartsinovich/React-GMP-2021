@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Form, FormikProps, Formik } from 'formik';
 
 import { AddMovieProps, Values } from './AddMovie.interface';
-import { ADD_MOVIE, GENRE } from 'utils/constants';
+import { ADD_MOVIE } from 'utils/constants';
 import { FormButtons } from '../../common/button/formButtons/FormButtons';
 import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
 import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
@@ -10,7 +10,6 @@ import { Cross } from '../../common/cross/Cross';
 import { RESET, SUBMIT } from 'utils/constants';
 import { initialData, SignupSchema } from './utils/addMovieUtils';
 
-import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
 import { AddMovieContainer, AddMovieWrap } from './AddMovie.style';
 
@@ -33,10 +32,7 @@ export const AddMovie: FC<AddMovieProps> = ({
           {(props: FormikProps<Values>) => (
             <Form>
               <AddMovieInputs />
-              <Label>
-                {GENRE}
-                <AddMovieSelect />
-              </Label>
+              <AddMovieSelect />
               <FormButtons
                 resetBtnText={RESET}
                 submitBtnText={SUBMIT}

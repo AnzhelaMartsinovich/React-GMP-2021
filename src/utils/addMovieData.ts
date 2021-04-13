@@ -35,31 +35,23 @@ export const addFormPlaceholderData = [
 
 export const addMovieSelectData = [
   {
-    label: 'Select genre',
-    value: '',
-    id: 1,
-    hidden: true,
-    disabled: true,
-    selected: true,
-  },
-  {
     label: 'Horror',
     value: 'horror',
-    id: 2,
+    id: '1',
   },
   {
     label: 'Drama',
     value: 'drama',
-    id: 3,
+    id: '2',
   },
   {
     label: 'Comedy',
     value: 'comedy',
-    id: 4,
+    id: '3',
   },
   {
     label: 'Science',
     value: 'science',
-    id: 5,
+    id: '4',
   },
 ];

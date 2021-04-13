@@ -1,10 +1,5 @@
-import { styled } from 'theme';
-import { Select } from 'components/common/select/Select.style';
+import { styled, theme } from 'theme';
 
-export const AddSelect = styled(Select)`
-  padding: 19px 20px;
-  margin-top: 15px;
-  width: 100%;
+export const AddMovieOption = styled.option`
+  color: ${theme.colors.white};
 `;
-
-export const AddMovieOption = styled.option``;
