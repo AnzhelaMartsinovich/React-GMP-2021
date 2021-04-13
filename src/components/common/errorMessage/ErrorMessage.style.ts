@@ -1,6 +1,7 @@
 import { theme, styled } from 'theme';
-import { ErrorMessage } from 'formik';
 
-export const ErrorMessageStyled = styled(ErrorMessage)`
-  color: red;
+export const Error = styled.div`
+  color: ${theme.colors.red};
+  font-weight: bold;
+  margin-bottom: 10px;
 `;

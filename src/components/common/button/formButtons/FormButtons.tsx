@@ -7,14 +7,11 @@ import { ButtonsContainer, ButtonLeft, ButtonRight } from './FormButtons.style';
 export const FormButtons: FC<FormButtonsProps> = ({
   resetBtnText,
   submitBtnText,
-  onOkEvent,
   onCancelEvent,
-  setModalIsOpen,
 }) => {
   const onCancelHandleClick = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
     onCancelEvent && onCancelEvent();
-    setModalIsOpen && setModalIsOpen();
   };
 
   return (

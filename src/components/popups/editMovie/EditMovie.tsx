@@ -34,8 +34,6 @@ export const EditMovieComponent: FC<EditMovieProps> = ({
       <FormButtons
         resetBtnText={RESET}
         submitBtnText={SAVE}
-        onOkEvent={putMovieRequest}
-        setModalIsOpen={setModalIsOpen}
         onCancelEvent={resetMovieForm}
       />
     </EditMovieForm>

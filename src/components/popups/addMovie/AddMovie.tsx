@@ -33,14 +33,14 @@ export const AddMovie: FC<AddMovieProps> = ({
           {(props: FormikProps<Values>) => (
             <Form>
               <AddMovieInputs />
-              {/* <Label>
+              <Label>
                 {GENRE}
                 <AddMovieSelect />
-              </Label> */}
+              </Label>
               <FormButtons
                 resetBtnText={RESET}
                 submitBtnText={SUBMIT}
-                // onCancelEvent={resetMovieForm}
+                onCancelEvent={props.resetForm}
               />
             </Form>
           )}
