@@ -8,7 +8,7 @@ import { AddMovieInputs } from './addMovieInputs/AddMovieInputs';
 import { AddMovieSelect } from './addMovieSelect/AddMovieSelect';
 import { Cross } from '../../common/cross/Cross';
 import { RESET, SUBMIT } from 'utils/constants';
-import { initialData } from './utils/addMovieUtils';
+import { initialData, SignupSchema } from './utils/addMovieUtils';
 
 import { Label } from '../../common/label/Label.style';
 import { Title1 } from '../../common/title/Title.style';
@@ -25,10 +25,9 @@ export const AddMovie: FC<AddMovieProps> = ({
         <Title1>{ADD_MOVIE}</Title1>
         <Formik
           initialValues={initialData}
+          validationSchema={SignupSchema}
           onSubmit={(values) => {
-            console.log(values);
-            postMovieDataRequest(values);
-            setModalIsOpen && setModalIsOpen();
+            postMovieDataRequest(values) && setModalIsOpen && setModalIsOpen();
           }}
         >
           {(props: FormikProps<Values>) => (

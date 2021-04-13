@@ -24,6 +24,7 @@ export const addFormPlaceholderData = [
     title: 'Runtime',
     placeholder: 'Runtime here',
     id: 5,
+    type: 'number',
   },
 ];
 
