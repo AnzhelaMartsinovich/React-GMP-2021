@@ -13,6 +13,7 @@ import { getMovieDataSelector } from 'store/mainPage/selectors';
 import { AppState } from 'baseTypes/BaseTypes.interface';
 import { putMovieRequest } from 'store/actions/actions';
 import { Values } from '../addMovie/AddMovie.interface';
+import { SignupSchema } from '../utils/popupsUtils';
 
 import { Title1 } from 'components/common/title/Title.style';
 import { EditMovieContainer, EditMovieWrapper } from './EditMovie.style';
@@ -28,7 +29,7 @@ export const EditMovieComponent: FC<EditMovieProps> = ({
       <Title1>{EDIT_MOVIE}</Title1>
       <Formik
         initialValues={movieData}
-        // validationSchema={SignupSchema}
+        validationSchema={SignupSchema}
         onSubmit={(values) => {
           putMovieRequest(values) && setModalIsOpen && setModalIsOpen();
         }}

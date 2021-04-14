@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const initialData = {
+export const addMovieInitialData = {
   title: '',
   release_date: '',
   poster_path: '',
