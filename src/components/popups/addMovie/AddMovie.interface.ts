@@ -1,7 +1,6 @@
 export interface AddMovieProps {
   setModalIsOpen?: () => void;
   postMovieDataRequest: (movieData: any) => Promise<void>;
-  resetMovieForm?: () => void;
 }
 
 export interface Values {

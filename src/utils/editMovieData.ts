@@ -1,34 +1,35 @@
-export const editFormPlaceholderData = [
+export const editFormData = [
   {
     title: 'Movie Id',
-    placeholder: 'MO32820TH',
     id: 1,
+    name: 'id',
+    disabled: true,
   },
   {
     title: 'Title',
-    placeholder: 'Moans',
     id: 2,
+    name: 'title',
   },
   {
     title: 'Release data',
-    placeholder: '2018-03-31',
     id: 3,
     type: 'date',
+    name: 'release_date',
   },
   {
     title: 'Movie URL',
-    placeholder: 'www.moana.com',
     id: 4,
+    name: 'poster_path',
   },
   {
     title: 'Overview',
-    placeholder: 'Overview text goes here',
     id: 5,
+    name: 'overview',
   },
   {
     title: 'Runtime',
-    placeholder: 'Runtime text goes here',
     id: 6,
+    name: 'runtime',
   },
 ];
 

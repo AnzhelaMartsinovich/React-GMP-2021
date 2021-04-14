@@ -5,7 +5,7 @@ export const EditMovieContainer = styled.div`
   ${popupStyles}
 `;
 
-export const EditMovieForm = styled.form`
+export const EditMovieWrapper = styled.div`
   position: relative;
   max-width: 580px;
   height: 80vh;

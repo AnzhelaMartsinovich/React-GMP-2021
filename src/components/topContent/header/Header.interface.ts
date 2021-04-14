@@ -17,6 +17,5 @@ export interface HeaderProps {
     | any;
   postMovieDataRequest: (movieData: any) => Promise<void>;
   resetMovieData: any;
-  resetMovieForm: () => void;
   previewFlag: boolean;
 }

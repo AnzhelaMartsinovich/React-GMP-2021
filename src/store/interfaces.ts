@@ -46,41 +46,6 @@ export interface RequestMovieError {
   type: typeof actionTypes.REQUEST_MOVIE_ERROR;
   error: string;
 }
-
-export interface SetFormTitle {
-  type: typeof actionTypes.SET_FORM_TITLE;
-  title: string;
-}
-
-export interface SetFormDate {
-  type: typeof actionTypes.SET_FORM_DATE;
-  date: string;
-}
-
-export interface SetFormUrl {
-  type: typeof actionTypes.SET_FORM_URL;
-  url: string;
-}
-
-export interface SetFormOverview {
-  type: typeof actionTypes.SET_FORM_OVERVIEW;
-  overview: string;
-}
-
-export interface SetFormRuntime {
-  type: typeof actionTypes.SET_FORM_RUNTIME;
-  runtime: any;
-}
-
-export interface SetFormGenres {
-  type: typeof actionTypes.SET_FORM_GENRES;
-  genres: string[];
-}
-
-export interface ResetMovieForm {
-  type: typeof actionTypes.RESET_MOVIE_FORM;
-}
-
 export interface SetFlagForPreviewPhotoTrue {
   type: typeof actionTypes.SET_FLAG_FOR_PREVIEW_TRUE;
   previewFlag: boolean;
@@ -101,6 +66,11 @@ export interface SaveFilterValue {
   value: string;
 }
 
+export interface SaveSelectedMovie {
+  type: typeof actionTypes.SAVE_SELECTED_MOVIE;
+  movie: any;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -110,14 +80,8 @@ export type MainPageActionsTypes =
   | RequestMovieError
   | RecordMoviesDataToStoreId
   | ResetMovieDataInStore
-  | SetFormDate
-  | SetFormTitle
-  | SetFormUrl
-  | SetFormGenres
-  | SetFormOverview
-  | SetFormRuntime
-  | ResetMovieForm
   | SetFlagForPreviewPhotoTrue
   | SetFlagForPreviewPhotoFalse
   | SaveSortValue
-  | SaveFilterValue;
+  | SaveFilterValue
+  | SaveSelectedMovie;
