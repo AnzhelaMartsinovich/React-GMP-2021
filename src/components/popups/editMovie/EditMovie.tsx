@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Form, FormikProps, Formik } from 'formik';
 
 import { EditMovieProps } from './EditMovie.interface';
-import { EDIT_MOVIE, GENRE } from 'utils/constants';
+import { EDIT_MOVIE } from 'utils/constants';
 import { Cross } from 'components/common/cross/Cross';
 import { EditMovieInputs } from './editMovieInputs/EditMovieInputs';
 import { EditMovieSelect } from './editMovieSelect/EditMovieSelect';
@@ -12,11 +12,10 @@ import { RESET, SAVE } from 'utils/constants';
 import { getMovieDataSelector } from 'store/mainPage/selectors';
 import { AppState } from 'baseTypes/BaseTypes.interface';
 import { putMovieRequest } from 'store/actions/actions';
+import { Values } from '../addMovie/AddMovie.interface';
 
-import { Label } from 'components/common/label/Label.style';
 import { Title1 } from 'components/common/title/Title.style';
 import { EditMovieContainer, EditMovieWrapper } from './EditMovie.style';
-import { Values } from '../addMovie/AddMovie.interface';
 
 export const EditMovieComponent: FC<EditMovieProps> = ({
   setModalIsOpen,
@@ -37,10 +36,7 @@ export const EditMovieComponent: FC<EditMovieProps> = ({
         {(props: FormikProps<Values>) => (
           <Form>
             <EditMovieInputs movieData={props.values} />
-            {/* <Label>
-                {GENRE}
-                <EditMovieSelect />
-              </Label> */}
+            <EditMovieSelect />
             <FormButtons
               resetBtnText={RESET}
               submitBtnText={SAVE}

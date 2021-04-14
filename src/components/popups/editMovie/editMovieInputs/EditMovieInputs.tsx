@@ -9,12 +9,7 @@ import { EditMovieInputItem } from './EditMovieInputs.style';
 export const EditMovieInputs: FC<EditMovieInputsProps> = ({ movieData }) => (
   <EditMovieInputItem key={movieData.id}>
     {editFormData.map(({ title, name, disabled }) => (
-      <TextField
-        name={name}
-        label={title}
-        defaultValue={movieData[name]}
-        disabled={disabled}
-      />
+      <TextField name={name} label={title} disabled={disabled} />
     ))}
   </EditMovieInputItem>
 );

@@ -35,31 +35,19 @@ export const editFormData = [
 
 export const editMovieSelectData = [
   {
-    label: 'Select genre',
-    value: '',
-    id: 1,
-    hidden: true,
-    disabled: true,
-  },
-  {
     label: 'Horror',
-    value: 'horror',
     id: 2,
   },
   {
     label: 'Drama',
-    value: 'drama',
     id: 3,
   },
   {
     label: 'Comedy',
-    value: 'comedy',
     id: 4,
-    selected: true,
   },
   {
     label: 'Science',
-    value: 'science',
     id: 5,
   },
 ];
