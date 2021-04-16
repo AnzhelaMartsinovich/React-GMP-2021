@@ -1,18 +1,25 @@
 import React, { FC } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { TopContent } from './components/topContent/TopContent';
-import { Content } from './components/content/Content';
-import { Footer } from './components/footer/Footer';
+import { MainPage } from 'pages/mainPage/MainPage';
 import { ErrorBoundary } from './components/common/errorBoundary/ErrorBoundary';
+import { NotFoundPage } from 'pages/notFoundPage/NotFoundPage';
 
 import './App.css';
 
 export const App: FC = () => (
-  <div className='app'>
+  <Router>
     <ErrorBoundary>
-      <TopContent />
-      <Content />
-      <Footer />
+      <div className='app'>
+        <Switch>
+          <Route path='/' exact>
+            <MainPage />
+          </Route>
+          <Route path='*'>
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </div>
     </ErrorBoundary>
-  </div>
+  </Router>
 );
