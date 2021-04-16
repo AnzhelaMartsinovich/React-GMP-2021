@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { MainPage } from 'pages/mainPage/MainPage';
 import { ErrorBoundary } from './components/common/errorBoundary/ErrorBoundary';
 import { NotFoundPage } from 'pages/notFoundPage/NotFoundPage';
+import { NoMovieFound } from 'pages/noMovieFound/NoMovieFound';
 
 import './App.css';
 
@@ -14,6 +15,9 @@ export const App: FC = () => (
         <Switch>
           <Route path='/' exact>
             <MainPage />
+          </Route>
+          <Route path='/no-movie' exact>
+            <NoMovieFound />
           </Route>
           <Route path='*'>
             <NotFoundPage />
