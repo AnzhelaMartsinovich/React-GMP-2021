@@ -2,5 +2,6 @@ import { Movie } from 'baseTypes/BaseTypes.interface';
 
 export interface TopContentProps {
   movie: Movie;
-  previewFlag: boolean;
+  getMovieDataRequest: any;
+  slug?: number;
 }

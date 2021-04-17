@@ -11,7 +11,6 @@ import {
 } from 'store/mainPage/selectors';
 import {
   getMoviesDataRequest,
-  getMovieDataRequest,
   saveSortValue,
   saveFilterValue,
 } from 'store/actions/actions';
@@ -23,7 +22,6 @@ import { ContentContainer, MovieCards } from './Content.style';
 
 export const ContentComponent: FC<ContentProps> = ({
   getMoviesDataRequest,
-  getMovieDataRequest,
   movies,
   totalAmount,
   saveSortValue,
@@ -43,10 +41,7 @@ export const ContentComponent: FC<ContentProps> = ({
       />
       <CountMovies totalAmount={totalAmount} />
       <MovieCards>
-        <MovieCard
-          moviesData={movies}
-          getMovieDataRequest={getMovieDataRequest}
-        />
+        <MovieCard moviesData={movies} />
       </MovieCards>
     </ContentContainer>
   );
@@ -59,5 +54,5 @@ export const Content = connect(
     filterValue: getFilterValueSelector(state),
     sortValue: getSortValueSelector(state),
   }),
-  { getMoviesDataRequest, getMovieDataRequest, saveSortValue, saveFilterValue }
+  { getMoviesDataRequest, saveSortValue, saveFilterValue }
 )(ContentComponent);

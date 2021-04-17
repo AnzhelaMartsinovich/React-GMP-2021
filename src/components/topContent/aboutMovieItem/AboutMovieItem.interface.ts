@@ -13,4 +13,6 @@ export interface AboutMovieItemProps {
     genres: string[];
     runtime: number;
   };
+  slug: number;
+  getMovieDataRequest: any;
 }

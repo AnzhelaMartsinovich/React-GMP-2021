@@ -6,21 +6,35 @@ import { TopContentProps } from './TopContent.interface';
 import { AppState } from 'baseTypes/BaseTypes.interface';
 import { AboutMovieItem } from './aboutMovieItem/AboutMovieItem';
 import { SearchPart } from './searchPart/SearchPart';
-import { getMovieDataSelector, getPreviewFlag } from 'store/mainPage/selectors';
+import { getMovieDataSelector } from 'store/mainPage/selectors';
+import { getMovieDataRequest } from 'store/actions/actions';
 
 import { TopContentContainer } from './TopContent.style';
 
 export const TopContentComponent: FC<TopContentProps> = ({
   movie,
-  previewFlag,
+  getMovieDataRequest,
+  slug,
 }) => (
   <TopContentContainer>
-    <Header data={movie} />
-    {movie.id && previewFlag ? <AboutMovieItem data={movie} /> : <SearchPart />}
+    <Header slug={slug} />
+    {slug ? (
+      <AboutMovieItem
+        data={movie}
+        slug={slug}
+        getMovieDataRequest={getMovieDataRequest}
+      />
+    ) : (
+      <SearchPart />
+    )}
   </TopContentContainer>
 );
 
-export const TopContent = connect((state: AppState) => ({
-  movie: getMovieDataSelector(state),
-  previewFlag: getPreviewFlag(state),
-}))(TopContentComponent);
+export const TopContent = connect(
+  (state: AppState) => ({
+    movie: getMovieDataSelector(state),
+  }),
+  {
+    getMovieDataRequest,
+  }
+)(TopContentComponent);

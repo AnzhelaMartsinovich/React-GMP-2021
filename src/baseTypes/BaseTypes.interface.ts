@@ -21,7 +21,6 @@ export interface MainPageState {
   movieError: string;
   movieForm: {};
   totalAmount: number;
-  previewFlag: boolean;
   filter: string;
   sortBy: string;
   sortDescending: boolean;

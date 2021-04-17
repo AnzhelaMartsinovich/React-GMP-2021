@@ -46,15 +46,6 @@ export interface RequestMovieError {
   type: typeof actionTypes.REQUEST_MOVIE_ERROR;
   error: string;
 }
-export interface SetFlagForPreviewPhotoTrue {
-  type: typeof actionTypes.SET_FLAG_FOR_PREVIEW_TRUE;
-  previewFlag: boolean;
-}
-
-export interface SetFlagForPreviewPhotoFalse {
-  type: typeof actionTypes.SET_FLAG_FOR_PREVIEW_FALSE;
-  previewFlag: boolean;
-}
 
 export interface SaveSortValue {
   type: typeof actionTypes.SAVE_SORT_VALUE;
@@ -80,8 +71,6 @@ export type MainPageActionsTypes =
   | RequestMovieError
   | RecordMoviesDataToStoreId
   | ResetMovieDataInStore
-  | SetFlagForPreviewPhotoTrue
-  | SetFlagForPreviewPhotoFalse
   | SaveSortValue
   | SaveFilterValue
   | SaveSelectedMovie;

@@ -116,20 +116,6 @@ export const deleteMovieRequest = (id: number) => (
     dispatch(getMoviesDataRequest());
   });
 
-export const setFlagForPreviewPhotoTrue = (
-  previewFlag: boolean
-): interfaces.SetFlagForPreviewPhotoTrue => ({
-  type: actionTypes.SET_FLAG_FOR_PREVIEW_TRUE,
-  previewFlag,
-});
-
-export const setFlagForPreviewPhotoFalse = (
-  previewFlag: boolean
-): interfaces.SetFlagForPreviewPhotoFalse => ({
-  type: actionTypes.SET_FLAG_FOR_PREVIEW_FALSE,
-  previewFlag,
-});
-
 export const putMovieRequest = (movieForm: any) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
   getState: () => AppState

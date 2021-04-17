@@ -14,10 +14,10 @@ export const App: FC = () => (
       <div className='app'>
         <Switch>
           <Route path='/' exact>
-            <MainPage />
-          </Route>
-          <Route path='/no-movie' exact>
             <NoMovieFound />
+          </Route>
+          <Route path='/movie/:slug'>
+            <MainPage />
           </Route>
           <Route path='*'>
             <NotFoundPage />

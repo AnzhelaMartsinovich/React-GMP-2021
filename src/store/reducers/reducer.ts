@@ -10,7 +10,6 @@ export const mainPageInitialState: MainPageState = {
   movieError: '',
   movieForm: {},
   totalAmount: 0,
-  previewFlag: false,
   filter: 'all',
   sortBy: 'release date',
   sortDescending: true,
@@ -63,18 +62,6 @@ export const mainPageReducer = (
       return {
         ...state,
         movieError: action.error,
-      };
-    }
-    case actionTypes.SET_FLAG_FOR_PREVIEW_TRUE: {
-      return {
-        ...state,
-        previewFlag: true,
-      };
-    }
-    case actionTypes.SET_FLAG_FOR_PREVIEW_FALSE: {
-      return {
-        ...state,
-        previewFlag: false,
       };
     }
     case actionTypes.SAVE_FILTER_VALUE: {

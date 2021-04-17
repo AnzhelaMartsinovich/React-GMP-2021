@@ -11,13 +11,11 @@ import { resetMovieData, postMovieDataRequest } from 'store/actions/actions';
 
 import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
 import { ButtonGray } from 'components/common/button/Button.style';
-import { getPreviewFlag } from 'store/mainPage/selectors';
 
 export const HeaderComponent: FC<HeaderProps> = ({
-  data,
   resetMovieData,
   postMovieDataRequest,
-  previewFlag,
+  slug,
 }) => {
   const [open, setOpen] = useState(false);
   const setModalIsOpen = useCustomHook(open, setOpen);
@@ -25,7 +23,7 @@ export const HeaderComponent: FC<HeaderProps> = ({
   return (
     <HeaderContainer>
       <Logo />
-      {data.id && previewFlag ? (
+      {slug ? (
         <ButtonSearch onClick={resetMovieData}>
           <SearchIcon />
         </ButtonSearch>
@@ -44,10 +42,7 @@ export const HeaderComponent: FC<HeaderProps> = ({
   );
 };
 
-export const Header = connect(
-  (state: AppState) => ({ previewFlag: getPreviewFlag(state) }),
-  {
-    resetMovieData,
-    postMovieDataRequest,
-  }
-)(HeaderComponent);
+export const Header = connect((state: AppState) => ({}), {
+  resetMovieData,
+  postMovieDataRequest,
+})(HeaderComponent);
