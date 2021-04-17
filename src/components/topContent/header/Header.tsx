@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Logo } from 'components/common/logo/Logo';
 import { ADD_MOVIE } from 'utils/constants';
@@ -24,9 +25,11 @@ export const HeaderComponent: FC<HeaderProps> = ({
     <HeaderContainer>
       <Logo />
       {slug ? (
-        <ButtonSearch onClick={resetMovieData}>
-          <SearchIcon />
-        </ButtonSearch>
+        <Link to='/'>
+          <ButtonSearch onClick={resetMovieData}>
+            <SearchIcon />
+          </ButtonSearch>
+        </Link>
       ) : (
         <>
           <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
