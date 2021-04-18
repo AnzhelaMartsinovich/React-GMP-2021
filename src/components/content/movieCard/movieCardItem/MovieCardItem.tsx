@@ -54,7 +54,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           onClickHandler={onClickHandler}
           closePanel={closePanel}
         />
-        <Link to={`/movie/${id}`}>
+        <Link to={`/film/${id}`}>
           <MovieCardImg
             src={poster_path}
             alt={title}

@@ -37,3 +37,10 @@ export const getSortValueSelector = createSelector(
   getSortValue,
   (value) => value
 );
+
+const sortDescendingValue = (state: AppState): boolean =>
+  state.mainPage.sortDescending;
+export const sortDescValueSelector = createSelector(
+  sortDescendingValue,
+  (value) => value
+);

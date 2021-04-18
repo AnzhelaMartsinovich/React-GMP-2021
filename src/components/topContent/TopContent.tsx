@@ -7,12 +7,16 @@ import { AppState } from 'baseTypes/BaseTypes.interface';
 import { AboutMovieItem } from './aboutMovieItem/AboutMovieItem';
 import { SearchPart } from './searchPart/SearchPart';
 import { getMovieDataSelector } from 'store/mainPage/selectors';
-import { getMovieDataRequest } from 'store/actions/actions';
+import {
+  getMoviesDataRequest,
+  getMovieDataRequest,
+} from 'store/actions/actions';
 
 import { TopContentContainer } from './TopContent.style';
 
 export const TopContentComponent: FC<TopContentProps> = ({
   movie,
+  getMoviesDataRequest,
   getMovieDataRequest,
   slug,
 }) => (
@@ -25,7 +29,7 @@ export const TopContentComponent: FC<TopContentProps> = ({
         getMovieDataRequest={getMovieDataRequest}
       />
     ) : (
-      <SearchPart />
+      <SearchPart getMoviesDataRequest={getMoviesDataRequest} />
     )}
   </TopContentContainer>
 );
@@ -35,6 +39,7 @@ export const TopContent = connect(
     movie: getMovieDataSelector(state),
   }),
   {
+    getMoviesDataRequest,
     getMovieDataRequest,
   }
 )(TopContentComponent);

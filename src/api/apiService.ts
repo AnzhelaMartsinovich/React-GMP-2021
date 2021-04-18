@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { composeQueryString } from './composeQueryString';
+import { composeQueryString } from '../commonUtils/composeQueryString';
 
 const get = (
   url: string,
