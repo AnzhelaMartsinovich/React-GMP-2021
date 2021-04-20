@@ -12,10 +12,7 @@ import {
   delMovie,
   editMovie,
 } from '../mainPage/services';
-import {
-  getMovieDataSelector,
-  getMovieFormSelector,
-} from '../mainPage/selectors';
+import { getMovieDataSelector } from '../mainPage/selectors';
 import { prepareMovieForRequest } from 'commonUtils/prepareMovieForRequest';
 import { prepareParamsObject } from 'commonUtils/utils';
 
@@ -40,7 +37,9 @@ export const setTotalAmountToStore = (
   totalAmount,
 });
 
-export const getMoviesDataRequest = () => (
+export const getMoviesDataRequest = (
+  params?: Record<string, string | number | boolean> | undefined
+) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
   getState: () => AppState
 ): Promise<void> => {
@@ -48,6 +47,7 @@ export const getMoviesDataRequest = () => (
 
   const searchParams = {
     ...navBarParams,
+    ...params,
   };
 
   return getMovies(searchParams)

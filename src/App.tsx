@@ -16,6 +16,9 @@ export const App: FC = () => (
           <Route path='/' exact>
             <NoMovieFound />
           </Route>
+          <Route path='/search'>
+            <MainPage />
+          </Route>
           <Route path='/film/:slug'>
             <MainPage />
           </Route>

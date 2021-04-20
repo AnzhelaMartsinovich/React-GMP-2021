@@ -12,7 +12,7 @@ export const mainPageInitialState: MainPageState = {
   totalAmount: 0,
   filter: 'all',
   sortBy: 'release date',
-  sortDescending: true,
+  sortDescending: false,
 };
 
 export const mainPageReducer = (
@@ -44,6 +44,7 @@ export const mainPageReducer = (
         ...state,
         moviesData: action.moviesData.data,
         moviesLoading: false,
+        sortDescending: true,
       };
     }
     case actionTypes.RECORD_MOVIE_DATA_TO_STORE: {

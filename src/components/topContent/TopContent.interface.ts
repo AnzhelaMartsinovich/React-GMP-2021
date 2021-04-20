@@ -5,4 +5,6 @@ export interface TopContentProps {
   getMoviesDataRequest: any;
   getMovieDataRequest: any;
   slug?: number;
+  filterValue: string;
+  sortValue: string;
 }
