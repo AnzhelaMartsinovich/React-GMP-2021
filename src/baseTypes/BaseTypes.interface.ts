@@ -24,6 +24,7 @@ export interface MainPageState {
   filter: string;
   sortBy: string;
   sortDescending: boolean;
+  searchValue: string;
 }
 export interface AppState {
   mainPage: MainPageState;

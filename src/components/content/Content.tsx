@@ -8,6 +8,7 @@ import {
   getMoviesDataSelector,
   getSortValueSelector,
   getTotalAmount,
+  searchValueSelector,
 } from 'store/mainPage/selectors';
 import {
   getMoviesDataRequest,
@@ -29,12 +30,13 @@ export const ContentComponent: FC<ContentProps> = ({
   saveFilterValue,
   filterValue,
   sortValue,
+  searchValue,
 }) => {
   const query = useQuery();
   useEffect(() => {
     const searchParams = getUrlSearchParams(query);
     getMoviesDataRequest(searchParams);
-  }, [getMoviesDataRequest, filterValue, sortValue, query]);
+  }, [getMoviesDataRequest, filterValue, sortValue, searchValue]);
 
   return (
     <ContentContainer>
@@ -56,6 +58,7 @@ export const Content = connect(
     totalAmount: getTotalAmount(state),
     filterValue: getFilterValueSelector(state),
     sortValue: getSortValueSelector(state),
+    searchValue: searchValueSelector(state),
   }),
   { getMoviesDataRequest, saveSortValue, saveFilterValue }
 )(ContentComponent);

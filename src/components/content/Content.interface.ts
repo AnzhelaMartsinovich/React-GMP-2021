@@ -10,4 +10,5 @@ export interface ContentProps {
   saveFilterValue: (value: string) => void;
   filterValue: string;
   sortValue: string;
+  searchValue: string;
 }

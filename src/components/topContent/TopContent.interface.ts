@@ -2,9 +2,13 @@ import { Movie } from 'baseTypes/BaseTypes.interface';
 
 export interface TopContentProps {
   movie: Movie;
-  getMoviesDataRequest: any;
   getMovieDataRequest: any;
   slug?: number;
-  filterValue: string;
-  sortValue: string;
+  setSearchValue: (value: string) => void;
+  searchValue: string;
+}
+
+export interface SearchPartProps {
+  setSearchValue: (value: string) => void;
+  searchValue: string;
 }

@@ -62,6 +62,11 @@ export interface SaveSelectedMovie {
   movie: any;
 }
 
+export interface SetSearchValue {
+  type: typeof actionTypes.SET_SEARCH_VALUE;
+  searchValue: string;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -73,4 +78,5 @@ export type MainPageActionsTypes =
   | ResetMovieDataInStore
   | SaveSortValue
   | SaveFilterValue
-  | SaveSelectedMovie;
+  | SaveSelectedMovie
+  | SetSearchValue;

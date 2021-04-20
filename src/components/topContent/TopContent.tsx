@@ -10,21 +10,22 @@ import {
   getSortValueSelector,
   getFilterValueSelector,
   getMovieDataSelector,
+  searchValueSelector,
 } from 'store/mainPage/selectors';
 import {
   getMoviesDataRequest,
   getMovieDataRequest,
+  setSearchValue,
 } from 'store/actions/actions';
 
 import { TopContentContainer } from './TopContent.style';
 
 export const TopContentComponent: FC<TopContentProps> = ({
   movie,
-  getMoviesDataRequest,
   getMovieDataRequest,
+  setSearchValue,
   slug,
-  filterValue,
-  sortValue,
+  searchValue,
 }) => {
   return (
     <TopContentContainer>
@@ -36,11 +37,7 @@ export const TopContentComponent: FC<TopContentProps> = ({
           getMovieDataRequest={getMovieDataRequest}
         />
       ) : (
-        <SearchPart
-          getMoviesDataRequest={getMoviesDataRequest}
-          filterValue={filterValue}
-          sortValue={sortValue}
-        />
+        <SearchPart setSearchValue={setSearchValue} searchValue={searchValue} />
       )}
     </TopContentContainer>
   );
@@ -51,9 +48,11 @@ export const TopContent = connect(
     movie: getMovieDataSelector(state),
     filterValue: getFilterValueSelector(state),
     sortValue: getSortValueSelector(state),
+    searchValue: searchValueSelector(state),
   }),
   {
     getMoviesDataRequest,
     getMovieDataRequest,
+    setSearchValue,
   }
 )(TopContentComponent);

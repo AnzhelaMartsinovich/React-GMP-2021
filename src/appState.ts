@@ -17,6 +17,7 @@ export const initialState: AppState = {
     filter: 'all',
     sortBy: 'release date',
     sortDescending: true,
+    searchValue: '',
   },
 };
 

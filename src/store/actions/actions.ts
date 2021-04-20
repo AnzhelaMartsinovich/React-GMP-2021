@@ -37,6 +37,13 @@ export const setTotalAmountToStore = (
   totalAmount,
 });
 
+export const setSearchValue = (
+  searchValue: any
+): interfaces.SetSearchValue => ({
+  type: actionTypes.SET_SEARCH_VALUE,
+  searchValue,
+});
+
 export const getMoviesDataRequest = (
   params?: Record<string, string | number | boolean> | undefined
 ) => (
@@ -55,6 +62,7 @@ export const getMoviesDataRequest = (
     .then((response) => {
       dispatch(recordMoviesDataToStore(response.data));
       dispatch(setTotalAmountToStore(response.data.totalAmount));
+      dispatch(setSearchValue(params?.search));
     })
     .catch((error) => {
       dispatch(requestMoviesError(error));

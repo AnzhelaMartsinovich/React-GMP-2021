@@ -13,6 +13,7 @@ export const mainPageInitialState: MainPageState = {
   filter: 'all',
   sortBy: 'release date',
   sortDescending: false,
+  searchValue: '',
 };
 
 export const mainPageReducer = (
@@ -75,6 +76,12 @@ export const mainPageReducer = (
       return {
         ...state,
         sortBy: action.value,
+      };
+    }
+    case actionTypes.SET_SEARCH_VALUE: {
+      return {
+        ...state,
+        searchValue: action.searchValue,
       };
     }
     default: {
