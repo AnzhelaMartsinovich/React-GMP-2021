@@ -46,6 +46,7 @@ export const getMoviesDataRequest = (
   const navBarParams = prepareParamsObject(getState().mainPage);
 
   const searchParams = {
+    searchBy: 'title',
     ...navBarParams,
     ...params,
   };

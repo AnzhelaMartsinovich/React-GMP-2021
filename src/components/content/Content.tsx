@@ -17,6 +17,7 @@ import {
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
 import { MovieCard } from './movieCard/MovieCard';
+import { getUrlSearchParams, useQuery } from 'commonUtils/queryParams';
 
 import { ContentContainer, MovieCards } from './Content.style';
 
@@ -29,9 +30,11 @@ export const ContentComponent: FC<ContentProps> = ({
   filterValue,
   sortValue,
 }) => {
+  const query = useQuery();
   useEffect(() => {
-    getMoviesDataRequest();
-  }, [getMoviesDataRequest, filterValue, sortValue]);
+    const searchParams = getUrlSearchParams(query);
+    getMoviesDataRequest(searchParams);
+  }, [getMoviesDataRequest, filterValue, sortValue, query]);
 
   return (
     <ContentContainer>

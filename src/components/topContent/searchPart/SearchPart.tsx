@@ -16,10 +16,7 @@ export const SearchPart = ({ getMoviesDataRequest }: any) => {
   };
 
   const searchButtonHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    if (value) {
-      history.push(`/search?Search=${value}`);
-      getMoviesDataRequest({ search: value, searchBy: 'title' });
-    }
+    value && history.push(`/search?search=${value}`);
   };
 
   return (
