@@ -5,7 +5,10 @@ import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
 
 import { MovieCardContainer } from './MovieCard.style';
 
-export const MovieCard: FC<MoviesDataProps> = ({ moviesData }) => (
+export const MovieCard: FC<MoviesDataProps> = ({
+  moviesData,
+  getMovieDataRequest,
+}) => (
   <MovieCardContainer>
     {moviesData?.map(({ id, poster_path, title, genres, release_date }) => (
       <MovieCardItem
@@ -15,6 +18,7 @@ export const MovieCard: FC<MoviesDataProps> = ({ moviesData }) => (
         title={title}
         genres={genres}
         release_date={release_date}
+        getMovieDataRequest={getMovieDataRequest}
       />
     ))}
   </MovieCardContainer>

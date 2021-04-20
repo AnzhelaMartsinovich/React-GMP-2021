@@ -32,4 +32,5 @@ export interface AppState {
 
 export interface MoviesDataProps {
   moviesData: Movie[];
+  getMovieDataRequest: any;
 }

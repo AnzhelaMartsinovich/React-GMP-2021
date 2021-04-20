@@ -4,4 +4,5 @@ export interface MovieCardItemProps {
   title: string;
   genres: string[];
   release_date: string;
+  getMovieDataRequest: any;
 }

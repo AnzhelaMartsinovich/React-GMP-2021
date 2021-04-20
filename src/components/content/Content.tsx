@@ -14,6 +14,7 @@ import {
   getMoviesDataRequest,
   saveSortValue,
   saveFilterValue,
+  getMovieDataRequest,
 } from 'store/actions/actions';
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
@@ -24,6 +25,7 @@ import { ContentContainer, MovieCards } from './Content.style';
 
 export const ContentComponent: FC<ContentProps> = ({
   getMoviesDataRequest,
+  getMovieDataRequest,
   movies,
   totalAmount,
   saveSortValue,
@@ -46,7 +48,10 @@ export const ContentComponent: FC<ContentProps> = ({
       />
       <CountMovies totalAmount={totalAmount} />
       <MovieCards>
-        <MovieCard moviesData={movies} />
+        <MovieCard
+          moviesData={movies}
+          getMovieDataRequest={getMovieDataRequest}
+        />
       </MovieCards>
     </ContentContainer>
   );
@@ -60,5 +65,5 @@ export const Content = connect(
     sortValue: getSortValueSelector(state),
     searchValue: searchValueSelector(state),
   }),
-  { getMoviesDataRequest, saveSortValue, saveFilterValue }
+  { getMoviesDataRequest, saveSortValue, saveFilterValue, getMovieDataRequest }
 )(ContentComponent);

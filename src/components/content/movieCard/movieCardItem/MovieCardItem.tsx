@@ -17,6 +17,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
   title,
   genres,
   release_date,
+  getMovieDataRequest,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -31,6 +32,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
 
   const onClickHandler = () => {
     setShowPanel(!showPanel);
+    getMovieDataRequest(id);
   };
 
   const closePanel = () => {
@@ -55,12 +57,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           closePanel={closePanel}
         />
         <Link to={`/film/${id}`}>
-          <MovieCardImg
-            src={poster_path}
-            alt={title}
-            // onClick={onClickPreview}
-            onError={addDefaultSrc}
-          />
+          <MovieCardImg src={poster_path} alt={title} onError={addDefaultSrc} />
         </Link>
       </MovieCardImgContainer>
       <MovieCardInfo
