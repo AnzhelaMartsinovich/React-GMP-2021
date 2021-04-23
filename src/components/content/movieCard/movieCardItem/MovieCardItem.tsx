@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { MovieCardInfo } from './movieCardInfo/MovieCardInfo';
 import { MovieCardItemProps } from './MovieCardItem.interface';
@@ -19,6 +19,7 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
   release_date,
   getMovieDataRequest,
 }) => {
+  const history = useHistory();
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
 
@@ -33,6 +34,10 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
   const onClickHandler = () => {
     setShowPanel(!showPanel);
     getMovieDataRequest(id);
+  };
+
+  const onClickImgHandler = () => {
+    history.push(`/film/${id}`);
   };
 
   const closePanel = () => {
@@ -56,9 +61,12 @@ export const MovieCardItem: FC<MovieCardItemProps> = ({
           onClickHandler={onClickHandler}
           closePanel={closePanel}
         />
-        <Link to={`/film/${id}`}>
-          <MovieCardImg src={poster_path} alt={title} onError={addDefaultSrc} />
-        </Link>
+        <MovieCardImg
+          src={poster_path}
+          alt={title}
+          onError={addDefaultSrc}
+          onClick={onClickImgHandler}
+        />
       </MovieCardImgContainer>
       <MovieCardInfo
         title={title}
