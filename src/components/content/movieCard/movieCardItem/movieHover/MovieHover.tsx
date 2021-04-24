@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 
-import { ReactComponent as Dots } from '../../../../../img/dots.svg';
-import { EDIT, DELETE } from '../../../../../utils/constants';
+import Dots from 'img/dots.svg';
+import { EDIT, DELETE } from 'utils/constants';
 import { Cross } from '../../../../common/cross/Cross';
 import { MovieHoverProps } from './MovieHover.interface';
 import { EditMovie } from '../../../../popups/editMovie/EditMovie';
@@ -12,6 +12,7 @@ import {
   MovieHoverPanel,
   MovieHoverItems,
   MovieHoverItem,
+  MovieHoverImg,
 } from './MovieHover.style';
 
 export const MovieHover: FC<MovieHoverProps> = ({
@@ -33,7 +34,7 @@ export const MovieHover: FC<MovieHoverProps> = ({
   return (
     <>
       <MovieHoverPanel showIcon={showIcon} onClick={onClickHandler}>
-        <Dots />
+        <MovieHoverImg src={Dots} alt='dots' />
       </MovieHoverPanel>
 
       {showPanel && (

@@ -20,11 +20,6 @@ export const MovieHoverPanel = styled.div<MovieHoverPanelProps>`
   &:hover {
     cursor: pointer;
   }
-
-  & > svg {
-    fill: ${theme.colors.white};
-    height: 60%;
-  }
 `;
 
 export const MovieHoverItems = styled.ul<MovieHoverItemsProps>`
@@ -38,8 +33,8 @@ export const MovieHoverItems = styled.ul<MovieHoverItemsProps>`
 
   & > button {
     padding: 7px;
-    left: 152px;
-    top: 3px;
+    left: 148px;
+    top: 0;
 
     & > svg {
       width: 12px;
@@ -57,4 +52,8 @@ export const MovieHoverItem = styled.li`
     cursor: pointer;
     background-color: ${theme.colors.pink};
   }
+`;
+
+export const MovieHoverImg = styled.img`
+  height: 60%;
 `;

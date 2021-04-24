@@ -11,14 +11,16 @@ export const CrossItem = styled.button<CrossItemProps>`
 
   &:hover {
     cursor: pointer;
-
-    & > svg {
-      fill: ${theme.colors.pink};
-    }
   }
+`;
 
-  & > svg {
-    width: 20px;
-    fill: ${theme.colors.white};
+export const CrossImg = styled.img`
+  width: 16px;
+  border: 1px solid transparent;
+  padding: 2px;
+
+  &:hover {
+    border: 1px solid ${theme.colors.pink};
+    border-radius: 2px;
   }
 `;
