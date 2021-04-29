@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react';
+import { connect } from 'react-redux';
 
 import { MovieCardInfo } from './movieCardInfo/MovieCardInfo';
 import { MovieCardItemProps } from './MovieCardItem.interface';
-import {
-  PlaceholderData,
-  MovieSelectData,
-} from 'baseTypes/BaseTypes.interface';
 import { MovieHover } from './movieHover/MovieHover';
+import {
+  setFlagForPreviewPhotoTrue,
+  setFlagForPreviewPhotoFalse,
+} from 'store/actions/actions';
 
 import {
   MovieCardItemContainer,
@@ -14,17 +15,15 @@ import {
 } from './MovieCardItem.style';
 import { MovieCardImg } from 'components/common/movie/MovieComponents.style';
 
-export const MovieCardItem: FC<
-  MovieCardItemProps & PlaceholderData & MovieSelectData
-> = ({
+export const MovieCardItemComponent: FC<MovieCardItemProps> = ({
   id,
   poster_path,
   title,
   genres,
   release_date,
-  addFormPlaceholderData,
-  addMovieSelectData,
-  onClickMovie,
+  getMovieDataRequest,
+  setFlagForPreviewPhotoTrue,
+  setFlagForPreviewPhotoFalse,
 }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
@@ -39,11 +38,22 @@ export const MovieCardItem: FC<
 
   const onClickHandler = () => {
     setShowPanel(!showPanel);
+    setFlagForPreviewPhotoFalse();
+    getMovieDataRequest(id);
   };
 
   const closePanel = () => {
     setShowPanel(false);
     setShowIcon(false);
+  };
+
+  const addDefaultSrc = (e: any) => {
+    e.target.src = 'http://placehold.it/400x600/555555.gif&text=No+image.';
+  };
+
+  const onClickPreview = () => {
+    setFlagForPreviewPhotoTrue();
+    getMovieDataRequest(id);
   };
 
   return (
@@ -56,14 +66,13 @@ export const MovieCardItem: FC<
           showIcon={showIcon}
           showPanel={showPanel}
           onClickHandler={onClickHandler}
-          addFormPlaceholderData={addFormPlaceholderData}
-          addMovieSelectData={addMovieSelectData}
           closePanel={closePanel}
         />
         <MovieCardImg
           src={poster_path}
           alt={title}
-          onClick={() => onClickMovie(id)}
+          onClick={onClickPreview}
+          onError={addDefaultSrc}
         />
       </MovieCardImgContainer>
       <MovieCardInfo
@@ -74,3 +83,8 @@ export const MovieCardItem: FC<
     </MovieCardItemContainer>
   );
 };
+
+export const MovieCardItem = connect(null, {
+  setFlagForPreviewPhotoTrue,
+  setFlagForPreviewPhotoFalse,
+})(MovieCardItemComponent);

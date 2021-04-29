@@ -1,23 +1,28 @@
 import React, { FC, useState } from 'react';
+import { connect } from 'react-redux';
 
 import { Logo } from 'components/common/logo/Logo';
 import { ADD_MOVIE } from 'utils/constants';
-import {
-  PlaceholderData,
-  MovieSelectData,
-} from 'baseTypes/BaseTypes.interface';
+import { AppState } from 'baseTypes/BaseTypes.interface';
 import { HeaderProps } from './Header.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
 import { useCustomHook } from 'commonCode/CommonCode';
+import {
+  resetMovieData,
+  postMovieDataRequest,
+  resetMovieForm,
+} from 'store/actions/actions';
 
 import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
 import { ButtonGray } from 'components/common/button/Button.style';
+import { getPreviewFlag } from 'store/mainPage/selectors';
 
-export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
-  addFormPlaceholderData,
-  addMovieSelectData,
+export const HeaderComponent: FC<HeaderProps> = ({
   data,
-  hideMovie,
+  resetMovieData,
+  postMovieDataRequest,
+  resetMovieForm,
+  previewFlag,
 }) => {
   const [open, setOpen] = useState(false);
   const setModalIsOpen = useCustomHook(open, setOpen);
@@ -25,8 +30,8 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
   return (
     <HeaderContainer>
       <Logo />
-      {data ? (
-        <ButtonSearch onClick={hideMovie}>
+      {data.id && previewFlag ? (
+        <ButtonSearch onClick={resetMovieData}>
           <SearchIcon />
         </ButtonSearch>
       ) : (
@@ -35,8 +40,8 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
           {open && (
             <AddMovie
               setModalIsOpen={setModalIsOpen}
-              addFormPlaceholderData={addFormPlaceholderData}
-              addMovieSelectData={addMovieSelectData}
+              postMovieDataRequest={postMovieDataRequest}
+              resetMovieForm={resetMovieForm}
             />
           )}
         </>
@@ -44,3 +49,12 @@ export const Header: FC<PlaceholderData & MovieSelectData & HeaderProps> = ({
     </HeaderContainer>
   );
 };
+
+export const Header = connect(
+  (state: AppState) => ({ previewFlag: getPreviewFlag(state) }),
+  {
+    resetMovieData,
+    postMovieDataRequest,
+    resetMovieForm,
+  }
+)(HeaderComponent);

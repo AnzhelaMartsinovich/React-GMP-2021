@@ -1,16 +1,9 @@
 import { styled, theme } from '../../../theme';
 import { ButtonPink } from '../../common/button/Button.style';
+import { popupStyles } from 'commonCode/CommonStyles.style';
 
 export const DeleteMovieContainer = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: ${theme.colors.black};
-  z-index: 1;
+  ${popupStyles}
 `;
 
 export const DeleteMovieForm = styled.form`

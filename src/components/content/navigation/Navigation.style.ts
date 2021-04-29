@@ -1,3 +1,4 @@
+import { Select } from 'components/common/select/Select.style';
 import { styled, theme } from 'theme';
 import { NavItemProps } from './Navigation.interface';
 
@@ -47,3 +48,10 @@ export const NavItem = styled.li<NavItemProps>`
     cursor: pointer;
   }
 `;
+
+export const NavSelect = styled(Select)`
+  color: ${theme.colors.white};
+  text-transform: uppercase;
+`;
+
+export const NavOption = styled.option``;

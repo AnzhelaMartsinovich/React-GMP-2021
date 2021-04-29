@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
 import { MOVIES_FOUND_COUNT } from 'utils/constants';
-import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
+import { CountMoviesProps } from './CountMovies.interface';
 
 import { CountMoviesContainer, CountMoviesNumber } from './CountMovies.style';
 
-export const CountMovies: FC<MoviesDataProps> = ({ moviesData }) => (
+export const CountMovies: FC<CountMoviesProps> = ({ totalAmount }) => (
   <CountMoviesContainer>
-    <CountMoviesNumber>{moviesData.length}</CountMoviesNumber>
+    <CountMoviesNumber>{totalAmount}</CountMoviesNumber>
     {MOVIES_FOUND_COUNT}
   </CountMoviesContainer>
 );
