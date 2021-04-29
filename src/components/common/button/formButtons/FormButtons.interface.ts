@@ -1,7 +1,5 @@
 export interface FormButtonsProps {
-  leftBtnText: string;
-  rightBtnText: string;
-  onOkEvent?: () => void;
+  resetBtnText: string;
+  submitBtnText: string;
   onCancelEvent?: () => void;
-  setModalIsOpen?: () => void;
 }

@@ -93,53 +93,15 @@ export const resetMovieData = (
   movieData,
 });
 
-export const setFormTitle = (title: string): interfaces.SetFormTitle => ({
-  type: actionTypes.SET_FORM_TITLE,
-  title,
-});
-
-export const setFormDate = (date: string): interfaces.SetFormDate => ({
-  type: actionTypes.SET_FORM_DATE,
-  date,
-});
-
-export const setFormUrl = (url: string): interfaces.SetFormUrl => ({
-  type: actionTypes.SET_FORM_URL,
-  url,
-});
-
-export const setFormGenres = (genres: string[]): interfaces.SetFormGenres => ({
-  type: actionTypes.SET_FORM_GENRES,
-  genres,
-});
-
-export const setFormOverview = (
-  overview: string
-): interfaces.SetFormOverview => ({
-  type: actionTypes.SET_FORM_OVERVIEW,
-  overview,
-});
-
-export const setFormRuntime = (runtime: number): interfaces.SetFormRuntime => ({
-  type: actionTypes.SET_FORM_RUNTIME,
-  runtime,
-});
-
-export const resetMovieForm = (): interfaces.ResetMovieForm => ({
-  type: actionTypes.RESET_MOVIE_FORM,
-});
-
-export const postMovieDataRequest = () => (
-  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
-  getState: () => AppState
+export const postMovieDataRequest = (movieData: any) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {
-  const movieForm = getMovieFormSelector(getState());
   const movie = {
     vote_average: 0,
     vote_count: 9,
     budget: 1000,
     revenue: 0,
-    ...movieForm,
+    ...movieData,
   };
 
   return postMovie(movie).then(() => {
@@ -168,17 +130,16 @@ export const setFlagForPreviewPhotoFalse = (
   previewFlag,
 });
 
-export const putMovieRequest = () => (
+export const putMovieRequest = (movieForm: any) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
   getState: () => AppState
 ): Promise<void> => {
-  const movieForm = getMovieFormSelector(getState());
   const movie = getMovieDataSelector(getState());
   const resultMovie = prepareMovieForRequest(movie, movieForm);
 
-  return editMovie(resultMovie).then(() => {
+  return editMovie(resultMovie).then((response) => {
+    dispatch(saveSelectedMovie(response.data));
     dispatch(getMoviesDataRequest());
-    dispatch(getMovieDataRequest(resultMovie.id));
   });
 };
 
@@ -190,4 +151,11 @@ export const saveSortValue = (value: string): interfaces.SaveSortValue => ({
 export const saveFilterValue = (value: string): interfaces.SaveFilterValue => ({
   type: actionTypes.SAVE_FILTER_VALUE,
   value,
+});
+
+export const saveSelectedMovie = (
+  movie: Movie
+): interfaces.SaveSelectedMovie => ({
+  type: actionTypes.SAVE_SELECTED_MOVIE,
+  movie,
 });

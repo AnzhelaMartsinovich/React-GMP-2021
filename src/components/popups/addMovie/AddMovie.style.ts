@@ -5,7 +5,7 @@ export const AddMovieContainer = styled.div`
   ${popupStyles}
 `;
 
-export const AddMovieForm = styled.form`
+export const AddMovieWrap = styled.div`
   position: relative;
   max-width: 580px;
   height: 80vh;

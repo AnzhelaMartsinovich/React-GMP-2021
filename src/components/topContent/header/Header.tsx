@@ -7,11 +7,7 @@ import { AppState } from 'baseTypes/BaseTypes.interface';
 import { HeaderProps } from './Header.interface';
 import { AddMovie } from '../../popups/addMovie/AddMovie';
 import { useCustomHook } from 'commonCode/CommonCode';
-import {
-  resetMovieData,
-  postMovieDataRequest,
-  resetMovieForm,
-} from 'store/actions/actions';
+import { resetMovieData, postMovieDataRequest } from 'store/actions/actions';
 
 import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
 import { ButtonGray } from 'components/common/button/Button.style';
@@ -21,7 +17,6 @@ export const HeaderComponent: FC<HeaderProps> = ({
   data,
   resetMovieData,
   postMovieDataRequest,
-  resetMovieForm,
   previewFlag,
 }) => {
   const [open, setOpen] = useState(false);
@@ -41,7 +36,6 @@ export const HeaderComponent: FC<HeaderProps> = ({
             <AddMovie
               setModalIsOpen={setModalIsOpen}
               postMovieDataRequest={postMovieDataRequest}
-              resetMovieForm={resetMovieForm}
             />
           )}
         </>
@@ -55,6 +49,5 @@ export const Header = connect(
   {
     resetMovieData,
     postMovieDataRequest,
-    resetMovieForm,
   }
 )(HeaderComponent);

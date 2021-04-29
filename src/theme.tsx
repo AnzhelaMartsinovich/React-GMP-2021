@@ -8,6 +8,7 @@ export const theme = {
     gray: '#424242',
     grayBg: '#555555',
     green: '#5bba1c',
+    red: '#f53d2c',
   },
   transparency: {
     0: '00',

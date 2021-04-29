@@ -1,9 +1,12 @@
 export interface AddMovieProps {
   setModalIsOpen?: () => void;
-  postMovieDataRequest: () => Promise<void>;
-  resetMovieForm?: () => void;
+  postMovieDataRequest: (movieData: any) => Promise<void>;
 }
 
-export interface AddMovieSelectProps {
-  setFormGenres: (genres: string[]) => void;
+export interface Values {
+  title: string;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  runtime: number;
 }
