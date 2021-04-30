@@ -1,6 +1,6 @@
 import * as actions from '../../actions/actions';
 import { mainPageReducer, mainPageInitialState } from '../reducer';
-import { mainPageState, movieData, moviesData } from './mockData';
+import { mainPageState, movieData, moviesData } from '../../mockData';
 
 describe('reducer', () => {
   it('should return movies error', () => {

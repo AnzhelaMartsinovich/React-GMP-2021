@@ -1,5 +1,4 @@
 import { MainPageState } from 'baseTypes/BaseTypes.interface';
-test.skip('skip', () => {});
 
 export const movieData = {
   id: 1,
