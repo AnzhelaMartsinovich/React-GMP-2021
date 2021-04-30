@@ -7,7 +7,6 @@ import { AppState } from 'baseTypes/BaseTypes.interface';
 
 export const initialState: AppState = {
   mainPage: {
-    moviesLoading: false,
     moviesError: '',
     moviesData: [],
     movieData: {},

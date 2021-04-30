@@ -1,10 +1,6 @@
 import * as actionTypes from './actionTypes';
 import { Movie } from 'baseTypes/BaseTypes.interface';
 
-export interface RequestMoviesStart {
-  type: typeof actionTypes.REQUEST_MOVIES_START;
-}
-
 export interface RequestMoviesError {
   type: typeof actionTypes.REQUEST_MOVIES_ERROR;
   error: string;
@@ -68,7 +64,6 @@ export interface SetSearchValue {
 }
 
 export type MainPageActionsTypes =
-  | RequestMoviesStart
   | RequestMoviesError
   | SetTotalAmountToStore
   | RecordMoviesDataToStore

@@ -3,7 +3,6 @@ import { MainPageActionsTypes } from '../interfaces';
 import { MainPageState } from 'baseTypes/BaseTypes.interface';
 
 export const mainPageInitialState: MainPageState = {
-  moviesLoading: false,
   moviesError: '',
   moviesData: [],
   movieData: {},
@@ -18,20 +17,13 @@ export const mainPageInitialState: MainPageState = {
 
 export const mainPageReducer = (
   state = mainPageInitialState,
-  action: MainPageActionsTypes
+  action?: MainPageActionsTypes
 ): MainPageState => {
-  switch (action.type) {
-    case actionTypes.REQUEST_MOVIES_START: {
-      return {
-        ...state,
-        moviesLoading: true,
-      };
-    }
+  switch (action?.type) {
     case actionTypes.REQUEST_MOVIES_ERROR: {
       return {
         ...state,
         moviesError: action.error,
-        moviesLoading: false,
       };
     }
     case actionTypes.SET_TOTAL_AMOUNT_TO_STORE: {
@@ -44,7 +36,6 @@ export const mainPageReducer = (
       return {
         ...state,
         moviesData: action.moviesData.data,
-        moviesLoading: false,
         sortDescending: true,
       };
     }
