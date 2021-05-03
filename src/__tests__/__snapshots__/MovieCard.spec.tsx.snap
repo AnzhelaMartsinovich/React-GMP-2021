@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieCard renders correctly 1`] = `
+exports[`MovieCard tests MovieCard renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body
