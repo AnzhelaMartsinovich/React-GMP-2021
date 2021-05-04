@@ -14,10 +14,10 @@ export const initialState: AppState = {
     movieError: '',
     movieForm: {},
     totalAmount: 0,
-    previewFlag: false,
     filter: 'all',
     sortBy: 'release date',
     sortDescending: true,
+    searchValue: '',
   },
 };
 

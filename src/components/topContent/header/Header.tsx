@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Logo } from 'components/common/logo/Logo';
 import { ADD_MOVIE } from 'utils/constants';
@@ -11,13 +12,11 @@ import { resetMovieData, postMovieDataRequest } from 'store/actions/actions';
 
 import { HeaderContainer, ButtonSearch, SearchIcon } from './Header.style';
 import { ButtonGray } from 'components/common/button/Button.style';
-import { getPreviewFlag } from 'store/mainPage/selectors';
 
 export const HeaderComponent: FC<HeaderProps> = ({
-  data,
   resetMovieData,
   postMovieDataRequest,
-  previewFlag,
+  slug,
 }) => {
   const [open, setOpen] = useState(false);
   const setModalIsOpen = useCustomHook(open, setOpen);
@@ -25,10 +24,12 @@ export const HeaderComponent: FC<HeaderProps> = ({
   return (
     <HeaderContainer>
       <Logo />
-      {data.id && previewFlag ? (
-        <ButtonSearch onClick={resetMovieData}>
-          <SearchIcon />
-        </ButtonSearch>
+      {slug ? (
+        <Link to='/'>
+          <ButtonSearch onClick={resetMovieData}>
+            <SearchIcon />
+          </ButtonSearch>
+        </Link>
       ) : (
         <>
           <ButtonGray onClick={setModalIsOpen}>{ADD_MOVIE}</ButtonGray>
@@ -44,10 +45,7 @@ export const HeaderComponent: FC<HeaderProps> = ({
   );
 };
 
-export const Header = connect(
-  (state: AppState) => ({ previewFlag: getPreviewFlag(state) }),
-  {
-    resetMovieData,
-    postMovieDataRequest,
-  }
-)(HeaderComponent);
+export const Header = connect((state: AppState) => ({}), {
+  resetMovieData,
+  postMovieDataRequest,
+})(HeaderComponent);

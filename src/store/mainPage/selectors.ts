@@ -1,20 +1,34 @@
 import { createSelector } from 'reselect';
-import { AppState, Movie, MainPageState } from 'baseTypes/BaseTypes.interface';
+import { AppState, MainPageState } from 'baseTypes/BaseTypes.interface';
 
 const getMainPage = (state: AppState): MainPageState => state.mainPage;
 export const getTotalAmount = createSelector(
   getMainPage,
   (data) => data.totalAmount
 );
-export const getPreviewFlag = createSelector(
-  getMainPage,
-  (data) => data.previewFlag
-);
-
-const getMoviesData = (state: AppState): Movie[] => state.mainPage.moviesData;
 export const getMoviesDataSelector = createSelector(
-  getMoviesData,
-  (data) => data
+  getMainPage,
+  (data) => data.moviesData
+);
+export const getMovieFormSelector = createSelector(
+  getMainPage,
+  (value) => value.movieForm
+);
+export const getFilterValueSelector = createSelector(
+  getMainPage,
+  (value) => value.filter
+);
+export const getSortValueSelector = createSelector(
+  getMainPage,
+  (value) => value.sortBy
+);
+export const sortDescValueSelector = createSelector(
+  getMainPage,
+  (value) => value.sortDescending
+);
+export const searchValueSelector = createSelector(
+  getMainPage,
+  (value) => value.searchValue
 );
 
 const getMovieData = (state: AppState): any => state.mainPage.movieData;
@@ -23,21 +37,3 @@ export const getMovieDataSelector = createSelector(
   (data) => data
 );
 export const getMovieDataId = createSelector(getMovieData, (data) => data.id);
-
-const getMovieForm = (state: AppState) => state.mainPage.movieForm;
-export const getMovieFormSelector = createSelector(
-  getMovieForm,
-  (value) => value
-);
-
-const getFilterValue = (state: AppState): string => state.mainPage.filter;
-export const getFilterValueSelector = createSelector(
-  getFilterValue,
-  (value) => value
-);
-
-const getSortValue = (state: AppState): string => state.mainPage.sortBy;
-export const getSortValueSelector = createSelector(
-  getSortValue,
-  (value) => value
-);

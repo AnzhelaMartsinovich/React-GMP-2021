@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 
-import { apiService } from 'commonUtils/apiService';
+import { apiService } from 'api/apiService';
 import { MOVIES_URL } from 'endpoints';
 
 export const getMovies = (

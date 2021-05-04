@@ -10,10 +10,10 @@ export const mainPageInitialState: MainPageState = {
   movieError: '',
   movieForm: {},
   totalAmount: 0,
-  previewFlag: false,
   filter: 'all',
   sortBy: 'release date',
-  sortDescending: true,
+  sortDescending: false,
+  searchValue: '',
 };
 
 export const mainPageReducer = (
@@ -45,6 +45,7 @@ export const mainPageReducer = (
         ...state,
         moviesData: action.moviesData.data,
         moviesLoading: false,
+        sortDescending: true,
       };
     }
     case actionTypes.RECORD_MOVIE_DATA_TO_STORE: {
@@ -65,18 +66,6 @@ export const mainPageReducer = (
         movieError: action.error,
       };
     }
-    case actionTypes.SET_FLAG_FOR_PREVIEW_TRUE: {
-      return {
-        ...state,
-        previewFlag: true,
-      };
-    }
-    case actionTypes.SET_FLAG_FOR_PREVIEW_FALSE: {
-      return {
-        ...state,
-        previewFlag: false,
-      };
-    }
     case actionTypes.SAVE_FILTER_VALUE: {
       return {
         ...state,
@@ -87,6 +76,12 @@ export const mainPageReducer = (
       return {
         ...state,
         sortBy: action.value,
+      };
+    }
+    case actionTypes.SET_SEARCH_VALUE: {
+      return {
+        ...state,
+        searchValue: action.searchValue,
       };
     }
     default: {

@@ -12,10 +12,7 @@ import {
   delMovie,
   editMovie,
 } from '../mainPage/services';
-import {
-  getMovieDataSelector,
-  getMovieFormSelector,
-} from '../mainPage/selectors';
+import { getMovieDataSelector } from '../mainPage/selectors';
 import { prepareMovieForRequest } from 'commonUtils/prepareMovieForRequest';
 import { prepareParamsObject } from 'commonUtils/utils';
 
@@ -40,20 +37,32 @@ export const setTotalAmountToStore = (
   totalAmount,
 });
 
-export const getMoviesDataRequest = () => (
+export const setSearchValue = (
+  searchValue: any
+): interfaces.SetSearchValue => ({
+  type: actionTypes.SET_SEARCH_VALUE,
+  searchValue,
+});
+
+export const getMoviesDataRequest = (
+  params?: Record<string, string | number | boolean> | undefined
+) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
   getState: () => AppState
 ): Promise<void> => {
   const navBarParams = prepareParamsObject(getState().mainPage);
 
   const searchParams = {
+    searchBy: 'title',
     ...navBarParams,
+    ...params,
   };
 
   return getMovies(searchParams)
     .then((response) => {
       dispatch(recordMoviesDataToStore(response.data));
       dispatch(setTotalAmountToStore(response.data.totalAmount));
+      dispatch(setSearchValue(params?.search));
     })
     .catch((error) => {
       dispatch(requestMoviesError(error));
@@ -115,20 +124,6 @@ export const deleteMovieRequest = (id: number) => (
   delMovie(id).then(() => {
     dispatch(getMoviesDataRequest());
   });
-
-export const setFlagForPreviewPhotoTrue = (
-  previewFlag: boolean
-): interfaces.SetFlagForPreviewPhotoTrue => ({
-  type: actionTypes.SET_FLAG_FOR_PREVIEW_TRUE,
-  previewFlag,
-});
-
-export const setFlagForPreviewPhotoFalse = (
-  previewFlag: boolean
-): interfaces.SetFlagForPreviewPhotoFalse => ({
-  type: actionTypes.SET_FLAG_FOR_PREVIEW_FALSE,
-  previewFlag,
-});
 
 export const putMovieRequest = (movieForm: any) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
