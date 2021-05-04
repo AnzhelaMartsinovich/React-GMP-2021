@@ -26,9 +26,9 @@ Object {
               />
             </div>
             <img
-              alt=""
+              alt="New movie title"
               class="sc-jRQAMF dRupYH"
-              src=""
+              src="https://m.media-amazon.com/images/M/MV5BOGYxYzZkMWQtNjJkMy00NTlkLWExNWMtOTNhMTg4MDcxNmU3XkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg"
             />
           </div>
           <div
@@ -39,14 +39,20 @@ Object {
             >
               <h3
                 class="sc-hKwCoD"
-              />
+              >
+                New movie title
+              </h3>
               <p
                 class="sc-eCImvq kodcFI"
-              />
+              >
+                comedy, science
+              </p>
             </div>
             <div
               class="sc-dkPtyc eCETnk"
-            />
+            >
+              2020.02.21
+            </div>
           </div>
         </div>
       </div>
@@ -72,9 +78,9 @@ Object {
             />
           </div>
           <img
-            alt=""
+            alt="New movie title"
             class="sc-jRQAMF dRupYH"
-            src=""
+            src="https://m.media-amazon.com/images/M/MV5BOGYxYzZkMWQtNjJkMy00NTlkLWExNWMtOTNhMTg4MDcxNmU3XkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg"
           />
         </div>
         <div
@@ -85,14 +91,20 @@ Object {
           >
             <h3
               class="sc-hKwCoD"
-            />
+            >
+              New movie title
+            </h3>
             <p
               class="sc-eCImvq kodcFI"
-            />
+            >
+              comedy, science
+            </p>
           </div>
           <div
             class="sc-dkPtyc eCETnk"
-          />
+          >
+            2020.02.21
+          </div>
         </div>
       </div>
     </div>

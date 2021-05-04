@@ -3,24 +3,10 @@ import { render } from '@testing-library/react';
 
 import { MovieCard } from '../components/content/movieCard/MovieCard';
 import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
+import { mockMovieData } from '../baseTypes/mockData';
 
 const moviesData: MoviesDataProps = {
-  moviesData: [
-    {
-      id: 0,
-      title: '',
-      tagline: '',
-      vote_average: 0,
-      vote_count: 0,
-      release_date: '',
-      poster_path: '',
-      overview: '',
-      budget: 0,
-      revenue: 0,
-      genres: [''],
-      runtime: 0,
-    },
-  ],
+  moviesData: [mockMovieData],
   getMovieDataRequest: jest.fn(),
 };
 

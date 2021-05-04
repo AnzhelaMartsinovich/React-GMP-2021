@@ -4,4 +4,5 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', './src'],
   clearMocks: true,
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 };

@@ -30,7 +30,7 @@ export const AddMovie: FC<AddMovieProps> = ({
           }}
         >
           {(props: FormikProps<Values>) => (
-            <Form>
+            <Form data-testid='form'>
               <AddMovieInputs />
               <AddMovieSelect />
               <FormButtons
