@@ -1,15 +1,14 @@
 import React, { FC } from 'react';
 
 import { editFormData } from 'utils/editMovieData';
-import { EditMovieInputsProps } from '../EditMovie.interface';
 import { TextField } from 'components/common/textField/TextField';
 
 import { EditMovieInputItem } from './EditMovieInputs.style';
 
-export const EditMovieInputs: FC<EditMovieInputsProps> = ({ movieData }) => (
-  <EditMovieInputItem key={movieData.id}>
-    {editFormData.map(({ title, name, disabled }) => (
-      <TextField name={name} label={title} disabled={disabled} />
+export const EditMovieInputs: FC = () => (
+  <EditMovieInputItem>
+    {editFormData.map(({ title, name, disabled, id }) => (
+      <TextField name={name} label={title} disabled={disabled} key={id} />
     ))}
   </EditMovieInputItem>
 );
