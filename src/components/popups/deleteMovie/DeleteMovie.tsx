@@ -6,7 +6,7 @@ import { DELETE_MOVIE, DELETE_MESSAGE, CONFIRM } from 'utils/constants';
 import { Cross } from '../../common/cross/Cross';
 import { deleteMovieRequest } from 'store/actions/actions';
 import { AppState } from 'baseTypes/BaseTypes.interface';
-import { getMovieDataId } from 'store/mainPage/selectors';
+import { getMovieDataIdSelector } from 'store/mainPage/selectors';
 
 import { Title1 } from '../../common/title/Title.style';
 import {
@@ -41,7 +41,7 @@ export const DeleteMovieComponent: FC<DeleteMovieProps> = ({
 
 export const DeleteMovie = connect(
   (state: AppState) => ({
-    movieId: getMovieDataId(state),
+    movieId: getMovieDataIdSelector(state),
   }),
   {
     deleteMovieRequest,

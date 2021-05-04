@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { AppState, MainPageState } from 'baseTypes/BaseTypes.interface';
 
 const getMainPage = (state: AppState): MainPageState => state.mainPage;
-export const getTotalAmount = createSelector(
+export const getTotalAmountSelector = createSelector(
   getMainPage,
   (data) => data.totalAmount
 );
@@ -36,4 +36,7 @@ export const getMovieDataSelector = createSelector(
   getMovieData,
   (data) => data
 );
-export const getMovieDataId = createSelector(getMovieData, (data) => data.id);
+export const getMovieDataIdSelector = createSelector(
+  getMovieData,
+  (data) => data.id
+);

@@ -13,3 +13,16 @@ export const mockMovieData = {
   genres: ['comedy', 'science'],
   runtime: 1,
 };
+
+export const mockInitialState = {
+  moviesError: 'Oooops. Error!',
+  moviesData: [mockMovieData],
+  movieData: mockMovieData,
+  movieError: 'Oooops. Error!',
+  movieForm: mockMovieData,
+  totalAmount: 4,
+  filter: 'comedy',
+  sortBy: 'rating',
+  sortDescending: false,
+  searchValue: 'Transformer',
+};

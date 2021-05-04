@@ -7,7 +7,7 @@ import {
   getFilterValueSelector,
   getMoviesDataSelector,
   getSortValueSelector,
-  getTotalAmount,
+  getTotalAmountSelector,
   searchValueSelector,
 } from 'store/mainPage/selectors';
 import {
@@ -60,7 +60,7 @@ export const ContentComponent: FC<ContentProps> = ({
 export const Content = connect(
   (state: AppState) => ({
     movies: getMoviesDataSelector(state),
-    totalAmount: getTotalAmount(state),
+    totalAmount: getTotalAmountSelector(state),
     filterValue: getFilterValueSelector(state),
     sortValue: getSortValueSelector(state),
     searchValue: searchValueSelector(state),
