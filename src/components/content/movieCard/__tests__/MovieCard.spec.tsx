@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import { MovieCard } from '../components/content/movieCard/MovieCard';
+import { MovieCard } from '../MovieCard';
 import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
-import { mockMovieData } from '../baseTypes/mockData';
+import { mockMovieData } from 'baseTypes/mockData';
 
 const moviesData: MoviesDataProps = {
   moviesData: [mockMovieData],
