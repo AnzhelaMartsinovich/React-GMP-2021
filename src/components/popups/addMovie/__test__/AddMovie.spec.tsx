@@ -79,7 +79,6 @@ describe('addMovie popup testing', () => {
     form.onsubmit = submitHandler;
 
     fireEvent.submit(form);
-    expect(submitHandler).toHaveBeenCalledTimes(1);
 
     await waitFor(() => {
       expect(submitHandler).toHaveBeenCalledTimes(1);
