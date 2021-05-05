@@ -12,7 +12,7 @@ const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 
 describe('customHook tests', () => {
-  test('should open/hide popup', () => {
+  it('should open/hide popup', () => {
     const { queryByRole } = render(
       <Provider store={store}>
         <Header />
