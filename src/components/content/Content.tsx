@@ -7,17 +7,19 @@ import {
   getFilterValueSelector,
   getMoviesDataSelector,
   getSortValueSelector,
-  getTotalAmount,
+  getTotalAmountSelector,
+  searchValueSelector,
 } from 'store/mainPage/selectors';
 import {
   getMoviesDataRequest,
-  getMovieDataRequest,
   saveSortValue,
   saveFilterValue,
+  getMovieDataRequest,
 } from 'store/actions/actions';
 import { Navigation } from './navigation/Navigation';
 import { CountMovies } from './countMovies/CountMovies';
 import { MovieCard } from './movieCard/MovieCard';
+import { getUrlSearchParams, useQuery } from 'commonUtils/queryParams';
 
 import { ContentContainer, MovieCards } from './Content.style';
 
@@ -30,10 +32,13 @@ export const ContentComponent: FC<ContentProps> = ({
   saveFilterValue,
   filterValue,
   sortValue,
+  searchValue,
 }) => {
+  const query = useQuery();
   useEffect(() => {
-    getMoviesDataRequest();
-  }, [getMoviesDataRequest, filterValue, sortValue]);
+    const searchParams = getUrlSearchParams(query);
+    getMoviesDataRequest(searchParams);
+  }, [getMoviesDataRequest, filterValue, sortValue, searchValue]);
 
   return (
     <ContentContainer>
@@ -55,9 +60,10 @@ export const ContentComponent: FC<ContentProps> = ({
 export const Content = connect(
   (state: AppState) => ({
     movies: getMoviesDataSelector(state),
-    totalAmount: getTotalAmount(state),
+    totalAmount: getTotalAmountSelector(state),
     filterValue: getFilterValueSelector(state),
     sortValue: getSortValueSelector(state),
+    searchValue: searchValueSelector(state),
   }),
-  { getMoviesDataRequest, getMovieDataRequest, saveSortValue, saveFilterValue }
+  { getMoviesDataRequest, saveSortValue, saveFilterValue, getMovieDataRequest }
 )(ContentComponent);

@@ -14,17 +14,16 @@ export interface Movie {
 }
 
 export interface MainPageState {
-  moviesLoading: boolean;
   moviesError: string;
   moviesData: Movie[];
   movieData: {};
   movieError: string;
   movieForm: {};
   totalAmount: number;
-  previewFlag: boolean;
   filter: string;
   sortBy: string;
   sortDescending: boolean;
+  searchValue: string;
 }
 export interface AppState {
   mainPage: MainPageState;
@@ -32,4 +31,5 @@ export interface AppState {
 
 export interface MoviesDataProps {
   moviesData: Movie[];
+  getMovieDataRequest: any;
 }

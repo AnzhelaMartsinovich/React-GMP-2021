@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 
-import { MovieCardProps } from './MovieCard.interface';
 import { MovieCardItem } from './movieCardItem/MovieCardItem';
-
-import { MovieCardContainer } from './MovieCard.style';
 import { MoviesDataProps } from 'baseTypes/BaseTypes.interface';
 
-export const MovieCard: FC<MovieCardProps & MoviesDataProps> = ({
+import { MovieCardContainer } from './MovieCard.style';
+
+export const MovieCard: FC<MoviesDataProps> = ({
   moviesData,
   getMovieDataRequest,
 }) => (

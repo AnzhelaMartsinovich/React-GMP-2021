@@ -1,18 +1,35 @@
 import React, { FC } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { TopContent } from './components/topContent/TopContent';
-import { Content } from './components/content/Content';
-import { Footer } from './components/footer/Footer';
+import { MainPage } from 'pages/mainPage/MainPage';
 import { ErrorBoundary } from './components/common/errorBoundary/ErrorBoundary';
+import { NotFoundPage } from 'pages/notFoundPage/NotFoundPage';
+import { NoMovieFound } from 'pages/noMovieFound/NoMovieFound';
 
-import './App.css';
+import { GlobalStyle, AppStyled } from './App.style';
 
 export const App: FC = () => (
-  <div className='app'>
-    <ErrorBoundary>
-      <TopContent />
-      <Content />
-      <Footer />
-    </ErrorBoundary>
-  </div>
+  <>
+    <GlobalStyle />
+    <Router>
+      <ErrorBoundary>
+        <AppStyled>
+          <Switch>
+            <Route path='/' exact>
+              <NoMovieFound />
+            </Route>
+            <Route path='/search'>
+              <MainPage />
+            </Route>
+            <Route path='/film/:slug'>
+              <MainPage />
+            </Route>
+            <Route path='*'>
+              <NotFoundPage />
+            </Route>
+          </Switch>
+        </AppStyled>
+      </ErrorBoundary>
+    </Router>
+  </>
 );

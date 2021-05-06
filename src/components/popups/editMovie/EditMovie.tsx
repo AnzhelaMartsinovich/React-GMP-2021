@@ -36,7 +36,7 @@ export const EditMovieComponent: FC<EditMovieProps> = ({
       >
         {(props: FormikProps<Values>) => (
           <Form>
-            <EditMovieInputs movieData={props.values} />
+            <EditMovieInputs />
             <EditMovieSelect />
             <FormButtons
               resetBtnText={RESET}

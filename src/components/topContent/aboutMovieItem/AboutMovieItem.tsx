@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import { AboutMovieItemProps } from './AboutMovieItem.interface';
 
@@ -16,7 +16,11 @@ import {
 } from './AboutMovieItem.style';
 import { MovieRuntime } from 'components/common/movie/MovieComponents.style';
 
-export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
+export const AboutMovieItem: FC<AboutMovieItemProps> = ({
+  data,
+  slug,
+  getMovieDataRequest,
+}) => {
   const {
     poster_path,
     title,
@@ -26,6 +30,9 @@ export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
     runtime,
     overview,
   } = data;
+  useEffect(() => {
+    getMovieDataRequest(slug);
+  }, [getMovieDataRequest, slug]);
 
   const addDefaultSrc = (e: any) => {
     e.target.src = 'http://placehold.it/400x600/555555.gif&text=No+image.';
@@ -41,7 +48,9 @@ export const AboutMovieItem: FC<AboutMovieItemProps> = ({ data }) => {
         </AboutMovieGroup>
         <AboutMovieTagline>{tagline}</AboutMovieTagline>
         <AboutMovieGroupTwo>
-          <AboutMovieData>{release_date.slice(0, 4)}</AboutMovieData>
+          <AboutMovieData>
+            {release_date && release_date.slice(0, 4)}
+          </AboutMovieData>
           <MovieRuntime>{runtime && `${runtime} min`}</MovieRuntime>
         </AboutMovieGroupTwo>
         <AboutMovieDescr>{overview}</AboutMovieDescr>
